@@ -4,49 +4,46 @@ using UnityEngine;
 public class PlayerBrain : MonoBehaviour
 {
     [Header("Tags")]
+    [SerializeField] private string tagItem;
     [SerializeField] private string tagWithItemInteractableObject;
     [SerializeField] private string tagTalkableNPCs;
 
-    [Header("InteractionSettings")]
-    [SerializeField] private LayerMask interactionLayerMask;
-    private RaycastHit hit;
-    private Camera cam;
-    private Vector2 mPosition = Vector2.zero;
     private Inventory inventory = new();
 
-    private void PlayerClick()
+    public void Interaction(GameObject GO)
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            mPosition = Input.mousePosition;
-            Ray ray = cam.ScreenPointToRay(mPosition);
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, interactionLayerMask))
-            {
-                Interaction();
-            }
-        }
-    }
-
-    private void Interaction()
-    {
-        if (hit.transform.gameObject.CompareTag(tagWithItemInteractableObject) && inventory.Item != null)
+        if (GO.CompareTag(tagWithItemInteractableObject) && inventory.Item != null)
         {
             print("InteractWithObject");
         }
-        if (hit.transform.gameObject.CompareTag(tagTalkableNPCs))
+        if (GO.CompareTag(tagTalkableNPCs))
         {
             print("TalkToNPC");
+        }
+        if (GO.CompareTag(tagItem))
+        {
+            print("ItemDetected");
         }
     }
 
     private void Start()
     {
-        cam = Camera.main;
-    }
-    private void Update()
-    {
-        PlayerClick();
+        GameObject[] tmpTTNGOs = GameObject.FindGameObjectsWithTag(tagTalkableNPCs);
+        GameObject[] tmpTWIIOGOs = GameObject.FindGameObjectsWithTag(tagWithItemInteractableObject);
+        GameObject[] tmpTIGOs = GameObject.FindGameObjectsWithTag(tagItem);
+
+        foreach (GameObject go in tmpTTNGOs)
+        {
+            go.AddComponent<PlayerServant>();
+        }
+        foreach (GameObject go in tmpTWIIOGOs)
+        { 
+            go.AddComponent<PlayerServant>();
+        }
+        foreach(GameObject go in tmpTIGOs)
+        { 
+            go.AddComponent<PlayerServant>();
+        }
     }
 }
 
@@ -54,4 +51,19 @@ public class PlayerBrain : MonoBehaviour
 public class Inventory
 {
     public GameObject Item;
+}
+
+public class PlayerServant : MonoBehaviour
+{
+    private PlayerBrain pBrain;
+
+    private void OnMouseDown()
+    {
+        pBrain.Interaction(gameObject);
+    }
+
+    private void Start()
+    {
+        pBrain = FindObjectOfType<PlayerBrain>();
+    }
 }

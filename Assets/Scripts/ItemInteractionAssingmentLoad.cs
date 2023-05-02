@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using Unity.Collections;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class ItemInteractionAssingmentLoad : MonoBehaviour
 {
     public ItemToObjectsAssingmentsList[] ItemToObjectsAssingments;
     private GameObject[] tmpGOs;
+
 
     private void Awake()
     {
@@ -22,6 +24,7 @@ public class ItemInteractionAssingmentLoad : MonoBehaviour
             };
         }
     }
+
     private void Update()
     {
         if (Application.isEditor)
@@ -29,30 +32,28 @@ public class ItemInteractionAssingmentLoad : MonoBehaviour
             for (int x = 0; x < ItemToObjectsAssingments.Length; x++)
             {
                 tmpGOs = GameObject.FindGameObjectsWithTag("ObjectToInteract");
+                for (int z = 0; z < ItemToObjectsAssingments[x].ItemMatchingInteractionObjects.InteractionObjects.Count; z++)
+                {
+                    if (!tmpGOs.Contains(ItemToObjectsAssingments[x].ItemMatchingInteractionObjects.InteractionObjects[z].Object) || z >= tmpGOs.Length)
+                    {
+                        print ("f");
+                        ItemToObjectsAssingments[x].ItemMatchingInteractionObjects.InteractionObjects.RemoveAt(z);
+                    }
+                }
 
                 for (int y = 0; y < tmpGOs.Length; y++)
                 {
                     if (y < ItemToObjectsAssingments[x].ItemMatchingInteractionObjects.InteractionObjects.Count)
                     {
-                        continue;
+                        ItemToObjectsAssingments[x].ItemMatchingInteractionObjects.InteractionObjects[y].Object = tmpGOs[y];
                     }
-                    ItemObjectsInteractionAssingment tmpIOTA = new();
-                    ItemToObjectsAssingments[x].ItemMatchingInteractionObjects.InteractionObjects.Add(tmpIOTA);
-                    ItemToObjectsAssingments[x].ItemMatchingInteractionObjects.InteractionObjects[y].Object = tmpGOs[y];
-                }
-
-
-                for (int i = 0; i < ItemToObjectsAssingments[x].ItemMatchingInteractionObjects.InteractionObjects.Count; i++)
-                {
-                    if (ItemToObjectsAssingments[x].ItemMatchingInteractionObjects.InteractionObjects[i].Object != tmpGOs[i])
+                    else
                     {
-                        ItemObjectsInteractionAssingment tmpIOIA = new()
-                        {
-                            Object = tmpGOs[i]
-                        };
-                        ItemToObjectsAssingments[x].ItemMatchingInteractionObjects.InteractionObjects.Add(tmpIOIA);
+                        ItemObjectsInteractionAssingment tmpIOTA = new();
+                        ItemToObjectsAssingments[x].ItemMatchingInteractionObjects.InteractionObjects.Add(tmpIOTA);
+                        ItemToObjectsAssingments[x].ItemMatchingInteractionObjects.InteractionObjects[y].Object = tmpGOs[y];
                     }
-                };
+                }
             }
         }
     }
