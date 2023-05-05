@@ -41,5 +41,5 @@ public class DialogueSystem : MonoBehaviour
 
 public class DialogueClient : MonoBehaviour
 {
-    [SerializeField] private int dialogueID;
+    public int dialogueID;
 }

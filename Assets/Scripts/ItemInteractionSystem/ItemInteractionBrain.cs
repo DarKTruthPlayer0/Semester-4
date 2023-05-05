@@ -6,29 +6,49 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class ItemInteractionBrain : MonoBehaviour
 {
-    public List<Interaction> Interactions;
+    public static Interaction[] InteractionsStatic;
+    public List<Interaction> Interactions = new();
     private ItemInteractionAssingmentLoad IIAL;
 
+
+    private void Awake()
+    {
+        if (Application.isEditor && !Application.isPlaying)
+        {
+            return;
+        }
+        IIAL = FindObjectOfType<ItemInteractionAssingmentLoad>();
+    }
+    private void Start()
+    {
+        InteractionsStatic = Interactions.ToArray();
+    }
     private void Update()
     {
+        if (Application.isEditor && !Application.isPlaying)
+        {
+            return;
+        }
         List<Interaction> tmpInteractions = new();
         for (int i = 0; i < IIAL.ItemToObjectsAssingments.Length; i++)
         {
             for (int j = 0; j < IIAL.ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects.Count; j++)
             {
-                if (!IIAL.ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects[j].InteractWithObject)
+                if (IIAL.ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects[j].InteractWithObject)
                 {
-                    continue;
+                    Interaction interaction = new()
+                    {
+                        Item = IIAL.ItemToObjectsAssingments[i].ItemMatchingInteractionObject.Item,
+                        ObjectToInteract = IIAL.ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects[j].Object
+                    };
+                    tmpInteractions.Add(interaction);
+
                 }
-                Interaction interaction = new()
-                {
-                    Item = IIAL.ItemToObjectsAssingments[i].ItemMatchingInteractionObject.Item,
-                    ObjectToInteract = IIAL.ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects[j].Object
-                };
-                tmpInteractions.Add(interaction);
             }
         }
-        if (Interactions.Count > 0)
+        
+        
+        if (Interactions.Count > 0 && Interactions.Count <= tmpInteractions.Count)
         {
             for (int i = 0; i < Interactions.Count; i++)
             {
@@ -36,29 +56,17 @@ public class ItemInteractionBrain : MonoBehaviour
                 {
                     Interactions.RemoveAt(i);
                 }
-            }
-
-            for (int i = 0; i < Interactions.Count; i++)
-            {
-                for (int j = 0; j < tmpInteractions.Count; j++)
+                if (tmpInteractions[i].Item == Interactions[i].Item && tmpInteractions[i].ObjectToInteract == Interactions[i].ObjectToInteract)
                 {
-                    if (tmpInteractions[j].Item == Interactions[i].Item && tmpInteractions[j].ObjectToInteract == Interactions[i].ObjectToInteract)
-                    {
-                        continue;
-                    }
-                    Interactions.Add(tmpInteractions[j]);
+                    continue;
                 }
+                Interactions.Add(tmpInteractions[i]);
             }
         }
         else
         {
             Interactions = tmpInteractions;
         }
-    }
-
-    private void Awake()
-    {
-        IIAL = FindObjectOfType<ItemInteractionAssingmentLoad>();
     }
 }
 

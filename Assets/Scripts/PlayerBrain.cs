@@ -11,20 +11,21 @@ public class PlayerBrain : MonoBehaviour
     private Inventory inventory = new();
     private int selectedItemID;
 
-    public void Interaction(GameObject GO)
+    public void Interaction(GameObject IGO)
     {
-        if (GO.CompareTag(tagWithItemInteractableObject) /*&& inventory.Item != null*/)
+        if (IGO.CompareTag(tagWithItemInteractableObject) /*&& inventory.Item != null*/)
         {
             print("InteractWithObject");
+            UseItemInIventory(IGO);
         }
-        if (GO.CompareTag(tagTalkableNPCs))
+        if (IGO.CompareTag(tagTalkableNPCs))
         {
             print("TalkToNPC");
         }
-        if (GO.CompareTag(tagItem))
+        if (IGO.CompareTag(tagItem))
         {
             print("ItemDetected");
-            PickupItem(GO);
+            PickupItem(IGO);
         }
     }
 
@@ -38,16 +39,28 @@ public class PlayerBrain : MonoBehaviour
             }
             for (int j = 0; j < ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].ItemMatchingInteractionObject.InteractionObjects.Count; j++)
             {
-                if (ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].ItemMatchingInteractionObject.InteractionObjects[j].InteractWithObject)
+                if (ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].ItemMatchingInteractionObject.InteractionObjects[j].InteractWithObject &&
+                    ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].ItemMatchingInteractionObject.InteractionObjects[j].Object == UIIIGO)
                 {
-
+                    CheckInteractionOutcome(UIIIGO);
                     break;
-                    //Dialog einblenden
+
                 }
             }
         }
     }
 
+    private void CheckInteractionOutcome(GameObject CIOGO)
+    {
+        for (int i = 0; i < ItemInteractionBrain.InteractionsStatic.Length; i++)
+        {
+            if (ItemInteractionBrain.InteractionsStatic[i].ObjectToInteract == CIOGO &&
+                ItemInteractionBrain.InteractionsStatic[i].Item == inventory.Items[selectedItemID].ItemGO)
+            {
+                //Dialog einblenden
+            }
+        }
+    }
     private void PickupItem(GameObject ItemGO)
     {
         for (int i = 0; i < inventory.Items.Length; i++)
@@ -61,6 +74,15 @@ public class PlayerBrain : MonoBehaviour
             }
         }
     }
+
+    private void TalkWithNPC(GameObject TWNPCGO)
+    {
+        if (TWNPCGO.TryGetComponent<DialogueClient>(out DialogueClient DC))
+        {
+            //Dialog einblenden
+        }
+    }
+
     private void Start()
     {
         GameObject[] tmpTTNGOs = GameObject.FindGameObjectsWithTag(tagTalkableNPCs);
