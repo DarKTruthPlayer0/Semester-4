@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,206 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &178410070
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 178410071}
-  - component: {fileID: 178410072}
-  m_Layer: 0
-  m_Name: RoomSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &178410071
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178410070}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1576258881}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &178410072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178410070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70fcf3eb58b81ac408563cbf935c0e6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagRoom: 
---- !u!1 &206794667
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 206794668}
-  - component: {fileID: 206794669}
-  - component: {fileID: 206794670}
-  m_Layer: 0
-  m_Name: ItemObjectAssinger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &206794668
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 206794667}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1576258881}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &206794669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 206794667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d1d6bff65ed77e4b8580ca9201b18a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemToObjectsAssingments:
-  - ItemMatchingInteractionObject:
-      Item: {fileID: 1855928949}
-      InteractionObjects:
-      - Object: {fileID: 2107600142}
-        InteractWithObject: 1
---- !u!114 &206794670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 206794667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54fbe4906fc22994b80bc0b3665ad036, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Interactions:
-  - Item: {fileID: 1855928949}
-    ObjectToInteract: {fileID: 2107600142}
-    InteractionDialogueID: 0
-    OpensDoor: 0
---- !u!1 &230057161
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 230057162}
-  - component: {fileID: 230057163}
-  - component: {fileID: 230057164}
-  - component: {fileID: 230057165}
-  m_Layer: 0
-  m_Name: DialogueSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &230057162
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230057161}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1576258881}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &230057163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230057161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5872d1143affcdb40924d7f037c9678f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &230057164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230057161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e35f54dfbaaffc0469b4b7ae522fa616, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagTalkableNPCs: TalkableNPC
-  dialogues: {fileID: 230057165}
---- !u!114 &230057165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230057161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 299d985811b519441930ade07a53bf8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DialogueList:
-  - DialogueID: 0
-    DialoguePartnerName: Banane
-    Sentences:
-    - Hi wie gehts?
-    - Mir geht es gut und dir?
-    - "Ich f\xFChre einen irrelevanten Dialog was denkst due denn?"
-    - "Ich f\xFChre einen irrelevanten Dialog was denkst due denn?"
-  - DialogueID: 1
-    DialoguePartnerName: oli
-    Sentences:
-    - Hi wie gehts?
-    - Mir geht es gut und dir?
-    - "Ich f\xFChre einen irrelevanten Dialog was denkst due denn?"
-    - "Ich f\xFChre einen irrelevanten Dialog was denkst due denn?"
 --- !u!115 &354391109
 MonoScript:
   m_ObjectHideFlags: 0
@@ -476,53 +276,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueID: 0
---- !u!1 &1060084721
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1060084722}
-  - component: {fileID: 1060084723}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1060084722
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1060084721}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1576258881}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1060084723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1060084721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 624631952b0dd1d4886a854cb731ab73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagItem: Item
-  tagWithItemInteractableObject: ObjectToInteract
-  tagTalkableNPCs: TalkableNPC
 --- !u!1 &1494337505
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,41 +492,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1513380761}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1576258880
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1576258881}
-  m_Layer: 0
-  m_Name: GameBrain
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1576258881
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576258880}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 206794668}
-  - {fileID: 1060084722}
-  - {fileID: 230057162}
-  - {fileID: 178410071}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1742335773
 GameObject:
@@ -1237,3 +955,94 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &4342236224868398145
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4342236225072946156, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: ItemToObjectsAssingments.Array.data[0].ItemMatchingInteractionObject.Item
+      value: 
+      objectReference: {fileID: 1855928949}
+    - target: {fileID: 4342236225072946156, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: ItemToObjectsAssingments.Array.data[0].ItemMatchingInteractionObject.InteractionObjects.Array.data[0].Object
+      value: 
+      objectReference: {fileID: 2107600142}
+    - target: {fileID: 4342236225072946159, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: Interactions.Array.data[0].Item
+      value: 
+      objectReference: {fileID: 1855928949}
+    - target: {fileID: 4342236225072946159, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: Interactions.Array.data[0].ObjectToInteract
+      value: 
+      objectReference: {fileID: 2107600142}
+    - target: {fileID: 4342236226442426624, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236226442426624, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236226442426624, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236226442426624, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236226442426624, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236226442426624, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236226442426624, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236226442426624, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236226442426624, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236226442426624, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236226442426624, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236226442426625, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: m_Name
+      value: GameBrain
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: c8a94e639275e13458156edd8000fc32, type: 3}

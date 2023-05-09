@@ -11,6 +11,12 @@ public class Dialogues : MonoBehaviour
 public class Dialogue
 {
     public int DialogueID;
-    public string DialoguePartnerName;
-    public List<string> Sentences = new();
+    public DialoguePart[] DialogueParts;
+}
+
+[Serializable]
+public class DialoguePart
+{
+    public string PersonNameWhichTalks;
+    public string SentenceThePersonTalk;
 }

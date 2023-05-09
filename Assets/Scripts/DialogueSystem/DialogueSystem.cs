@@ -14,12 +14,12 @@ public class DialogueSystem : MonoBehaviour
         //activate Dialogue Object
     }
 
-    public void NextSentenceOfDialogue()
+    public void NextPartOfDialogue()
     {
-        if (dialogues.DialogueList[dialogueID].Sentences.Count < i)
+        if (dialogues.DialogueList[dialogueID].DialogueParts.Length < i)
         {
             i++;
-            dialogueText.text = dialogues.DialogueList[dialogueID].Sentences[i];
+            dialogueText.text = dialogues.DialogueList[dialogueID].DialogueParts[i].SentenceThePersonTalk;
         }
         else
         {
