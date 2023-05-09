@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mainmenu.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/IntroCutscene.unity
+    guid: ac5576f32df54bb4883ff9b3df87dc89
+  - enabled: 1
+    path: Assets/Scenes/VerticalSlice.unity
+    guid: 0cd590d92e26d3646b569353b44bb684
   m_configObjects: {}
