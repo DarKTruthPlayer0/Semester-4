@@ -21,7 +21,7 @@ public class ItemInteractionAssingmentLoad : MonoBehaviour
         {
             return;
         }
-        tmpGOs = GameObject.FindGameObjectsWithTag("ObjectToInteract");
+        tmpGOs = GameObject.FindGameObjectsWithTag("Interactable");
         for (int x = 0; x < ItemToObjectsAssingments.Length; x++)
         {
             ItemToObjectsAssingments[x].ItemMatchingInteractionObject = new()
@@ -44,12 +44,11 @@ public class ItemInteractionAssingmentLoad : MonoBehaviour
         }
         for (int x = 0; x < ItemToObjectsAssingments.Length; x++)
         {
-            tmpGOs = GameObject.FindGameObjectsWithTag("ObjectToInteract");
+            tmpGOs = GameObject.FindGameObjectsWithTag("Interactable");
             for (int z = 0; z < ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects.Count; z++)
             {
                 if (!tmpGOs.Contains(ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects[z].Object) || z >= tmpGOs.Length)
                 {
-                    print("f");
                     ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects.RemoveAt(z);
                 }
             }

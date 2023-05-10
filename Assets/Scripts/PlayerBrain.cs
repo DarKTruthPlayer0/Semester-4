@@ -5,17 +5,18 @@ public class PlayerBrain : MonoBehaviour
 {
     [Header("Tags")]
     [SerializeField] private string tagItem;
-    [SerializeField] private string tagWithItemInteractableObject;
+    [SerializeField] private string tagInteractable;
     [SerializeField] private string tagTalkableNPCs;
 
     private Inventory inventory = new();
     private int selectedItemID;
+    private bool itemIsSelected;
 
     public void Interaction(GameObject IGO)
     {
-        if (IGO.CompareTag(tagWithItemInteractableObject) /*&& inventory.Item != null*/)
+        if (IGO.CompareTag(tagInteractable) /*&& inventory.Item != null*/ && itemIsSelected)
         {
-            print("InteractWithObject");
+            print("Interactable");
             UseItemInIventory(IGO);
         }
         if (IGO.CompareTag(tagTalkableNPCs))
@@ -86,7 +87,7 @@ public class PlayerBrain : MonoBehaviour
     private void Start()
     {
         GameObject[] tmpTTNGOs = GameObject.FindGameObjectsWithTag(tagTalkableNPCs);
-        GameObject[] tmpTWIIOGOs = GameObject.FindGameObjectsWithTag(tagWithItemInteractableObject);
+        GameObject[] tmpTWIIOGOs = GameObject.FindGameObjectsWithTag(tagInteractable);
         GameObject[] tmpTIGOs = GameObject.FindGameObjectsWithTag(tagItem);
 
         foreach (GameObject go in tmpTTNGOs)

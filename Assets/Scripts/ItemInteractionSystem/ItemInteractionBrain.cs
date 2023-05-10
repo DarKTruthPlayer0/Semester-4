@@ -77,4 +77,5 @@ public class Interaction
     public GameObject ObjectToInteract;
     public int InteractionDialogueID;
     public bool OpensDoor;
+
 }

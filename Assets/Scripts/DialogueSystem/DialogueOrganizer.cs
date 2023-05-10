@@ -4,6 +4,7 @@ using UnityEngine;
 public class DialogueOrganizer : MonoBehaviour
 {
     [SerializeField] private string tagTalkableNPCs;
+    [SerializeField] private string tagItems;
     [SerializeField] Dialogues dialogues;
 
     private void Update()
@@ -21,6 +22,16 @@ public class DialogueOrganizer : MonoBehaviour
         for (int i = 0; i < tempTalkableNPCGOs.Length; i++)
         {
             GameObject GO = tempTalkableNPCGOs[i];
+            if (GO.GetComponent<DialogueClient>() == null)
+            {
+                print("Test");
+                GO.AddComponent<DialogueClient>();
+            }
+        }
+        GameObject[] tempItemGOs = GameObject.FindGameObjectsWithTag(tagItems);
+        for (int i = 0; i < tempItemGOs.Length; i++)
+        {
+            GameObject GO = tempItemGOs[i];
             if (GO.GetComponent<DialogueClient>() == null)
             {
                 print("Test");
