@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -39,7 +40,9 @@ public class DialogueSystem : MonoBehaviour
     }
 }
 
-public class DialogueClient : MonoBehaviour
+[Serializable]
+public class DialogueClients
 {
+    public GameObject GOReference;
     public int dialogueID;
 }
