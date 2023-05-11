@@ -25,7 +25,7 @@ public class DialogueOrganizer : MonoBehaviour
         for (int i = 0; i < tempTalkableNPCGOs.Length; i++)
         {
             GameObject GO = tempTalkableNPCGOs[i];
-            if (GO.GetComponent<DialogueClient>() == null)
+            if (!GO.TryGetComponent<DialogueClient>(out _))
             {
                 print("Test");
                 GO.AddComponent<DialogueClient>();
@@ -35,7 +35,7 @@ public class DialogueOrganizer : MonoBehaviour
         for (int i = 0; i < tempItemGOs.Length; i++)
         {
             GameObject GO = tempItemGOs[i];
-            if (GO.GetComponent<DialogueClient>() == null)
+            if (!GO.TryGetComponent<DialogueClient>(out _))
             {
                 print("Test");
                 GO.AddComponent<DialogueClient>();
@@ -45,7 +45,7 @@ public class DialogueOrganizer : MonoBehaviour
         for (int i = 0; i < tempInteractableGOs.Length; i++)
         {
             GameObject GO = tempInteractableGOs[i];
-            if (GO.GetComponent<DialogueClient>() == null)
+            if (!GO.TryGetComponent<DialogueClient>(out _))
             {
                 print("Test");
                 GO.AddComponent<DialogueClient>();

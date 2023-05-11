@@ -26,7 +26,7 @@ public class ItemInteractionBrain : MonoBehaviour
             return;
         }
         List<Interaction> tmpInteractions = new();
-        for (int i = 0; i < IIAL.ItemToObjectsAssingments.Length; i++)
+        for (int i = 0; i < IIAL.ItemToObjectsAssingments.Count; i++)
         {
             for (int j = 0; j < IIAL.ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects.Count; j++)
             {
