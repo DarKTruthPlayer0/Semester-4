@@ -120,7 +120,7 @@ public class PlayerBrain : MonoBehaviour
         }
 
         pathChoose = FindObjectOfType<PathChoose>();
-        pathChooseButtonsGO = GameObject.Find("PathChooseButtos");
+        pathChooseButtonsGO = GameObject.Find("PathChooseButtons");
         pathChooseButtonsGO.SetActive(false);
     }
 }
