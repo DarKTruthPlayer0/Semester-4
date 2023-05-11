@@ -1,15 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [ExecuteInEditMode]
 public class DialogueOrganizer : MonoBehaviour
 {
-    [Header ("Tags")]
+    [Header("Tags")]
     [SerializeField] private string tagTalkableNPCs;
     [SerializeField] private string tagItems;
     [SerializeField] private string tagInteractables;
 
-    [SerializeField] Dialogues dialogues;
 
+    public static DialogueClients[] DialogueClientsStatic;
+    [SerializeField] Dialogues dialogues;
+    [SerializeField] private List<DialogueClients> dialogueClientsList;
+    private bool assingmentBool;
+
+
+    private void Start()
+    {
+        DialogueClientsStatic = dialogueClientsList.ToArray();
+    }
     private void Update()
     {
         if (Application.isEditor)
@@ -22,34 +33,66 @@ public class DialogueOrganizer : MonoBehaviour
     private void AssingDialogueClients()
     {
         GameObject[] tempTalkableNPCGOs = GameObject.FindGameObjectsWithTag(tagTalkableNPCs);
+        GameObject[] tempItemGOs = GameObject.FindGameObjectsWithTag(tagItems);
+        GameObject[] tempInteractableGOs = GameObject.FindGameObjectsWithTag(tagInteractables);
+        List<GameObject> tempDialogueClientGOs = new();
         for (int i = 0; i < tempTalkableNPCGOs.Length; i++)
         {
-            GameObject GO = tempTalkableNPCGOs[i];
-            if (!GO.TryGetComponent<DialogueClient>(out _))
-            {
-                print("Test");
-                GO.AddComponent<DialogueClient>();
-            }
+            tempDialogueClientGOs.Add(tempTalkableNPCGOs[i]);
         }
-        GameObject[] tempItemGOs = GameObject.FindGameObjectsWithTag(tagItems);
         for (int i = 0; i < tempItemGOs.Length; i++)
         {
-            GameObject GO = tempItemGOs[i];
-            if (!GO.TryGetComponent<DialogueClient>(out _))
-            {
-                print("Test");
-                GO.AddComponent<DialogueClient>();
-            }
+            tempDialogueClientGOs.Add(tempItemGOs[i]);
         }
-        GameObject[] tempInteractableGOs = GameObject.FindGameObjectsWithTag(tagInteractables);
         for (int i = 0; i < tempInteractableGOs.Length; i++)
         {
-            GameObject GO = tempInteractableGOs[i];
-            if (!GO.TryGetComponent<DialogueClient>(out _))
+            tempDialogueClientGOs.Add(tempInteractableGOs[i]);
+        }
+
+        for (int i = 0; i < dialogueClientsList.Count; i++)
+        {
+            for (int j = 0; j < tempDialogueClientGOs.Count; j++)
             {
-                print("Test");
-                GO.AddComponent<DialogueClient>();
+                if (dialogueClientsList[i].GOReference == tempDialogueClientGOs[j])
+                {
+                    assingmentBool = true;
+                    break;
+                }
+                else
+                {
+                    assingmentBool = false;
+                }
             }
+            if (assingmentBool)
+            {
+                continue;
+            }
+            dialogueClientsList.RemoveAt(i);
+        }
+
+        for (int i = 0; i < tempDialogueClientGOs.Count; i++)
+        {
+            for (int j = 0; j < dialogueClientsList.Count; j++)
+            {
+                if (dialogueClientsList[j].GOReference == tempDialogueClientGOs[i])
+                {
+                    assingmentBool = true;
+                    break;
+                }
+                else
+                {
+                    assingmentBool = false;
+                }
+            }
+            if (assingmentBool)
+            {
+                continue;
+            }
+            DialogueClients tmpDialogueClient = new()
+            {
+                GOReference = tempDialogueClientGOs[i]
+            };
+            dialogueClientsList.Add(tmpDialogueClient);
         }
     }
 
