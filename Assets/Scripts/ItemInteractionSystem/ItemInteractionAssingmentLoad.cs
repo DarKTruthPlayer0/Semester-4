@@ -1,69 +1,114 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using Unity.Collections;
 using UnityEngine;
 
 [ExecuteInEditMode]
 public class ItemInteractionAssingmentLoad : MonoBehaviour
 {
-    public static ItemToObjectsAssingmentsList[] ItemToObjectsAssingmentsStatic;
-    public ItemToObjectsAssingmentsList[] ItemToObjectsAssingments;
+    [Header("Tags")]
+    [SerializeField] private string tagInteractable;
+    [SerializeField] private string tagItem;
 
-    private GameObject[] tmpGOs;
+    [Header("Assingment")]
+    public static ItemToObjectsAssingmentsList[] ItemToObjectsAssingmentsStatic;
+    public List<ItemToObjectsAssingmentsList> ItemToObjectsAssingments;
+
+    private GameObject[] tmpInteractableGOs;
+    private GameObject[] tmpItemGOs;
+    private bool itemInITOA;
+    private bool iTOAItemInTmpItems;
 
 
     private void Awake()
     {
-        if (Application.isEditor && !Application.isPlaying)
+        if (Application.isEditor && Application.isPlaying)
         {
             return;
         }
-        tmpGOs = GameObject.FindGameObjectsWithTag("Interactable");
-        for (int x = 0; x < ItemToObjectsAssingments.Length; x++)
+
+        tmpItemGOs = GameObject.FindGameObjectsWithTag(tagItem);
+        tmpInteractableGOs = GameObject.FindGameObjectsWithTag(tagInteractable);
+        for (int i = 0; i < tmpItemGOs.Length; i++)
         {
-            ItemToObjectsAssingments[x].ItemMatchingInteractionObject = new()
+            for (int j = 0; j < ItemToObjectsAssingments.Count; j++)
             {
-                InteractionObjects = new()
+                if ((ItemToObjectsAssingments[j].ItemMatchingInteractionObject.Item == tmpItemGOs[i]))
+                {
+                    itemInITOA = true;
+                    break;
+                }
+                else
+                {
+                    itemInITOA = false;
+                }
+            }
+            if (itemInITOA)
+            {
+                continue;
+            }
+            ItemToObjectsAssingmentsList tmpITOAL = new()
+            {
+                ItemMatchingInteractionObject = new()
             };
+            ItemToObjectsAssingments.Add(tmpITOAL);
+        }
+
+        for (int i = 0; i < ItemToObjectsAssingments.Count; i++)
+        {
+            for (int j = 0; j < tmpItemGOs.Length; j++)
+            {
+                if ((ItemToObjectsAssingments[i].ItemMatchingInteractionObject.Item == tmpItemGOs[j]))
+                {
+                    iTOAItemInTmpItems = true;
+                    break;
+                }
+                else
+                {
+                    iTOAItemInTmpItems = false;
+                }
+            }
+            if (iTOAItemInTmpItems)
+            {
+                continue;
+            }
+            ItemToObjectsAssingments.RemoveAt(i);
         }
     }
 
     private void Start()
     {
-        ItemToObjectsAssingmentsStatic = ItemToObjectsAssingments;
+        ItemToObjectsAssingmentsStatic = ItemToObjectsAssingments.ToArray();
     }
 
     private void Update()
     {
-        if (Application.isEditor && !Application.isPlaying)
+        if (Application.isEditor && Application.isPlaying)
         {
             return;
         }
-        for (int x = 0; x < ItemToObjectsAssingments.Length; x++)
+        for (int x = 0; x < ItemToObjectsAssingments.Count; x++)
         {
-            tmpGOs = GameObject.FindGameObjectsWithTag("Interactable");
+            tmpInteractableGOs = GameObject.FindGameObjectsWithTag(tagInteractable);
             for (int z = 0; z < ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects.Count; z++)
             {
-                if (!tmpGOs.Contains(ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects[z].Object) || z >= tmpGOs.Length)
+                if (!tmpInteractableGOs.Contains(ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects[z].Object) || z >= tmpInteractableGOs.Length)
                 {
                     ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects.RemoveAt(z);
                 }
             }
 
-            for (int y = 0; y < tmpGOs.Length; y++)
+            for (int y = 0; y < tmpInteractableGOs.Length; y++)
             {
                 if (y < ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects.Count)
                 {
-                    ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects[y].Object = tmpGOs[y];
+                    ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects[y].Object = tmpInteractableGOs[y];
                 }
                 else
                 {
                     ItemObjectsInteractionAssingment tmpIOTA = new();
                     ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects.Add(tmpIOTA);
-                    ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects[y].Object = tmpGOs[y];
+                    ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects[y].Object = tmpInteractableGOs[y];
                 }
             }
         }

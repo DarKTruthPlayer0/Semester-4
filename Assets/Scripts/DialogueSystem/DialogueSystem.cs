@@ -6,9 +6,9 @@ public class DialogueSystem : MonoBehaviour
     private Dialogues dialogues;
     private TMP_Text dialogueText;
     private int i;
-    private int dialogueID;
+    private static int dialogueID;
 
-    public void EnterDialogue(int DialogueID)
+    public static void EnterDialogue(int DialogueID)
     {
         dialogueID = DialogueID;
         //activate Dialogue Object

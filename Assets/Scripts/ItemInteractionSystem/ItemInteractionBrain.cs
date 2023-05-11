@@ -1,36 +1,32 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
 public class ItemInteractionBrain : MonoBehaviour
 {
+    [Header ("Essential")]
+    [SerializeField] private ItemInteractionAssingmentLoad IIAL;
+
+    [Header ("Interactions")]
     public static Interaction[] InteractionsStatic;
     public List<Interaction> Interactions = new();
-    private ItemInteractionAssingmentLoad IIAL;
 
+    private bool interactionExist;
+    private bool tmpInteractionExist;
 
-    private void Awake()
-    {
-        if (Application.isEditor && !Application.isPlaying)
-        {
-            return;
-        }
-        IIAL = FindObjectOfType<ItemInteractionAssingmentLoad>();
-    }
     private void Start()
     {
         InteractionsStatic = Interactions.ToArray();
     }
     private void Update()
     {
-        if (Application.isEditor && !Application.isPlaying)
+        if (Application.isEditor && Application.isPlaying)
         {
             return;
         }
         List<Interaction> tmpInteractions = new();
-        for (int i = 0; i < IIAL.ItemToObjectsAssingments.Length; i++)
+        for (int i = 0; i < IIAL.ItemToObjectsAssingments.Count; i++)
         {
             for (int j = 0; j < IIAL.ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects.Count; j++)
             {
@@ -39,7 +35,7 @@ public class ItemInteractionBrain : MonoBehaviour
                     Interaction interaction = new()
                     {
                         Item = IIAL.ItemToObjectsAssingments[i].ItemMatchingInteractionObject.Item,
-                        ObjectToInteract = IIAL.ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects[j].Object
+                        Interactable = IIAL.ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects[j].Object
                     };
                     tmpInteractions.Add(interaction);
 
@@ -48,19 +44,58 @@ public class ItemInteractionBrain : MonoBehaviour
         }
         
         
-        if (Interactions.Count > 0 && Interactions.Count <= tmpInteractions.Count)
+        if (Interactions.Count > 0 && tmpInteractions.Count > 0)
         {
-            for (int i = 0; i < Interactions.Count; i++)
+            for (int i = 0; i < tmpInteractions.Count; i++)
             {
-                if (Interactions[i].Item == null || Interactions[i].ObjectToInteract == null)
+                for (int j = 0; j < Interactions.Count; j++)
                 {
-                    Interactions.RemoveAt(i);
+                    if (tmpInteractions[i].Item == Interactions[j].Item && tmpInteractions[i].Interactable == Interactions[j].Interactable)
+                    {
+                        tmpInteractionExist = true;
+                        break;
+                    }
+                    else
+                    {
+                        tmpInteractionExist = false;
+                    }
                 }
-                if (tmpInteractions[i].Item == Interactions[i].Item && tmpInteractions[i].ObjectToInteract == Interactions[i].ObjectToInteract)
+                if (tmpInteractionExist)
                 {
                     continue;
                 }
-                Interactions.Add(tmpInteractions[i]);
+                else
+                {
+                    Interactions.Add(tmpInteractions[i]);
+                }
+            }
+
+            for (int i = 0; i < Interactions.Count; i++)
+            {
+                if (Interactions[i].Item == null || Interactions[i].Interactable == null)
+                {
+                    Interactions.RemoveAt(i);
+                }
+                for (int j = 0; j < tmpInteractions.Count; j++)
+                {
+                    if (tmpInteractions[j].Item == Interactions[i].Item && tmpInteractions[j].Interactable == Interactions[i].Interactable)
+                    {
+                        interactionExist = true;
+                        break;
+                    }
+                    else
+                    {
+                        interactionExist = false;
+                    }
+                }
+                if (interactionExist)
+                {
+                    continue;
+                }
+                else
+                {
+                    Interactions.RemoveAt(i);
+                }
             }
         }
         else
@@ -74,8 +109,14 @@ public class ItemInteractionBrain : MonoBehaviour
 public class Interaction
 {
     public GameObject Item;
-    public GameObject ObjectToInteract;
-    public int InteractionDialogueID;
+    public GameObject Interactable;
+    public Paths[] Paths;
     public bool OpensDoor;
+}
 
+[Serializable]
+public class Paths
+{
+    public GameBrainScript.Style Style;
+    public int InteractionDialogueID;
 }
