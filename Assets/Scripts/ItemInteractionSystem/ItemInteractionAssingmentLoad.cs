@@ -12,7 +12,7 @@ public class ItemInteractionAssingmentLoad : MonoBehaviour
 
     [Header("Assingment")]
     public static ItemToObjectsAssingmentsList[] ItemToObjectsAssingmentsStatic;
-    public List<ItemToObjectsAssingmentsList> ItemToObjectsAssingments;
+    public List<ItemToObjectsAssingmentsList> ItemToObjectsAssingments = new();
 
     private GameObject[] tmpInteractableGOs;
     private GameObject[] tmpItemGOs;
@@ -47,10 +47,8 @@ public class ItemInteractionAssingmentLoad : MonoBehaviour
             {
                 continue;
             }
-            ItemToObjectsAssingmentsList tmpITOAL = new()
-            {
-                ItemMatchingInteractionObject = new()
-            };
+            ItemToObjectsAssingmentsList tmpITOAL = new();
+            tmpITOAL.ItemMatchingInteractionObject.Item = tmpItemGOs[i];
             ItemToObjectsAssingments.Add(tmpITOAL);
         }
 
@@ -87,28 +85,28 @@ public class ItemInteractionAssingmentLoad : MonoBehaviour
         {
             return;
         }
-        for (int x = 0; x < ItemToObjectsAssingments.Count; x++)
+        for (int i = 0; i < ItemToObjectsAssingments.Count; i++)
         {
             tmpInteractableGOs = GameObject.FindGameObjectsWithTag(tagInteractable);
-            for (int z = 0; z < ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects.Count; z++)
+            for (int j = 0; j < ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects.Count; j++)
             {
-                if (!tmpInteractableGOs.Contains(ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects[z].Object) || z >= tmpInteractableGOs.Length)
+                if (!tmpInteractableGOs.Contains(ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects[j].Object) || j >= tmpInteractableGOs.Length)
                 {
-                    ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects.RemoveAt(z);
+                    ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects.RemoveAt(j);
                 }
             }
 
             for (int y = 0; y < tmpInteractableGOs.Length; y++)
             {
-                if (y < ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects.Count)
+                if (y < ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects.Count)
                 {
-                    ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects[y].Object = tmpInteractableGOs[y];
+                    ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects[y].Object = tmpInteractableGOs[y];
                 }
                 else
                 {
                     ItemObjectsInteractionAssingment tmpIOTA = new();
-                    ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects.Add(tmpIOTA);
-                    ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects[y].Object = tmpInteractableGOs[y];
+                    ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects.Add(tmpIOTA);
+                    ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects[y].Object = tmpInteractableGOs[y];
                 }
             }
         }
@@ -119,14 +117,14 @@ public class ItemInteractionAssingmentLoad : MonoBehaviour
 [Serializable]
 public class ItemToObjectsAssingmentsList
 {
-    public ItemToObjectsAssingments ItemMatchingInteractionObject;
+    public ItemToObjectsAssingment ItemMatchingInteractionObject = new();
 }
 
 [Serializable]
-public class ItemToObjectsAssingments
+public class ItemToObjectsAssingment
 {
     public GameObject Item;
-    public List<ItemObjectsInteractionAssingment> InteractionObjects;
+    public List<ItemObjectsInteractionAssingment> InteractionObjects = new();
 }
 
 [Serializable]
