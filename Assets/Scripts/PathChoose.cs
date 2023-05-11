@@ -9,12 +9,17 @@ public class PathChoose : MonoBehaviour
     public int InteractionID;
 
     [SerializeField] private Button[] decisionButtons;
+    [SerializeField] private GameObject buttonPrefab;
 
     public void SetButtons()
     {
-        for (int i = 0; i < decisionButtons.Length; i++)
+        GameObject tempPathChooseButtonsGO = GameObject.Find("PathChooseButtons");
+        string[] tempStyleNames = Enum.GetNames(typeof(GameBrainScript.Style)); 
+        for (int i = 0; i < tempStyleNames.Length; i++)
         {
-            decisionButtons[i].transform.GetChild(0).GetComponent<TMP_Text>().text = Enum.GetName(typeof(GameBrainScript.Style), i);
+            GameObject tmpButtonGO = Instantiate(buttonPrefab, Vector3.zero, Quaternion.identity);
+            tmpButtonGO.transform.parent = tempPathChooseButtonsGO.transform;
+            tmpButtonGO.transform.GetChild(0).GetComponent<TMP_Text>().text = tempStyleNames[i];
         }
     }
 
