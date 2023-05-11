@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class GameBrainScript : MonoBehaviour
 {
-    public List<Style> styles = new List<Style>();
+    public static List<Style> styles = new List<Style>();
     public enum Style
     {
         Horror,
         Datingsim,
-        Caberpunk
+        Cyberpunk
     }
 
     [SerializeField] private StyleClass[] styleClasses;

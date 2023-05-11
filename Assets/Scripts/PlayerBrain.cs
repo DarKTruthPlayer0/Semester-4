@@ -9,6 +9,8 @@ public class PlayerBrain : MonoBehaviour
     [SerializeField] private string tagTalkableNPCs;
 
     private Inventory inventory = new();
+    private PathChoose pathChoose;
+    private GameObject pathChooseButtonsGO;
     private int selectedItemID;
     private bool itemIsSelected;
 
@@ -55,10 +57,12 @@ public class PlayerBrain : MonoBehaviour
     {
         for (int i = 0; i < ItemInteractionBrain.InteractionsStatic.Length; i++)
         {
-            if (ItemInteractionBrain.InteractionsStatic[i].ObjectToInteract == CIOGO &&
+            if (ItemInteractionBrain.InteractionsStatic[i].Interactable == CIOGO &&
                 ItemInteractionBrain.InteractionsStatic[i].Item == inventory.Items[selectedItemID].ItemGO)
             {
-                //Dialog einblenden
+                //Path Choose
+                pathChoose.InteractionID = i;
+                pathChoose.SetButtons();
             }
         }
     }
@@ -71,6 +75,7 @@ public class PlayerBrain : MonoBehaviour
                 ItemGO.SetActive(false);
                 inventory.Items[i].ItemGO = ItemGO;
                 //Dialog einblenden
+                DialogueSystem.EnterDialogue(ItemGO.GetComponent<DialogueClient>().dialogueID);
                 break;
             }
         }
@@ -81,6 +86,7 @@ public class PlayerBrain : MonoBehaviour
         if (TWNPCGO.TryGetComponent<DialogueClient>(out DialogueClient DC))
         {
             //Dialog einblenden
+            DialogueSystem.EnterDialogue(DC.dialogueID);
         }
     }
 
@@ -102,6 +108,10 @@ public class PlayerBrain : MonoBehaviour
         { 
             go.AddComponent<PlayerServant>();
         }
+
+        pathChoose = FindObjectOfType<PathChoose>();
+        pathChooseButtonsGO = GameObject.Find("PathChooseButtos");
+        pathChooseButtonsGO.SetActive(false);
     }
 }
 

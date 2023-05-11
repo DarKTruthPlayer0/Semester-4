@@ -1,14 +1,15 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using Unity.Collections;
 using UnityEngine;
 
 [ExecuteInEditMode]
 public class ItemInteractionAssingmentLoad : MonoBehaviour
 {
+    [Header("Tags")]
+    [SerializeField] private string tagInteractable;
+
+    [Header("Assingment")]
     public static ItemToObjectsAssingmentsList[] ItemToObjectsAssingmentsStatic;
     public ItemToObjectsAssingmentsList[] ItemToObjectsAssingments;
 
@@ -17,11 +18,11 @@ public class ItemInteractionAssingmentLoad : MonoBehaviour
 
     private void Awake()
     {
-        if (Application.isEditor && !Application.isPlaying)
+        if (Application.isEditor && Application.isPlaying)
         {
             return;
         }
-        tmpGOs = GameObject.FindGameObjectsWithTag("Interactable");
+        tmpGOs = GameObject.FindGameObjectsWithTag(tagInteractable);
         for (int x = 0; x < ItemToObjectsAssingments.Length; x++)
         {
             ItemToObjectsAssingments[x].ItemMatchingInteractionObject = new()
@@ -38,13 +39,13 @@ public class ItemInteractionAssingmentLoad : MonoBehaviour
 
     private void Update()
     {
-        if (Application.isEditor && !Application.isPlaying)
+        if (Application.isEditor && Application.isPlaying)
         {
             return;
         }
         for (int x = 0; x < ItemToObjectsAssingments.Length; x++)
         {
-            tmpGOs = GameObject.FindGameObjectsWithTag("Interactable");
+            tmpGOs = GameObject.FindGameObjectsWithTag(tagInteractable);
             for (int z = 0; z < ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects.Count; z++)
             {
                 if (!tmpGOs.Contains(ItemToObjectsAssingments[x].ItemMatchingInteractionObject.InteractionObjects[z].Object) || z >= tmpGOs.Length)

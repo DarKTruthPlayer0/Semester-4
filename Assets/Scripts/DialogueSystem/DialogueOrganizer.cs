@@ -3,8 +3,11 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class DialogueOrganizer : MonoBehaviour
 {
+    [Header ("Tags")]
     [SerializeField] private string tagTalkableNPCs;
     [SerializeField] private string tagItems;
+    [SerializeField] private string tagInteractables;
+
     [SerializeField] Dialogues dialogues;
 
     private void Update()
@@ -32,6 +35,16 @@ public class DialogueOrganizer : MonoBehaviour
         for (int i = 0; i < tempItemGOs.Length; i++)
         {
             GameObject GO = tempItemGOs[i];
+            if (GO.GetComponent<DialogueClient>() == null)
+            {
+                print("Test");
+                GO.AddComponent<DialogueClient>();
+            }
+        }
+        GameObject[] tempInteractableGOs = GameObject.FindGameObjectsWithTag(tagInteractables);
+        for (int i = 0; i < tempInteractableGOs.Length; i++)
+        {
+            GameObject GO = tempInteractableGOs[i];
             if (GO.GetComponent<DialogueClient>() == null)
             {
                 print("Test");
