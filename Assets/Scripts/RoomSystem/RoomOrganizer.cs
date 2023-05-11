@@ -14,7 +14,10 @@ public class RoomOrganizer : MonoBehaviour
         rooms = new Room[tmpRoomGOs.Length];
         for (int i = 0; i < tmpRoomGOs.Length; i++)
         {
-            rooms[i].RoomGO = tmpRoomGOs[i];
+            rooms[i] = new Room
+            {
+                RoomGO = tmpRoomGOs[i]
+            };
         }
     }
 }
