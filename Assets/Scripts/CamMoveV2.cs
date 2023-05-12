@@ -209,6 +209,10 @@ public class CamMoveV2 : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        DeactivateArrowsIfNecessary();
+    }
     private void Update()
     {
         if (Application.isEditor && Application.isPlaying)
