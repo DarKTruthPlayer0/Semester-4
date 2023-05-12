@@ -111,7 +111,7 @@ public class Interaction
     public GameObject Item;
     public GameObject Interactable;
     public Paths[] Paths;
-    public bool OpensDoor;
+    public GameObject RoomtoUnlock;
 }
 
 [Serializable]

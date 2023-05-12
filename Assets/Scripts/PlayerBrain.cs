@@ -104,6 +104,7 @@ public class PlayerBrain : MonoBehaviour
                 ItemInteractionBrain.InteractionsStatic[i].Item == inventory.Items[selectedItemID].ItemGO)
             {
                 //Path Choose
+                pathChoose.PathChooseGO = CIOGO;
                 pathChoose.InteractionID = i;
                 pathChoose.SetButtons();
             }

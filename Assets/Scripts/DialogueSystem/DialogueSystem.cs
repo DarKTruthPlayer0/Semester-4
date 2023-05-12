@@ -10,7 +10,6 @@ public class DialogueSystem : MonoBehaviour
     private static int i = 0;
     private static int dialogueID;
     private static GameObject dialogueWindowGO;
-    private static bool nextDialoguePart;
 
     public static void EnterDialogue(int DialogueID)
     {
@@ -20,7 +19,6 @@ public class DialogueSystem : MonoBehaviour
         dialogueText.text = dialogues.DialogueList[dialogueID].DialogueParts[i].SentenceThePersonTalk;
         i = 1;
         dialogueWindowGO.SetActive(true);
-        nextDialoguePart = true;
     }
 
     public void NextPartOfDialogue()
@@ -41,7 +39,6 @@ public class DialogueSystem : MonoBehaviour
     private void ExitDialogue()
     {
         i = 0;
-        nextDialoguePart = false;
         dialogueName.text = null;
         dialogueText.text = null;
         //deactivate Dialogue Object
