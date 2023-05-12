@@ -22,10 +22,11 @@ public class CamMove : MonoBehaviour
             // Arrow left off
             directionVec.y = 0;
         }
-        if (gameObject.transform.position.y > (startPos.y - maxMoveDistance.y) && directionVec.y > 0)
+        if (gameObject.transform.position.y > (startPos.y + maxMoveDistance.y) && directionVec.y > 0)
         {
             // Arrow right off;
             directionVec.y = 0;
+
         }
     }
 
