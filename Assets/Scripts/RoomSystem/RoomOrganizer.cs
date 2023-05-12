@@ -6,8 +6,9 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class RoomOrganizer : MonoBehaviour
 {
-    public List<Room> rooms;
+    public static Room[] RoomsStatic;
 
+    [SerializeField] private List<Room> rooms;
     [SerializeField] private string tagRoom;
     private bool sortHelpBool;
 
@@ -53,11 +54,19 @@ public class RoomOrganizer : MonoBehaviour
             {
                 continue;
             }
-            Room tmpRoomsGO = new();
-            tmpRoomsGO.RoomGO = tmpRoomGOs[j];
+            Room tmpRoomsGO = new()
+            {
+                RoomGO = tmpRoomGOs[j]
+            };
             rooms.Add(tmpRoomsGO);
         }
     }
+
+    private void Start()
+    {
+        RoomsStatic = rooms.ToArray();
+    }
+
     private void Update()
     {
         if (Application.isEditor && Application.isPlaying)
