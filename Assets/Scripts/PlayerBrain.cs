@@ -75,7 +75,14 @@ public class PlayerBrain : MonoBehaviour
                 ItemGO.SetActive(false);
                 inventory.Items[i].ItemGO = ItemGO;
                 //Dialog einblenden
-                DialogueSystem.EnterDialogue(ItemGO.GetComponent<DialogueClient>().dialogueID);
+                for (int j = 0; j < DialogueOrganizer.DialogueClientsStatic.Length; j++)
+                {
+                    if (ItemGO == DialogueOrganizer.DialogueClientsStatic[j].GOReference)
+                    {
+                        DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[j].dialogueID);
+                        break;
+                    }
+                }
                 break;
             }
         }
@@ -83,10 +90,13 @@ public class PlayerBrain : MonoBehaviour
 
     private void TalkWithNPC(GameObject TWNPCGO)
     {
-        if (TWNPCGO.TryGetComponent<DialogueClient>(out DialogueClient DC))
+        for (int j = 0; j < DialogueOrganizer.DialogueClientsStatic.Length; j++)
         {
-            //Dialog einblenden
-            DialogueSystem.EnterDialogue(DC.dialogueID);
+            if (TWNPCGO == DialogueOrganizer.DialogueClientsStatic[j].GOReference)
+            {
+                DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[j].dialogueID);
+                break;
+            }
         }
     }
 
@@ -110,7 +120,7 @@ public class PlayerBrain : MonoBehaviour
         }
 
         pathChoose = FindObjectOfType<PathChoose>();
-        pathChooseButtonsGO = GameObject.Find("PathChooseButtos");
+        pathChooseButtonsGO = GameObject.Find("PathChooseButtons");
         pathChooseButtonsGO.SetActive(false);
     }
 }
