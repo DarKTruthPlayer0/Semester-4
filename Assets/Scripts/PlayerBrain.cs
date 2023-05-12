@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerBrain : MonoBehaviour
 {
@@ -7,16 +8,16 @@ public class PlayerBrain : MonoBehaviour
     [SerializeField] private string tagItem;
     [SerializeField] private string tagInteractable;
     [SerializeField] private string tagTalkableNPCs;
+    [SerializeField] private string tagInventoryPlaces;
 
     private Inventory inventory = new();
     private PathChoose pathChoose;
     private GameObject pathChooseButtonsGO;
     private int selectedItemID;
-    private bool itemIsSelected;
 
     public void Interaction(GameObject IGO)
     {
-        if (IGO.CompareTag(tagInteractable) /*&& inventory.Item != null*/ && itemIsSelected)
+        if (IGO.CompareTag(tagInteractable) && inventory.Items[selectedItemID].ItemSelected)
         {
             print("Interactable");
             UseItemInIventory(IGO);
@@ -29,6 +30,33 @@ public class PlayerBrain : MonoBehaviour
         {
             print("ItemDetected");
             PickupItem(IGO);
+        }
+    }
+
+    public void SelectItemInInventory(Button Button)
+    {
+        for (int i = 0; i < inventory.Items.Length; i++)
+        {
+            if (Button == inventory.Items[i].InventoryPlace && !inventory.Items[i].ItemSelected && inventory.Items[i].ItemGO != null)
+            {
+                inventory.Items[i].ItemSelected = true;
+                selectedItemID = i;
+
+                for (int j = 0; j < inventory.Items.Length; j++)
+                {
+                    if (j == selectedItemID)
+                    {
+                        continue;
+                    }
+                    inventory.Items[j].ItemSelected = false;
+                }
+                break;
+            }
+            else if (Button == inventory.Items[i].InventoryPlace && inventory.Items[i].ItemSelected && inventory.Items[i].ItemGO != null)
+            {
+                inventory.Items[i].ItemSelected = false;
+                break;
+            }
         }
     }
 
@@ -66,23 +94,24 @@ public class PlayerBrain : MonoBehaviour
             }
         }
     }
-    private void PickupItem(GameObject ItemGO)
+    private void PickupItem(GameObject TempItemGO)
     {
         for (int i = 0; i < inventory.Items.Length; i++)
         {
-            if (inventory.Items[i] == null)
+            if (inventory.Items[i].ItemGO == null)
             {
-                ItemGO.SetActive(false);
-                inventory.Items[i].ItemGO = ItemGO;
+                print("HI");
+                inventory.Items[i].ItemGO = TempItemGO;
                 //Dialog einblenden
                 for (int j = 0; j < DialogueOrganizer.DialogueClientsStatic.Length; j++)
                 {
-                    if (ItemGO == DialogueOrganizer.DialogueClientsStatic[j].GOReference)
+                    if (TempItemGO == DialogueOrganizer.DialogueClientsStatic[j].GOReference)
                     {
                         DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[j].dialogueID);
                         break;
                     }
                 }
+                TempItemGO.SetActive(false);
                 break;
             }
         }
@@ -97,6 +126,20 @@ public class PlayerBrain : MonoBehaviour
                 DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[j].dialogueID);
                 break;
             }
+        }
+    }
+
+    private void SetUpIventory()
+    {
+        GameObject[] tempButtonGOs = GameObject.FindGameObjectsWithTag(tagInventoryPlaces);
+
+        inventory.Items = new Item[tempButtonGOs.Length];
+        for (int j = 0;j < tempButtonGOs.Length; j++)
+        {
+            inventory.Items[j] = new Item
+            {
+                InventoryPlace = tempButtonGOs[j].GetComponent<Button>()
+            };
         }
     }
 
@@ -122,18 +165,21 @@ public class PlayerBrain : MonoBehaviour
         pathChoose = FindObjectOfType<PathChoose>();
         pathChooseButtonsGO = GameObject.Find("PathChooseButtons");
         pathChooseButtonsGO.SetActive(false);
+
+        SetUpIventory();
     }
 }
 
 [Serializable]
 public class Inventory
 {
-    public Item[] Items = new Item[3];
+    public Item[] Items;
 }
 [Serializable]
 public class Item
 {
     public GameObject ItemGO;
+    public Button InventoryPlace;
     public bool ItemSelected;
 }
 public class PlayerServant : MonoBehaviour
@@ -142,6 +188,7 @@ public class PlayerServant : MonoBehaviour
 
     private void OnMouseDown()
     {
+        print("Mouse down on" + gameObject.name);
         pBrain.Interaction(gameObject);
     }
 

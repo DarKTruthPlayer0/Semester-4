@@ -3,22 +3,68 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class RoomOrganizer : MonoBehaviour
 {
-    [SerializeField] private string tagRoom;
-    private Room[] rooms;
+    public List<Room> rooms;
 
-    private void Start()
+    [SerializeField] private string tagRoom;
+    private bool sortHelpBool;
+
+    private void RefreshRoomList()
     {
         GameObject[] tmpRoomGOs = GameObject.FindGameObjectsWithTag(tagRoom);
-        rooms = new Room[tmpRoomGOs.Length];
-        for (int i = 0; i < tmpRoomGOs.Length; i++)
+
+        for (int i = 0; i < rooms.Count; i++)
         {
-            rooms[i] = new Room
+            for (int j = 0; j < tmpRoomGOs.Length; j++)
             {
-                RoomGO = tmpRoomGOs[i]
-            };
+                if (rooms[i].RoomGO == tmpRoomGOs[j])
+                {
+                    sortHelpBool = true;
+                    break;
+                }
+                else
+                {
+                    sortHelpBool = false;
+                }
+            }
+            if (sortHelpBool)
+            {
+                continue;
+            }
+            rooms.RemoveAt(i);
         }
+        for (int j = 0; j < tmpRoomGOs.Length; j++)
+        {
+            for (int k = 0; k < rooms.Count; k++)
+            {
+                if (rooms[k].RoomGO == tmpRoomGOs[j] && tmpRoomGOs[k])
+                {
+                    sortHelpBool = true;
+                    break;
+                }
+                else
+                {
+                    sortHelpBool = false;
+                }
+            }
+            if (sortHelpBool)
+            {
+                continue;
+            }
+            Room tmpRoomsGO = new();
+            tmpRoomsGO.RoomGO = tmpRoomGOs[j];
+            rooms.Add(tmpRoomsGO);
+        }
+    }
+    private void Update()
+    {
+        if (Application.isEditor && Application.isPlaying)
+        {
+            return;
+        }
+        RefreshRoomList();
     }
 }
 
