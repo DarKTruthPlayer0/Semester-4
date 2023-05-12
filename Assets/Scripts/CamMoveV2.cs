@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,7 @@ public class CamMoveV2 : MonoBehaviour
     public List<CamPositions> camPositions;
     private int speedupInt;
     private bool sortHelpBool;
+    private bool camMoved;
 
     public void MoveRight()
     {
@@ -44,10 +46,9 @@ public class CamMoveV2 : MonoBehaviour
 
     private void CamMove(Directions direction)
     {
-
         for (int i = 0; i < camPositions.Count; i++)
         {
-            if (camPositions[i].ActualPositionGO.transform.position != cam.gameObject.transform.position)
+            if (camPositions[i].ActualPositionGO.transform.position != cam.transform.position)
             {
                 continue;
             }
@@ -55,9 +56,15 @@ public class CamMoveV2 : MonoBehaviour
             {
                 if (direction == camPositions[i].PossibleCamPositions[j].Direction && camPositions[i].PossibleCamPositions[j].CanMoveTo)
                 {
-                    cam.gameObject.transform.position = camPositions[i].PossibleCamPositions[j].PossiblePositionGO.transform.position;
+                    cam.transform.position = camPositions[i].PossibleCamPositions[j].PossiblePositionGO.transform.position;
+                    camMoved = true;
                     break;
                 }
+            }
+            if (camMoved)
+            {
+                camMoved = false;
+                break;
             }
         }
 
@@ -73,7 +80,7 @@ public class CamMoveV2 : MonoBehaviour
 
         for (int i = 0; i < camPositions.Count; i++)
         {
-            if (camPositions[i].ActualPositionGO.transform.position.Equals(cam.gameObject.transform.position))
+            if (camPositions[i].ActualPositionGO.transform.position.Equals(cam.transform.position))
             {
                 speedupInt = i;
             }
@@ -81,25 +88,24 @@ public class CamMoveV2 : MonoBehaviour
 
         for (int i = 0; i < camPositions[speedupInt].PossibleCamPositions.Count; i++)
         {
-            if (camPositions[speedupInt].PossibleCamPositions[i].Direction == Directions.Right)
+            if (!camPositions[speedupInt].PossibleCamPositions[i].CanMoveTo)
             {
-                rightArrow.SetActive(true);
                 continue;
             }
-            if (camPositions[speedupInt].PossibleCamPositions[i].Direction == Directions.Left)
+            switch (camPositions[speedupInt].PossibleCamPositions[i].Direction)
             {
-                leftArrow.SetActive(true);
-                continue;
-            }
-            if (camPositions[speedupInt].PossibleCamPositions[i].Direction == Directions.Up)
-            {
-                upArrow.SetActive(true);
-                continue;
-            }
-            if (camPositions[speedupInt].PossibleCamPositions[i].Direction == Directions.Down)
-            {
-                downArrow.SetActive(true);
-                continue;
+                case Directions.Right:
+                    rightArrow.SetActive(true);
+                    continue;
+                case Directions.Left:
+                    leftArrow.SetActive(true);
+                    continue;
+                case Directions.Up:
+                    upArrow.SetActive(true);
+                    continue;
+                case Directions.Down:
+                    downArrow.SetActive(true);
+                    continue;
             }
         }
     }
@@ -155,8 +161,10 @@ public class CamMoveV2 : MonoBehaviour
             {
                 continue;
             }
-            CamPositions tmpCamPositions = new();
-            tmpCamPositions.ActualPositionGO = tmpPositionGOs[j];
+            CamPositions tmpCamPositions = new()
+            {
+                ActualPositionGO = tmpPositionGOs[j]
+            };
             camPositions.Add(tmpCamPositions);
         }
 
@@ -202,13 +210,24 @@ public class CamMoveV2 : MonoBehaviour
                 {
                     continue;
                 }
-                CamPosition tmpCamPos = new();
-                tmpCamPos.PossiblePositionGO = tmpPositionGOs[j];
+                CamPosition tmpCamPos = new()
+                {
+                    PossiblePositionGO = tmpPositionGOs[j]
+                };
                 camPositions[i].PossibleCamPositions.Add(tmpCamPos);
             }
         }
     }
 
+    private void Awake()
+    {
+        cam = gameObject.transform.parent.GetChild(0).gameObject;
+
+        rightArrow = GameObject.Find("RightArrow");
+        leftArrow = GameObject.Find("LeftArrow");
+        upArrow = GameObject.Find("UpArrow");
+        downArrow = GameObject.Find("DownArrow");
+    }
     private void Start()
     {
         DeactivateArrowsIfNecessary();
@@ -219,6 +238,23 @@ public class CamMoveV2 : MonoBehaviour
         {
             return;
         }
+        if (!rightArrow.activeInHierarchy)
+        {
+            rightArrow.SetActive(true);
+        }
+        if (!leftArrow.activeInHierarchy)
+        {
+            leftArrow.SetActive(true);
+        }
+        if (!upArrow.activeInHierarchy)
+        {
+            upArrow.SetActive(true);
+        }
+        if (!downArrow.activeInHierarchy)
+        {
+            downArrow.SetActive(true);
+        }
+
         CamPositionsOrganize();
     }
 }

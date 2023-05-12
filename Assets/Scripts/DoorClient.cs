@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,9 +29,5 @@ public class DoorClient : MonoBehaviour
     private void Start()
     {
         tmpCamGOs = GameObject.FindGameObjectsWithTag(tagCam);
-        foreach (GameObject go in tmpCamGOs)
-        {
-            go.SetActive(false);
-        }
     }
 }
