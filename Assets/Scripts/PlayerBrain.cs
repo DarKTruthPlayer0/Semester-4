@@ -17,10 +17,25 @@ public class PlayerBrain : MonoBehaviour
 
     public void Interaction(GameObject IGO)
     {
-        if (IGO.CompareTag(tagInteractable) && inventory.Items[selectedItemID].ItemSelected)
+        if (IGO.CompareTag(tagInteractable))
         {
             print("Interactable");
-            UseItemInIventory(IGO);
+            if (inventory.Items[selectedItemID].ItemSelected)
+            {
+                UseItemInIventory(IGO);
+            }
+            else
+            {
+                for (int i = 0; i < DialogueOrganizer.DialogueClientsStatic.Length; i++)
+                {
+                    if (DialogueOrganizer.DialogueClientsStatic[i].GOReference == IGO)
+                    {
+                        DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[i].dialogueID);
+                        break;
+                    }
+
+                }
+            }
         }
         if (IGO.CompareTag(tagTalkableNPCs))
         {
@@ -89,6 +104,7 @@ public class PlayerBrain : MonoBehaviour
                 ItemInteractionBrain.InteractionsStatic[i].Item == inventory.Items[selectedItemID].ItemGO)
             {
                 //Path Choose
+                pathChoose.PathChooseGO = CIOGO;
                 pathChoose.InteractionID = i;
                 pathChoose.SetButtons();
             }

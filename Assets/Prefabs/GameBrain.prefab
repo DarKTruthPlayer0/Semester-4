@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &451640710376875747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3565018078455847932}
+  m_Layer: 0
+  m_Name: CamSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3565018078455847932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451640710376875747}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4342236226442426624}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4342236224785919920
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,8 +76,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagItem: Item
-  tagWithItemInteractableObject: ObjectToInteract
+  tagInteractable: 
   tagTalkableNPCs: TalkableNPC
+  tagInventoryPlaces: 
 --- !u!1 &4342236224979691031
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70fcf3eb58b81ac408563cbf935c0e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rooms: []
   tagRoom: 
 --- !u!1 &4342236225072946154
 GameObject:
@@ -137,6 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d1d6bff65ed77e4b8580ca9201b18a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tagInteractable: 
+  tagItem: 
   ItemToObjectsAssingments: []
 --- !u!114 &4342236225072946159
 MonoBehaviour:
@@ -150,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fbe4906fc22994b80bc0b3665ad036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IIAL: {fileID: 0}
   Interactions: []
 --- !u!1 &4342236225095815304
 GameObject:
@@ -210,7 +246,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagTalkableNPCs: TalkableNPC
+  tagItems: 
+  tagInteractables: 
   dialogues: {fileID: 4342236225095815308}
+  dialogueClientsList: []
 --- !u!114 &4342236225095815308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,19 +264,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DialogueList:
   - DialogueID: 0
-    DialoguePartnerName: Banane
-    Sentences:
-    - Hi wie gehts?
-    - Mir geht es gut und dir?
-    - "Ich f\xFChre einen irrelevanten Dialog was denkst due denn?"
-    - "Ich f\xFChre einen irrelevanten Dialog was denkst due denn?"
+    DialogueParts: []
   - DialogueID: 1
-    DialoguePartnerName: oli
-    Sentences:
-    - Hi wie gehts?
-    - Mir geht es gut und dir?
-    - "Ich f\xFChre einen irrelevanten Dialog was denkst due denn?"
-    - "Ich f\xFChre einen irrelevanten Dialog was denkst due denn?"
+    DialogueParts: []
 --- !u!1 &4342236226442426625
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +276,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4342236226442426624}
+  - component: {fileID: 2994423705556899352}
+  - component: {fileID: 3680800484198979921}
   m_Layer: 0
   m_Name: GameBrain
   m_TagString: Untagged
@@ -270,6 +301,47 @@ Transform:
   - {fileID: 4342236224785919923}
   - {fileID: 4342236225095815307}
   - {fileID: 4342236224979691030}
+  - {fileID: 3565018078455847932}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2994423705556899352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4342236226442426625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 556aff9ca28c04f42b06cc8cf4659c2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractionID: 0
+  decisionButtons: []
+  buttonPrefab: {fileID: 0}
+--- !u!114 &3680800484198979921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4342236226442426625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27af185120bae647b49c5e2c871100b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  styleClasses:
+  - style: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 9271
+  - style: 1
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 5175
+  - style: 2
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 3127

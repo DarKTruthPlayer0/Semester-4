@@ -14,7 +14,7 @@ public class GameBrainScript : MonoBehaviour
     }
 
     [SerializeField] private StyleClass[] styleClasses;
-    private Camera camera;
+    private Camera cam;
     private Style presentStyle;
 
     private void SetStyle()
@@ -23,7 +23,7 @@ public class GameBrainScript : MonoBehaviour
         {
             if (presentStyle == styleClasses[i].style)
             {
-                camera.cullingMask = styleClasses[i].layerMask;
+                cam.cullingMask = styleClasses[i].layerMask;
             }
         }
     }
