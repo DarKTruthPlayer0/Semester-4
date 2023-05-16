@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [ExecuteInEditMode]
 public class ItemInteractionBrain : MonoBehaviour
@@ -119,4 +120,5 @@ public class Paths
 {
     public GameBrainScript.Style Style;
     public int InteractionDialogueID;
+    public Dialogues pants;
 }
