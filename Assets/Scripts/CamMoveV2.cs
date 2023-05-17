@@ -12,7 +12,7 @@ public enum Directions
     Down
 }
 [ExecuteInEditMode]
-public class CamMoveV2 : MonoBehaviour
+public class CamMoveV2 : ListFunctionsExtension
 {
     [Header("Assing")]
     [SerializeField] private string tagPositions;
@@ -121,106 +121,21 @@ public class CamMoveV2 : MonoBehaviour
                 tmpPositionGOsList.Add(t.gameObject);
             }
         }
-        GameObject[] tmpPositionGOs = tmpPositionGOsList.ToArray();
+
+        ListCompare(camPositions, tmpPositionGOsList, () => new CamPositions());
 
         for (int i = 0; i < camPositions.Count; i++)
         {
-            for (int j = 0; j < tmpPositionGOs.Length; j++)
-            {
-                if (camPositions[i].ActualPositionGO == tmpPositionGOs[j])
-                {
-                    sortHelpBool = true;
-                    break;
-                }
-                else
-                {
-                    sortHelpBool = false;
-                }
-            }
-            if (sortHelpBool)
-            {
-                continue;
-            }
-            camPositions.RemoveAt(i);
-        }
-        for (int j = 0; j < tmpPositionGOs.Length; j++)
-        {
-            for (int k = 0; k < camPositions.Count; k++)
-            {
-                if (camPositions[k].ActualPositionGO == tmpPositionGOs[j] && tmpPositionGOs[k])
-                {
-                    sortHelpBool = true;
-                    break;
-                }
-                else
-                {
-                    sortHelpBool = false;
-                }
-            }
-            if (sortHelpBool)
-            {
-                continue;
-            }
-            CamPositions tmpCamPositions = new()
-            {
-                ActualPositionGO = tmpPositionGOs[j]
-            };
-            camPositions.Add(tmpCamPositions);
-        }
-
-
-        for (int i = 0; i < camPositions.Count; i++)
-        {
-            for (int j = 0; j < camPositions[i].PossibleCamPositions.Count; j++)
-            {
-                for (int k = 0; k < tmpPositionGOs.Length; k++)
-                {
-                    if (camPositions[i].PossibleCamPositions[j].PossiblePositionGO == tmpPositionGOs[k])
-                    {
-                        sortHelpBool = true;
-                        break;
-                    }
-                    else
-                    {
-                        sortHelpBool = false;
-                    }
-                }
-                if (sortHelpBool)
-                {
-                    continue;
-                }
-                camPositions[i].PossibleCamPositions.RemoveAt(j);
-            }
-
-            for (int j = 0; j < tmpPositionGOs.Length; j++)
-            {
-                for (int k = 0; k < camPositions[i].PossibleCamPositions.Count; k++)
-                {
-                    if (camPositions[i].PossibleCamPositions[k].PossiblePositionGO == tmpPositionGOs[j])
-                    {
-                        sortHelpBool = true;
-                        break;
-                    }
-                    else
-                    {
-                        sortHelpBool = false;
-                    }
-                }
-                if (sortHelpBool || tmpPositionGOs[j] == camPositions[i].ActualPositionGO)
-                {
-                    continue;
-                }
-                CamPosition tmpCamPos = new()
-                {
-                    PossiblePositionGO = tmpPositionGOs[j]
-                };
-                camPositions[i].PossibleCamPositions.Add(tmpCamPos);
-            }
+            ListCompareListsUseSameGOs(camPositions[i].PossibleCamPositions, tmpPositionGOsList, () => new CamPosition());
         }
     }
 
     private void Awake()
     {
+        if (Application.isEditor && Application.isPlaying)
+        {
+            return;
+        }
         cam = gameObject.transform.parent.GetChild(0).gameObject;
 
         rightArrow = GameObject.Find("RightArrow");
@@ -230,6 +145,10 @@ public class CamMoveV2 : MonoBehaviour
     }
     private void Start()
     {
+        if (Application.isEditor && Application.isPlaying)
+        {
+            return;
+        }
         DeactivateArrowsIfNecessary();
     }
     private void Update()
@@ -260,16 +179,28 @@ public class CamMoveV2 : MonoBehaviour
 }
 
 [Serializable]
-public class CamPositions
+public class CamPositions : Translate
 {
     public GameObject ActualPositionGO;
     public List<CamPosition> PossibleCamPositions = new();
+
+    public GameObject GOTranslate
+    {
+        get { return ActualPositionGO; }
+        set { ActualPositionGO = value; }
+    }
 }
 
 [Serializable]
-public class CamPosition
+public class CamPosition : Translate
 {
     public GameObject PossiblePositionGO;
     public bool CanMoveTo;
     public Directions Direction;
+
+    public GameObject GOTranslate
+    {
+        get { return PossiblePositionGO; }
+        set { PossiblePositionGO = value; }
+    }
 }

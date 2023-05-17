@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class DialogueOrganizer : MonoBehaviour
+public class DialogueOrganizer : ListFunctionsExtension
 {
     [Header("Tags")]
     [SerializeField] private string tagTalkableNPCs;
@@ -11,11 +12,9 @@ public class DialogueOrganizer : MonoBehaviour
     [SerializeField] private string tagInteractables;
 
 
-    public static DialogueClients[] DialogueClientsStatic;
+    public static DialogueClient[] DialogueClientsStatic;
     [SerializeField] Dialogues dialogues;
-    [SerializeField] private List<DialogueClients> dialogueClientsList;
-    private bool assingmentBool;
-
+    [SerializeField] private List<DialogueClient> dialogueClientsList;
 
     private void Start()
     {
@@ -49,51 +48,7 @@ public class DialogueOrganizer : MonoBehaviour
             tempDialogueClientGOs.Add(tempInteractableGOs[i]);
         }
 
-        for (int i = 0; i < dialogueClientsList.Count; i++)
-        {
-            for (int j = 0; j < tempDialogueClientGOs.Count; j++)
-            {
-                if (dialogueClientsList[i].GOReference == tempDialogueClientGOs[j])
-                {
-                    assingmentBool = true;
-                    break;
-                }
-                else
-                {
-                    assingmentBool = false;
-                }
-            }
-            if (assingmentBool)
-            {
-                continue;
-            }
-            dialogueClientsList.RemoveAt(i);
-        }
-
-        for (int i = 0; i < tempDialogueClientGOs.Count; i++)
-        {
-            for (int j = 0; j < dialogueClientsList.Count; j++)
-            {
-                if (dialogueClientsList[j].GOReference == tempDialogueClientGOs[i])
-                {
-                    assingmentBool = true;
-                    break;
-                }
-                else
-                {
-                    assingmentBool = false;
-                }
-            }
-            if (assingmentBool)
-            {
-                continue;
-            }
-            DialogueClients tmpDialogueClient = new()
-            {
-                GOReference = tempDialogueClientGOs[i]
-            };
-            dialogueClientsList.Add(tmpDialogueClient);
-        }
+        ListCompare(dialogueClientsList, tempDialogueClientGOs, ()=> new DialogueClient());
     }
 
     private void SetDialogueIDs()
@@ -102,5 +57,18 @@ public class DialogueOrganizer : MonoBehaviour
         {
             dialogues.DialogueList[i].DialogueID = i;
         }
+    }
+}
+
+[Serializable]
+public class DialogueClient : Translate
+{
+    public GameObject GOReference;
+    public int dialogueID;
+
+    public GameObject GOTranslate
+    {
+        get { return GOReference; }
+        set { GOReference = value; }
     }
 }

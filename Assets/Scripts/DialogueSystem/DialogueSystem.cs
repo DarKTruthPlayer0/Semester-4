@@ -55,10 +55,3 @@ public class DialogueSystem : MonoBehaviour
         dialogues = FindObjectOfType<Dialogues>();
     }
 }
-
-[Serializable]
-public class DialogueClients
-{
-    public GameObject GOReference;
-    public int dialogueID;
-}

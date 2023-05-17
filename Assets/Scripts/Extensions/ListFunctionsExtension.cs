@@ -6,13 +6,13 @@ public class ListFunctionsExtension : MonoBehaviour
 {
     private bool helperBool;
 
-    public void KuchenFunktion<T>(List<T> ExistingList, List<GameObject> CompareList, Func<T> createItem) where T : Translate
+    public void ListCompare<T>(List<T> ExistingList, List<GameObject> GOCompareList, Func<T> createItem) where T : Translate
     {
         for (int i = 0; i < ExistingList.Count; i++)
         {
-            for (int j = 0; j < CompareList.Count; j++)
+            for (int j = 0; j < GOCompareList.Count; j++)
             {
-                if (ExistingList[i].GOTranslate == CompareList[j])
+                if (ExistingList[i].GOTranslate == GOCompareList[j])
                 {
                     helperBool = true;
                     break;
@@ -29,11 +29,11 @@ public class ListFunctionsExtension : MonoBehaviour
             ExistingList.RemoveAt(i);
         }
 
-        for (int i = 0; i < CompareList.Count; i++)
+        for (int i = 0; i < GOCompareList.Count; i++)
         {
             for (int j = 0; j < ExistingList.Count; j++)
             {
-                if (CompareList[i] == ExistingList[j].GOTranslate)
+                if (GOCompareList[i] == ExistingList[j].GOTranslate)
                 {
                     helperBool = true;
                     break;
@@ -48,7 +48,54 @@ public class ListFunctionsExtension : MonoBehaviour
                 continue;
             }
             T newItem = createItem();
-            newItem.GOTranslate = CompareList[i];
+            newItem.GOTranslate = GOCompareList[i];
+            ExistingList.Add(newItem);
+        }
+    }
+
+    public void ListCompareListsUseSameGOs<T>(List<T> ExistingList, List<GameObject> GOCompareList, Func<T> createItem) where T : Translate
+    {
+        for (int i = 0; i < ExistingList.Count; i++)
+        {
+            for (int j = 0; j < GOCompareList.Count; j++)
+            {
+                if (ExistingList[i].GOTranslate == GOCompareList[j])
+                {
+                    helperBool = true;
+                    break;
+                }
+                else
+                {
+                    helperBool = false;
+                }
+            }
+            if (helperBool)
+            {
+                continue;
+            }
+            ExistingList.RemoveAt(i);
+        }
+
+        for (int i = 0; i < GOCompareList.Count; i++)
+        {
+            for (int j = 0; j < ExistingList.Count; j++)
+            {
+                if (ExistingList[j].GOTranslate == GOCompareList[i])
+                {
+                    helperBool = true;
+                    break;
+                }
+                else
+                {
+                    helperBool = false;
+                }
+            }
+            if (helperBool)
+            {
+                continue;
+            }
+            T newItem = createItem();
+            newItem.GOTranslate = GOCompareList[i];
             ExistingList.Add(newItem);
         }
     }

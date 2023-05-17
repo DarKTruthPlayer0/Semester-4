@@ -79,14 +79,14 @@ public class PlayerBrain : MonoBehaviour
     {
         for (int i = 0; i < ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic.Length; i++)
         {
-            if (ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].ItemMatchingInteractionObject.Item != inventory.Items[selectedItemID].ItemGO)
+            if (ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].Item != inventory.Items[selectedItemID].ItemGO)
             {
                 continue;
             }
-            for (int j = 0; j < ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].ItemMatchingInteractionObject.InteractionObjects.Count; j++)
+            for (int j = 0; j < ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].InteractionObjects.Count; j++)
             {
-                if (ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].ItemMatchingInteractionObject.InteractionObjects[j].InteractWithObject &&
-                    ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].ItemMatchingInteractionObject.InteractionObjects[j].Object == UIIIGO)
+                if (ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].InteractionObjects[j].InteractWithObject &&
+                    ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].InteractionObjects[j].Object == UIIIGO)
                 {
                     CheckInteractionOutcome(UIIIGO);
                     break;

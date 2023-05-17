@@ -29,14 +29,14 @@ public class ItemInteractionBrain : MonoBehaviour
         List<Interaction> tmpInteractions = new();
         for (int i = 0; i < IIAL.ItemToObjectsAssingments.Count; i++)
         {
-            for (int j = 0; j < IIAL.ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects.Count; j++)
+            for (int j = 0; j < IIAL.ItemToObjectsAssingments[i].InteractionObjects.Count; j++)
             {
-                if (IIAL.ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects[j].InteractWithObject)
+                if (IIAL.ItemToObjectsAssingments[i].InteractionObjects[j].InteractWithObject)
                 {
                     Interaction interaction = new()
                     {
-                        Item = IIAL.ItemToObjectsAssingments[i].ItemMatchingInteractionObject.Item,
-                        Interactable = IIAL.ItemToObjectsAssingments[i].ItemMatchingInteractionObject.InteractionObjects[j].Object
+                        Item = IIAL.ItemToObjectsAssingments[i].Item,
+                        Interactable = IIAL.ItemToObjectsAssingments[i].InteractionObjects[j].Object
                     };
                     tmpInteractions.Add(interaction);
 
