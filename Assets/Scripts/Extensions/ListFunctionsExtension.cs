@@ -1,42 +1,71 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Kuchen
+public class ListFunctionsExtension : MonoBehaviour
 {
-    public void KuchenFunktion<T>(List<T> krümelListe, List<GameObject> tmpKrümelGOsVergleich) where T : IKrümel
-    {
-        for (int i = 0; i < krümelListe.Count; i++)
-        {
-            Krümel(i, krümelListe, tmpKrümelGOsVergleich);
-        }
-    }
+    private bool helperBool;
 
-    void Krümel<T>(int i, List<T> krümelListe, List<GameObject> tmpKrümelGOsVergleich) where T : IKrümel
+    public void KuchenFunktion<T>(List<T> ExistingList, List<GameObject> CompareList, Func<T> createItem) where T : Translate
     {
-        for (int j = 0; j < tmpKrümelGOsVergleich.Count; j++)
+        for (int i = 0; i < ExistingList.Count; i++)
         {
-            if (krümelListe[i].KrümelGO == tmpKrümelGOsVergleich[j])
+            for (int j = 0; j < CompareList.Count; j++)
             {
-                // Hier können Sie Code hinzufügen, der ausgeführt wird,
-                // wenn das GameObject "KrümelGO" einem der GameObjects
-                // in der Liste "tmpKrümelGOsVergleich" entspricht.
+                if (ExistingList[i].GOTranslate == CompareList[j])
+                {
+                    helperBool = true;
+                    break;
+                }
+                else
+                {
+                    helperBool = false;
+                }
             }
+            if (helperBool)
+            {
+                continue;
+            }
+            ExistingList.RemoveAt(i);
+        }
+
+        for (int i = 0; i < CompareList.Count; i++)
+        {
+            for (int j = 0; j < ExistingList.Count; j++)
+            {
+                if (CompareList[i] == ExistingList[j].GOTranslate)
+                {
+                    helperBool = true;
+                    break;
+                }
+                else
+                {
+                    helperBool = false;
+                }
+            }
+            if (helperBool)
+            {
+                continue;
+            }
+            T newItem = createItem();
+            newItem.GOTranslate = CompareList[i];
+            ExistingList.Add(newItem);
         }
     }
 }
 
-public interface IKrümel
+public interface Translate
 {
-    GameObject KrümelGO { get; set; }
+    GameObject GOTranslate { get; set; }
 }
 
-public class Torte : IKrümel
+public class Torte : Translate
 {
     public GameObject TortenGO;
     public bool Existiert;
     public string TortenName;
 
-    public GameObject KrümelGO
+    public GameObject GOTranslate
     {
         get { return TortenGO; }
         set { TortenGO = value; }
