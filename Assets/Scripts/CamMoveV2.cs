@@ -144,7 +144,7 @@ public class CamMoveV2 : ListFunctionsExtension
     }
     private void Start()
     {
-        if (Application.isEditor && Application.isPlaying)
+        if (Application.isEditor && !Application.isPlaying)
         {
             return;
         }
