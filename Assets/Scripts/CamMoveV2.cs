@@ -24,7 +24,6 @@ public class CamMoveV2 : ListFunctionsExtension
 
     public List<CamPositions> camPositions;
     private int speedupInt;
-    private bool sortHelpBool;
     private bool camMoved;
 
     public void MoveRight()
@@ -126,7 +125,7 @@ public class CamMoveV2 : ListFunctionsExtension
 
         for (int i = 0; i < camPositions.Count; i++)
         {
-            ListCompareListsUseSameGOs(camPositions[i].PossibleCamPositions, tmpPositionGOsList, () => new CamPosition());
+            ListCompareListsUseSameGOs(camPositions[i].PossibleCamPositions, tmpPositionGOsList, camPositions[i].ActualPositionGO, () => new CamPosition());
         }
     }
 

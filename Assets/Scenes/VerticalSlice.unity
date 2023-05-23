@@ -27404,24 +27404,39 @@ PrefabInstance:
       objectReference: {fileID: 1546642145}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
+        type: 3}
       propertyPath: rightArrow
       value: 
       objectReference: {fileID: 970647387}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.size
-      value: 4
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
+        type: 3}
+      propertyPath: camPositions.Array.data[0].ActualPositionGO
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
+        type: 3}
+      propertyPath: camPositions.Array.data[1].ActualPositionGO
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[2].ActualPositionGO
       value: 
-      objectReference: {fileID: 1530872901}
+      objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[3].ActualPositionGO
       value: 
-      objectReference: {fileID: 1076625681}
+      objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[0].PossibleCamPositions.Array.size
@@ -27430,86 +27445,116 @@ PrefabInstance:
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[1].PossibleCamPositions.Array.size
-      value: 3
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[2].PossibleCamPositions.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[3].PossibleCamPositions.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[0].PossibleCamPositions.Array.data[0].CanMoveTo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[0].PossibleCamPositions.Array.data[0].Direction
-      value: 3
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
+        type: 3}
+      propertyPath: camPositions.Array.data[0].PossibleCamPositions.Array.data[1].CanMoveTo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
+        type: 3}
+      propertyPath: camPositions.Array.data[0].PossibleCamPositions.Array.data[1].Direction
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[1].PossibleCamPositions.Array.data[0].CanMoveTo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[1].PossibleCamPositions.Array.data[0].Direction
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[1].PossibleCamPositions.Array.data[1].CanMoveTo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[1].PossibleCamPositions.Array.data[1].Direction
-      value: 3
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
+        type: 3}
+      propertyPath: camPositions.Array.data[1].PossibleCamPositions.Array.data[2].CanMoveTo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
+        type: 3}
+      propertyPath: camPositions.Array.data[1].PossibleCamPositions.Array.data[2].Direction
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[2].PossibleCamPositions.Array.data[1].CanMoveTo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[2].PossibleCamPositions.Array.data[1].Direction
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[2].PossibleCamPositions.Array.data[2].CanMoveTo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[2].PossibleCamPositions.Array.data[2].Direction
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[3].PossibleCamPositions.Array.data[2].CanMoveTo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[3].PossibleCamPositions.Array.data[2].Direction
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
-      propertyPath: camPositions.Array.data[0].PossibleCamPositions.Array.data[1].PossiblePositionGO
+      propertyPath: camPositions.Array.data[0].PossibleCamPositions.Array.data[0].PossiblePositionGO
       value: 
       objectReference: {fileID: 1530872901}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
+      propertyPath: camPositions.Array.data[0].PossibleCamPositions.Array.data[1].PossiblePositionGO
+      value: 
+      objectReference: {fileID: 5411069640259740059}
+    - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
+        type: 3}
       propertyPath: camPositions.Array.data[0].PossibleCamPositions.Array.data[2].PossiblePositionGO
+      value: 
+      objectReference: {fileID: 5411069640259740059}
+    - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
+        type: 3}
+      propertyPath: camPositions.Array.data[0].PossibleCamPositions.Array.data[3].PossiblePositionGO
       value: 
       objectReference: {fileID: 1076625681}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
@@ -27520,6 +27565,11 @@ PrefabInstance:
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[1].PossibleCamPositions.Array.data[2].PossiblePositionGO
+      value: 
+      objectReference: {fileID: 1076625681}
+    - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
+        type: 3}
+      propertyPath: camPositions.Array.data[1].PossibleCamPositions.Array.data[3].PossiblePositionGO
       value: 
       objectReference: {fileID: 1076625681}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
@@ -27539,6 +27589,11 @@ PrefabInstance:
       objectReference: {fileID: 1076625681}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
+      propertyPath: camPositions.Array.data[2].PossibleCamPositions.Array.data[3].PossiblePositionGO
+      value: 
+      objectReference: {fileID: 1076625681}
+    - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
+        type: 3}
       propertyPath: camPositions.Array.data[3].PossibleCamPositions.Array.data[0].PossiblePositionGO
       value: 
       objectReference: {fileID: 5411069639977167132}
@@ -27552,6 +27607,11 @@ PrefabInstance:
       propertyPath: camPositions.Array.data[3].PossibleCamPositions.Array.data[2].PossiblePositionGO
       value: 
       objectReference: {fileID: 1530872901}
+    - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
+        type: 3}
+      propertyPath: camPositions.Array.data[3].PossibleCamPositions.Array.data[3].PossiblePositionGO
+      value: 
+      objectReference: {fileID: 1076625681}
     - target: {fileID: 5411069639972189272, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -131102,6 +131162,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
+      propertyPath: camPositions.Array.data[0].ActualPositionGO
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
+        type: 3}
       propertyPath: camPositions.Array.data[2].ActualPositionGO
       value: 
       objectReference: {fileID: 594918023}
@@ -131113,12 +131178,12 @@ PrefabInstance:
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[0].PossibleCamPositions.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}
       propertyPath: camPositions.Array.data[1].PossibleCamPositions.Array.size
-      value: 3
+      value: 76
       objectReference: {fileID: 0}
     - target: {fileID: 5411069639882047893, guid: 88589ed7cf4db7048b9a501f079a35b5,
         type: 3}

@@ -53,7 +53,7 @@ public class ListFunctionsExtension : MonoBehaviour
         }
     }
 
-    public void ListCompareListsUseSameGOs<T>(List<T> ExistingList, List<GameObject> GOCompareList, Func<T> createItem) where T : Translate
+    public void ListCompareListsUseSameGOs<T>(List<T> ExistingList, List<GameObject> GOCompareList, GameObject CompareObject, Func<T> createItem) where T : Translate
     {
         for (int i = 0; i < ExistingList.Count; i++)
         {
@@ -80,7 +80,7 @@ public class ListFunctionsExtension : MonoBehaviour
         {
             for (int j = 0; j < ExistingList.Count; j++)
             {
-                if (ExistingList[j].GOTranslate == GOCompareList[i])
+                if (GOCompareList[i] == ExistingList[j].GOTranslate)
                 {
                     helperBool = true;
                     break;
@@ -90,7 +90,7 @@ public class ListFunctionsExtension : MonoBehaviour
                     helperBool = false;
                 }
             }
-            if (helperBool)
+            if (helperBool || GOCompareList[i] == CompareObject)
             {
                 continue;
             }
