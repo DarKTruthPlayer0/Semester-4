@@ -6,10 +6,10 @@ using UnityEngine.UIElements;
 [ExecuteInEditMode]
 public class ItemInteractionBrain : MonoBehaviour
 {
-    [Header ("Essential")]
+    [Header("Essential")]
     [SerializeField] private ItemInteractionAssingmentLoad IIAL;
 
-    [Header ("Interactions")]
+    [Header("Interactions")]
     public static Interaction[] InteractionsStatic;
     public List<Interaction> Interactions = new();
 
@@ -43,8 +43,8 @@ public class ItemInteractionBrain : MonoBehaviour
                 }
             }
         }
-        
-        
+
+
         if (Interactions.Count > 0 && tmpInteractions.Count > 0)
         {
             for (int i = 0; i < tmpInteractions.Count; i++)
@@ -65,10 +65,7 @@ public class ItemInteractionBrain : MonoBehaviour
                 {
                     continue;
                 }
-                else
-                {
-                    Interactions.Add(tmpInteractions[i]);
-                }
+                Interactions.Add(tmpInteractions[i]);
             }
 
             for (int i = 0; i < Interactions.Count; i++)
@@ -93,10 +90,7 @@ public class ItemInteractionBrain : MonoBehaviour
                 {
                     continue;
                 }
-                else
-                {
-                    Interactions.RemoveAt(i);
-                }
+                Interactions.RemoveAt(i);
             }
         }
         else
@@ -120,5 +114,4 @@ public class Paths
 {
     public GameBrainScript.Style Style;
     public int InteractionDialogueID;
-    public Dialogues pants;
 }

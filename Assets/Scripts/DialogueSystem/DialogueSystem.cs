@@ -4,7 +4,6 @@ using System;
 
 public class DialogueSystem : MonoBehaviour
 {
-    private static Dialogues dialogues;
     private static TMP_Text dialogueName;
     private static TMP_Text dialogueText;
     private static int i = 0;
@@ -15,8 +14,8 @@ public class DialogueSystem : MonoBehaviour
     {
         dialogueID = DialogueID;
         //activate Dialogue Object
-        dialogueName.text = dialogues.DialogueList[dialogueID].DialogueParts[i].PersonNameWhichTalks;
-        dialogueText.text = dialogues.DialogueList[dialogueID].DialogueParts[i].SentenceThePersonTalk;
+        dialogueName.text = DialogueOrganizer.DialoguesStatic[dialogueID].DialogueParts[i].PersonNameWhichTalks;
+        dialogueText.text = DialogueOrganizer.DialoguesStatic[dialogueID].DialogueParts[i].SentenceThePersonTalk;
         i = 1;
         dialogueWindowGO.SetActive(true);
     }
@@ -24,10 +23,10 @@ public class DialogueSystem : MonoBehaviour
     public void NextPartOfDialogue()
     {
         print("next DialoguePart");
-        if (i < dialogues.DialogueList[dialogueID].DialogueParts.Length)
+        if (i < DialogueOrganizer.DialoguesStatic[dialogueID].DialogueParts.Length)
         {
-            dialogueName.text = dialogues.DialogueList[dialogueID].DialogueParts[i].PersonNameWhichTalks;
-            dialogueText.text = dialogues.DialogueList[dialogueID].DialogueParts[i].SentenceThePersonTalk;
+            dialogueName.text = DialogueOrganizer.DialoguesStatic[dialogueID].DialogueParts[i].PersonNameWhichTalks;
+            dialogueText.text = DialogueOrganizer.DialoguesStatic[dialogueID].DialogueParts[i].SentenceThePersonTalk;
             i++;
         }
         else
@@ -52,6 +51,5 @@ public class DialogueSystem : MonoBehaviour
         dialogueText = dialogueWindowGO.transform.GetChild(0).GetChild(1).GetComponent<TMP_Text>();
         dialogueWindowGO.SetActive(false);
 
-        dialogues = FindObjectOfType<Dialogues>();
     }
 }

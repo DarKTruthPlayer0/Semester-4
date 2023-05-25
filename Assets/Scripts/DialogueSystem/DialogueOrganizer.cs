@@ -13,8 +13,10 @@ public class DialogueOrganizer : ListFunctionsExtension
 
 
     public static DialogueClient[] DialogueClientsStatic;
-    [SerializeField] Dialogues dialogues;
+    public static Dialogue[] DialoguesStatic;
+    public List<Dialogue> DialogueList;
     [SerializeField] private List<DialogueClient> dialogueClientsList;
+
 
     private void Start()
     {
@@ -22,11 +24,11 @@ public class DialogueOrganizer : ListFunctionsExtension
     }
     private void Update()
     {
-        if (Application.isEditor)
+        if (Application.isEditor && Application.isPlaying)
         {
-            AssingDialogueClients();
-            SetDialogueIDs();
+            return;
         }
+        AssingDialogueClients();
     }
 
     private void AssingDialogueClients()
@@ -50,14 +52,6 @@ public class DialogueOrganizer : ListFunctionsExtension
 
         ListCompare(dialogueClientsList, tempDialogueClientGOs, ()=> new DialogueClient());
     }
-
-    private void SetDialogueIDs()
-    {
-        for (int i = 0; i < dialogues.DialogueList.Count; i++)
-        {
-            dialogues.DialogueList[i].DialogueID = i;
-        }
-    }
 }
 
 [Serializable]
@@ -71,4 +65,24 @@ public class DialogueClient : Translate
         get { return GOReference; }
         set { GOReference = value; }
     }
+}
+
+[Serializable]
+public class Dialogue
+{
+    public string DialogueClassification;
+    public DialoguePart[] DialogueParts;
+}
+
+[Serializable]
+public class DialoguePart
+{
+    public string PersonNameWhichTalks;
+    public string SentenceThePersonTalk;
+}
+
+[Serializable]
+public class Element
+{
+    public string SelectedElement;
 }

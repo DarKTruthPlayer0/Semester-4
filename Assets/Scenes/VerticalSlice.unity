@@ -118122,6 +118122,55 @@ Transform:
   m_Father: {fileID: 1348616712}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1773804078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1773804079}
+  - component: {fileID: 1773804080}
+  m_Layer: 0
+  m_Name: Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1773804079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773804078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1773804080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773804078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f02429721ae00409bd0788aca5f648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyList:
+  - Kokosnuss
+  - Besser
+  - Banane
+  SelectedElement: Banane
 --- !u!1 &1773804217
 GameObject:
   m_ObjectHideFlags: 0
@@ -149337,8 +149386,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
         type: 3}
+      propertyPath: DialogueList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
       propertyPath: dialogueClientsList.Array.size
       value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogues.DialogueList.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
         type: 3}
@@ -149560,6 +149619,21 @@ PrefabInstance:
       propertyPath: dialogueClientsList.Array.data[25].GOReference
       value: 
       objectReference: {fileID: 286299441}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogues.DialogueList.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogues.DialogueList.Array.data[1].DialogueClassification
+      value: HAllo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogues.DialogueList.Array.data[1].DialogueParts.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4342236226442426624, guid: c8a94e639275e13458156edd8000fc32,
         type: 3}
       propertyPath: m_RootOrder
@@ -149620,7 +149694,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameBrain
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4342236225095815308, guid: c8a94e639275e13458156edd8000fc32, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: c8a94e639275e13458156edd8000fc32, type: 3}
 --- !u!114 &4863544676056079831 stripped
