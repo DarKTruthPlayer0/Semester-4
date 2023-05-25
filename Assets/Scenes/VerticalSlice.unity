@@ -118122,55 +118122,6 @@ Transform:
   m_Father: {fileID: 1348616712}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1773804078
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1773804079}
-  - component: {fileID: 1773804080}
-  m_Layer: 0
-  m_Name: Test
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1773804079
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1773804078}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1773804080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1773804078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99f02429721ae00409bd0788aca5f648, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MyList:
-  - Kokosnuss
-  - Besser
-  - Banane
-  SelectedElement: Banane
 --- !u!1 &1773804217
 GameObject:
   m_ObjectHideFlags: 0
@@ -146027,6 +145978,11 @@ PrefabInstance:
       objectReference: {fileID: 1827339251}
     - target: {fileID: 4342236225072946156, guid: c8a94e639275e13458156edd8000fc32,
         type: 3}
+      propertyPath: ItemToObjectsAssingments.Array.data[7].InteractionObjects.Array.data[0].InteractWithObject
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225072946156, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
       propertyPath: ItemToObjectsAssingments.Array.data[0].ItemMatchingInteractionObject.InteractionObjects.Array.size
       value: 18
       objectReference: {fileID: 0}
@@ -147167,14 +147123,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342236225072946159, guid: c8a94e639275e13458156edd8000fc32,
         type: 3}
+      propertyPath: interactionExist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225072946159, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: tmpInteractionExist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225072946159, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
       propertyPath: Interactions.Array.size
-      value: 15
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4342236225072946159, guid: c8a94e639275e13458156edd8000fc32,
         type: 3}
       propertyPath: Interactions.Array.data[0].Item
       value: 
-      objectReference: {fileID: 1387009842}
+      objectReference: {fileID: 1769425264}
     - target: {fileID: 4342236225072946159, guid: c8a94e639275e13458156edd8000fc32,
         type: 3}
       propertyPath: Interactions.Array.data[1].Item
@@ -147264,7 +147230,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Interactions.Array.data[0].Interactable
       value: 
-      objectReference: {fileID: 2047375974}
+      objectReference: {fileID: 1399797023}
     - target: {fileID: 4342236225072946159, guid: c8a94e639275e13458156edd8000fc32,
         type: 3}
       propertyPath: Interactions.Array.data[1].Interactable
@@ -147463,7 +147429,7 @@ PrefabInstance:
     - target: {fileID: 4342236225072946159, guid: c8a94e639275e13458156edd8000fc32,
         type: 3}
       propertyPath: Interactions.Array.data[0].Paths.Array.data[0].Style
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4342236225072946159, guid: c8a94e639275e13458156edd8000fc32,
         type: 3}
@@ -149381,13 +149347,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: helperBool
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
       propertyPath: tagInteractables
       value: Interactable
       objectReference: {fileID: 0}
     - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
         type: 3}
       propertyPath: DialogueList.Array.size
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueList.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
         type: 3}
@@ -149621,6 +149602,86 @@ PrefabInstance:
       objectReference: {fileID: 286299441}
     - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
         type: 3}
+      propertyPath: DialogueList.Array.data[0].DialogueClassification
+      value: Hallo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: DialogueList.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueList.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueList.Array.data[1].DialogueClassification
+      value: Holz
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueList.Array.data[0].DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueList.Array.data[1].DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[0].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[1].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[2].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[3].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[4].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[5].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[6].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[7].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[8].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[9].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
       propertyPath: dialogues.DialogueList.Array.data[0].DialogueClassification
       value: Banane
       objectReference: {fileID: 0}
@@ -149631,8 +149692,878 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
         type: 3}
+      propertyPath: dialogueClientsList.Array.data[10].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[11].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[12].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[13].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[14].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[15].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[16].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[17].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[18].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[19].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[20].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[21].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[22].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[23].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[24].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[25].DialogueSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
       propertyPath: dialogues.DialogueList.Array.data[1].DialogueParts.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[0].DialogueSelect.Array.data[0].UseThisDialogue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[0].DialogueSelect.Array.data[1].UseThisDialogue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[0].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[0].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[1].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[1].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[2].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[2].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[3].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[3].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[4].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[4].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[5].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[5].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[6].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[6].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[7].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[7].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[8].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[8].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[9].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[9].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[10].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[10].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[11].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[11].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[12].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[12].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[13].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[13].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[14].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[14].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[15].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[15].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[16].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[16].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[17].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[17].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[18].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[18].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[19].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[19].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[20].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[20].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[21].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[21].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[22].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[22].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[23].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[23].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[24].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[24].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[25].DialogueSelect.Array.data[0].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[25].DialogueSelect.Array.data[1].DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[0].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[0].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[1].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[1].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[2].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[2].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[3].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[3].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[4].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[4].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[5].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[5].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[6].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[6].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[7].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[7].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[8].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[8].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[9].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[9].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[10].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[10].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[11].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[11].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[12].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[12].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[13].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[13].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[14].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[14].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[15].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[15].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[16].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[16].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[17].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[17].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[18].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[18].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[19].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[19].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[20].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[20].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[21].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[21].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[22].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[22].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[23].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[23].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[24].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[24].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[25].DialogueSelect.Array.data[0].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[25].DialogueSelect.Array.data[1].SelectedDialogue.DialogueClassification
+      value: Banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[0].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[0].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[1].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[1].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[2].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[2].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[3].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[3].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[4].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[4].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[5].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[5].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[6].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[6].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[7].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[7].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[8].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[8].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[9].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[9].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[10].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[10].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[11].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[11].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[12].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[12].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[13].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[13].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[14].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[14].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[15].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[15].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[16].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[16].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[17].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[17].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[18].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[18].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[19].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[19].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[20].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[20].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[21].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[21].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[22].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[22].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[23].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[23].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[24].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[24].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[25].DialogueSelect.Array.data[0].SelectedDialogue.DialogueParts.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342236225095815309, guid: c8a94e639275e13458156edd8000fc32,
+        type: 3}
+      propertyPath: dialogueClientsList.Array.data[25].DialogueSelect.Array.data[1].SelectedDialogue.DialogueParts.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4342236226442426624, guid: c8a94e639275e13458156edd8000fc32,
         type: 3}

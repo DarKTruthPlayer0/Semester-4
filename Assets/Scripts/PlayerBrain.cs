@@ -30,7 +30,14 @@ public class PlayerBrain : MonoBehaviour
                 {
                     if (DialogueOrganizer.DialogueClientsStatic[i].GOReference == IGO)
                     {
-                        DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[i].dialogueID);
+                        for (int j = 0; j < DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect.Count; j++)
+                        { 
+                            if (DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[j].UseThisDialogue)
+                            {
+                                DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[j].SelectedDialogue);
+                                break;
+                            }
+                        }
                         break;
                     }
 
@@ -123,7 +130,14 @@ public class PlayerBrain : MonoBehaviour
                 {
                     if (TempItemGO == DialogueOrganizer.DialogueClientsStatic[j].GOReference)
                     {
-                        DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[j].dialogueID);
+                        for (int k = 0; k < DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect.Count; k++)
+                        {
+                            if (DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[k].UseThisDialogue)
+                            {
+                                DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[k].SelectedDialogue);
+                                break;
+                            }
+                        }
                         break;
                     }
                 }
@@ -135,11 +149,18 @@ public class PlayerBrain : MonoBehaviour
 
     private void TalkWithNPC(GameObject TWNPCGO)
     {
-        for (int j = 0; j < DialogueOrganizer.DialogueClientsStatic.Length; j++)
+        for (int i = 0; i < DialogueOrganizer.DialogueClientsStatic.Length; i++)
         {
-            if (TWNPCGO == DialogueOrganizer.DialogueClientsStatic[j].GOReference)
+            if (TWNPCGO == DialogueOrganizer.DialogueClientsStatic[i].GOReference)
             {
-                DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[j].dialogueID);
+                for (int j = 0; j < DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect.Count; j++)
+                {
+                    if (DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[j].UseThisDialogue)
+                    {
+                        DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[j].SelectedDialogue);
+                        break;
+                    }
+                }
                 break;
             }
         }

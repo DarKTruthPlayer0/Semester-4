@@ -7,15 +7,15 @@ public class DialogueSystem : MonoBehaviour
     private static TMP_Text dialogueName;
     private static TMP_Text dialogueText;
     private static int i = 0;
-    private static int dialogueID;
+    private static Dialogue tmpDialogue;
     private static GameObject dialogueWindowGO;
 
-    public static void EnterDialogue(int DialogueID)
+    public static void EnterDialogue(Dialogue dialogue)
     {
-        dialogueID = DialogueID;
+        tmpDialogue = dialogue;
         //activate Dialogue Object
-        dialogueName.text = DialogueOrganizer.DialoguesStatic[dialogueID].DialogueParts[i].PersonNameWhichTalks;
-        dialogueText.text = DialogueOrganizer.DialoguesStatic[dialogueID].DialogueParts[i].SentenceThePersonTalk;
+        dialogueName.text = tmpDialogue.DialogueParts[i].PersonNameWhichTalks;
+        dialogueText.text = tmpDialogue.DialogueParts[i].SentenceThePersonTalk;
         i = 1;
         dialogueWindowGO.SetActive(true);
     }
@@ -23,10 +23,10 @@ public class DialogueSystem : MonoBehaviour
     public void NextPartOfDialogue()
     {
         print("next DialoguePart");
-        if (i < DialogueOrganizer.DialoguesStatic[dialogueID].DialogueParts.Length)
+        if (i < tmpDialogue.DialogueParts.Length)
         {
-            dialogueName.text = DialogueOrganizer.DialoguesStatic[dialogueID].DialogueParts[i].PersonNameWhichTalks;
-            dialogueText.text = DialogueOrganizer.DialoguesStatic[dialogueID].DialogueParts[i].SentenceThePersonTalk;
+            dialogueName.text = tmpDialogue.DialogueParts[i].PersonNameWhichTalks;
+            dialogueText.text = tmpDialogue.DialogueParts[i].SentenceThePersonTalk;
             i++;
         }
         else
@@ -38,6 +38,7 @@ public class DialogueSystem : MonoBehaviour
     private void ExitDialogue()
     {
         i = 0;
+        tmpDialogue = null;
         dialogueName.text = null;
         dialogueText.text = null;
         //deactivate Dialogue Object
