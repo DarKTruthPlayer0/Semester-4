@@ -26,22 +26,7 @@ public class PlayerBrain : MonoBehaviour
             }
             else
             {
-                for (int i = 0; i < DialogueOrganizer.DialogueClientsStatic.Length; i++)
-                {
-                    if (DialogueOrganizer.DialogueClientsStatic[i].GOReference == IGO)
-                    {
-                        for (int j = 0; j < DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect.Count; j++)
-                        { 
-                            if (DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[j].UseThisDialogue)
-                            {
-                                DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[j].SelectedDialogue);
-                                break;
-                            }
-                        }
-                        break;
-                    }
-
-                }
+                InteractionWithoutItem(IGO);
             }
         }
         if (IGO.CompareTag(tagTalkableNPCs))
@@ -82,6 +67,26 @@ public class PlayerBrain : MonoBehaviour
         }
     }
 
+    private void InteractionWithoutItem(GameObject IWIGO)
+    {
+        for (int i = 0; i < DialogueOrganizer.DialogueClientsStatic.Length; i++)
+        {
+            if (DialogueOrganizer.DialogueClientsStatic[i].GOReference == IWIGO)
+            {
+                for (int j = 0; j < DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect.Count; j++)
+                {
+                    if (DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[j].UseThisDialogue && !DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[j].DialogueSpoken)
+                    {
+                        DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[j].DialogueSpoken = true;
+                        DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[j].SelectedDialogue);
+                        break;
+                    }
+                }
+                break;
+            }
+
+        }
+    }
     private void UseItemInIventory(GameObject UIIIGO)
     {
         for (int i = 0; i < ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic.Length; i++)

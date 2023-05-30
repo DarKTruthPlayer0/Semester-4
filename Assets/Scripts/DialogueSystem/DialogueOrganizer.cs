@@ -141,6 +141,7 @@ public class DialogueSelect
     [HideInInspector] public string DialogueClassification;
     public bool UseThisDialogue;
     [HideInInspector] public Dialogue SelectedDialogue;
+    [HideInInspector] public bool DialogueSpoken;
 }
 
 [Serializable]
