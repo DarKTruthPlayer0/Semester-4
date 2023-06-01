@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameBrainScript : MonoBehaviour
 {
-    public static List<Style> styles = new List<Style>();
+    public static List<Style> Styles = new List<Style>();
     public enum Style
     {
         Horror,
@@ -30,7 +30,7 @@ public class GameBrainScript : MonoBehaviour
 
     private void CalculatePresentStyle()
     {
-        if (styles.Count == 0)
+        if (Styles.Count == 0)
         {
             return;
         }
@@ -39,9 +39,9 @@ public class GameBrainScript : MonoBehaviour
 
         for (int i = 0; i < enumArray.Length;i++)
         {
-            for (int j = 0; j < styles.Count; j++)
+            for (int j = 0; j < Styles.Count; j++)
             {
-                if (styles[j] == (Style)i)
+                if (Styles[j] == (Style)i)
                 {
                     StyleVoteNumbers[i] ++;
                 }

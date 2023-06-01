@@ -52,7 +52,7 @@ public class PathChoose : MonoBehaviour
         {
             if (GO.transform.GetChild(0).GetComponent<TMP_Text>().text == Enum.GetName(typeof(GameBrainScript.Style), i))
             {
-                GameBrainScript.styles.Add((GameBrainScript.Style)i);
+                GameBrainScript.Styles.Add((GameBrainScript.Style)i);
                 StartInteractionEvent((GameBrainScript.Style)i);
                 break;
             }

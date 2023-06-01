@@ -10,7 +10,8 @@ public class PlayerBrain : MonoBehaviour
     [SerializeField] private string tagTalkableNPCs;
     [SerializeField] private string tagInventoryPlaces;
 
-    private Inventory inventory = new();
+    public static Inventory Inventory = new();
+
     private PathChoose pathChoose;
     private GameObject pathChooseButtonsGO;
     private int selectedItemID;
@@ -20,7 +21,7 @@ public class PlayerBrain : MonoBehaviour
         if (IGO.CompareTag(tagInteractable))
         {
             print("Interactable");
-            if (inventory.Items[selectedItemID].ItemSelected)
+            if (Inventory.Items[selectedItemID].ItemSelected)
             {
                 UseItemInIventory(IGO);
             }
@@ -42,26 +43,26 @@ public class PlayerBrain : MonoBehaviour
 
     public void SelectItemInInventory(Button Button)
     {
-        for (int i = 0; i < inventory.Items.Length; i++)
+        for (int i = 0; i < Inventory.Items.Length; i++)
         {
-            if (Button == inventory.Items[i].InventoryPlace && !inventory.Items[i].ItemSelected && inventory.Items[i].ItemGO != null)
+            if (Button == Inventory.Items[i].InventoryPlace && !Inventory.Items[i].ItemSelected && Inventory.Items[i].ItemGO != null)
             {
-                inventory.Items[i].ItemSelected = true;
+                Inventory.Items[i].ItemSelected = true;
                 selectedItemID = i;
 
-                for (int j = 0; j < inventory.Items.Length; j++)
+                for (int j = 0; j < Inventory.Items.Length; j++)
                 {
                     if (j == selectedItemID)
                     {
                         continue;
                     }
-                    inventory.Items[j].ItemSelected = false;
+                    Inventory.Items[j].ItemSelected = false;
                 }
                 break;
             }
-            else if (Button == inventory.Items[i].InventoryPlace && inventory.Items[i].ItemSelected && inventory.Items[i].ItemGO != null)
+            else if (Button == Inventory.Items[i].InventoryPlace && Inventory.Items[i].ItemSelected && Inventory.Items[i].ItemGO != null)
             {
-                inventory.Items[i].ItemSelected = false;
+                Inventory.Items[i].ItemSelected = false;
                 break;
             }
         }
@@ -91,7 +92,7 @@ public class PlayerBrain : MonoBehaviour
     {
         for (int i = 0; i < ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic.Length; i++)
         {
-            if (ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].Item != inventory.Items[selectedItemID].ItemGO)
+            if (ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].Item != Inventory.Items[selectedItemID].ItemGO)
             {
                 continue;
             }
@@ -113,7 +114,7 @@ public class PlayerBrain : MonoBehaviour
         for (int i = 0; i < ItemInteractionBrain.InteractionsStatic.Length; i++)
         {
             if (ItemInteractionBrain.InteractionsStatic[i].Interactable == CIOGO &&
-                ItemInteractionBrain.InteractionsStatic[i].Item == inventory.Items[selectedItemID].ItemGO)
+                ItemInteractionBrain.InteractionsStatic[i].Item == Inventory.Items[selectedItemID].ItemGO)
             {
                 //Path Choose
                 pathChoose.PathChooseGO = CIOGO;
@@ -124,12 +125,12 @@ public class PlayerBrain : MonoBehaviour
     }
     private void PickupItem(GameObject TempItemGO)
     {
-        for (int i = 0; i < inventory.Items.Length; i++)
+        for (int i = 0; i < Inventory.Items.Length; i++)
         {
-            if (inventory.Items[i].ItemGO == null)
+            if (Inventory.Items[i].ItemGO == null)
             {
                 print("HI");
-                inventory.Items[i].ItemGO = TempItemGO;
+                Inventory.Items[i].ItemGO = TempItemGO;
                 //Dialog einblenden
                 for (int j = 0; j < DialogueOrganizer.DialogueClientsStatic.Length; j++)
                 {
@@ -175,10 +176,10 @@ public class PlayerBrain : MonoBehaviour
     {
         GameObject[] tempButtonGOs = GameObject.FindGameObjectsWithTag(tagInventoryPlaces);
 
-        inventory.Items = new Item[tempButtonGOs.Length];
+        Inventory.Items = new Item[tempButtonGOs.Length];
         for (int j = 0;j < tempButtonGOs.Length; j++)
         {
-            inventory.Items[j] = new Item
+            Inventory.Items[j] = new Item
             {
                 InventoryPlace = tempButtonGOs[j].GetComponent<Button>()
             };
