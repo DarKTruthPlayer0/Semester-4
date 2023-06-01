@@ -66,8 +66,11 @@ public class PathChoose : MonoBehaviour
         {
             if (ItemInteractionBrain.InteractionsStatic[InteractionID].Paths[i].Style == style)
             {
+                for (int j = 0; j < ItemInteractionBrain.InteractionsStatic[InteractionID].Paths[i].DialogueSelect.Count; j++)
+                {
                 //Start Dialogue
-                //DialogueSystem.EnterDialogue(ItemInteractionBrain.InteractionsStatic[InteractionID].Paths[i].InteractionDialogueID);
+                DialogueSystem.EnterDialogue(ItemInteractionBrain.InteractionsStatic[InteractionID].Paths[i].DialogueSelect[j].SelectedDialogue);
+                }
             }
         }
     }
