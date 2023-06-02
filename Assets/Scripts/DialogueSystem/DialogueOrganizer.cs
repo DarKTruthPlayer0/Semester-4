@@ -54,18 +54,32 @@ public class DialogueOrganizer : ListFunctionsExtension
 
         ListCompare(dialogueClientsList, tempDialogueClientGOs, ()=> new DialogueClient());
         
+
         List<DialogueSelect> tmpDialogueSelects = new();
 
         for (int i = 0; i < dialogueList.Count; i++)
         {
+            Dialogue tmpDialogue = new();
+
             DialogueSelect dialogueSelect = new()
             {
-                SelectedDialogue = dialogueList[i],
+                SelectedDialogue = tmpDialogue,
                 DialogueClassification = dialogueList[i].DialogueClassification
             };
+            dialogueSelect.SelectedDialogue.DialogueParts = new DialoguePart[dialogueList[i].DialogueParts.Length]; ;
+
+            for (int j = 0; j < dialogueSelect.SelectedDialogue.DialogueParts.Length; j++)
+            {
+                dialogueSelect.SelectedDialogue.DialogueParts[j] = new()
+                {
+                    EmotionSprite = dialogueList[i].DialogueParts[j].EmotionSprite,
+                    PersonNameWhichTalks = dialogueList[i].DialogueParts[j].PersonNameWhichTalks,
+                    SentenceThePersonTalk = dialogueList[i].DialogueParts[j].SentenceThePersonTalk
+                };
+            }
             tmpDialogueSelects.Add(dialogueSelect);
         }
-        
+
         for (int i = 0; i < dialogueClientsList.Count; i++)
         {
             for (int j = 0; j < dialogueClientsList[i].DialogueSelect.Count; j++)
@@ -92,14 +106,14 @@ public class DialogueOrganizer : ListFunctionsExtension
                 }
                 dialogueClientsList[i].DialogueSelect.RemoveAt(j);
             }
-
             for (int j = 0; j < tmpDialogueSelects.Count; j++)
             {
                 for (int k = 0; k < dialogueClientsList[i].DialogueSelect.Count; k++)
                 {
-                    if (tmpDialogueSelects[j].SelectedDialogue == dialogueClientsList[i].DialogueSelect[k].SelectedDialogue)
+                    if (dialogueClientsList[i].DialogueSelect[k].SelectedDialogue == tmpDialogueSelects[j].SelectedDialogue)
                     {
                         helperBool2 = true;
+                        print("yeah");
                         break;
                     }
                     else
@@ -154,6 +168,7 @@ public class Dialogue
 [Serializable]
 public class DialoguePart
 {
+    public Sprite EmotionSprite;
     public string PersonNameWhichTalks;
     public string SentenceThePersonTalk;
 }
