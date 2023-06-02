@@ -18,6 +18,7 @@ public class DialogueOrganizer : ListFunctionsExtension
     [SerializeField] List<DialogueClient> dialogueClientsList;
 
     private bool helperBool2;
+    private bool helperBool3;
 
 
     private void Start()
@@ -52,8 +53,8 @@ public class DialogueOrganizer : ListFunctionsExtension
             tempDialogueClientGOs.Add(tempInteractableGOs[i]);
         }
 
-        ListCompare(dialogueClientsList, tempDialogueClientGOs, ()=> new DialogueClient());
-        
+        ListCompare(dialogueClientsList, tempDialogueClientGOs, () => new DialogueClient());
+
 
         List<DialogueSelect> tmpDialogueSelects = new();
 
@@ -86,7 +87,7 @@ public class DialogueOrganizer : ListFunctionsExtension
             {
                 for (int k = 0; k < tmpDialogueSelects.Count; k++)
                 {
-                    if (dialogueClientsList[i].DialogueSelect[j].SelectedDialogue == tmpDialogueSelects[k].SelectedDialogue)
+                    if (dialogueClientsList[i].DialogueSelect[j].SelectedDialogue.DialogueClassification == tmpDialogueSelects[k].SelectedDialogue.DialogueClassification)
                     {
                         if (dialogueClientsList[i].DialogueSelect[j].DialogueClassification != tmpDialogueSelects[k].DialogueClassification)
                         {
@@ -110,10 +111,9 @@ public class DialogueOrganizer : ListFunctionsExtension
             {
                 for (int k = 0; k < dialogueClientsList[i].DialogueSelect.Count; k++)
                 {
-                    if (dialogueClientsList[i].DialogueSelect[k].SelectedDialogue == tmpDialogueSelects[j].SelectedDialogue)
+                    if (CompareDialogueSelects(dialogueClientsList[i].DialogueSelect[k], tmpDialogueSelects[j]))
                     {
                         helperBool2 = true;
-                        print("yeah");
                         break;
                     }
                     else
@@ -133,6 +133,51 @@ public class DialogueOrganizer : ListFunctionsExtension
                 dialogueClientsList[i].DialogueSelect.Add(tmpDialogueSelect);
             }
         }
+    }
+    private bool CompareDialogueSelects(DialogueSelect DialogueClientsDialogueSelect, DialogueSelect tmpDialogueSlectsDialogueSelect)
+    {
+        helperBool3 = false;
+        int sentenceCheckInt = 0;
+        int personNameCheckInt = 0;
+
+        for (int i = 0; i < tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts.Length; i++)
+        {
+            for (int j = 0; j < DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length; j++)
+            {
+                if (DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].SentenceThePersonTalk.Equals(tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts[i].SentenceThePersonTalk))
+                {
+                    sentenceCheckInt++;
+                }
+                if (DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].PersonNameWhichTalks.Equals(tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts[i].PersonNameWhichTalks))
+                {
+                    personNameCheckInt++;
+                }
+            }
+        }
+        if (sentenceCheckInt == DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length &&
+            personNameCheckInt == DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length)
+        {
+            helperBool3 = true;
+        }
+
+        if (!DialogueClientsDialogueSelect.DialogueClassification.Equals(tmpDialogueSlectsDialogueSelect.DialogueClassification) && helperBool3)
+        {
+            DialogueClientsDialogueSelect.DialogueClassification = tmpDialogueSlectsDialogueSelect.DialogueClassification;
+            DialogueClientsDialogueSelect.SelectedDialogue.DialogueClassification = tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueClassification;
+        }
+
+        for (int i = 0; i < tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts.Length; i++)
+        {
+            for (int j = 0; j < DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length; j++)
+            {
+                if (!DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].EmotionSprite.Equals(tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts[i].EmotionSprite) && helperBool3)
+                {
+                    DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].EmotionSprite = tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts[i].EmotionSprite;
+                }
+            }
+        }
+
+        return helperBool3;
     }
 }
 
@@ -154,7 +199,7 @@ public class DialogueSelect
 {
     [HideInInspector] public string DialogueClassification;
     public bool UseThisDialogue;
-    [HideInInspector] public Dialogue SelectedDialogue;
+     public Dialogue SelectedDialogue;
     [HideInInspector] public bool DialogueSpoken;
 }
 
