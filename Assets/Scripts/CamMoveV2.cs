@@ -178,7 +178,7 @@ public class CamMoveV2 : ListFunctionsExtension
 }
 
 [Serializable]
-public class CamPositions : Translate
+public class CamPositions : ITranslate
 {
     public GameObject ActualPositionGO;
     public List<CamPosition> PossibleCamPositions = new();
@@ -191,7 +191,7 @@ public class CamPositions : Translate
 }
 
 [Serializable]
-public class CamPosition : Translate
+public class CamPosition : ITranslate
 {
     public GameObject PossiblePositionGO;
     public bool CanMoveTo;

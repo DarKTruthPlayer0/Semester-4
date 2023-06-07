@@ -182,7 +182,7 @@ public class SaveDataContainer
 }
 
 [Serializable]
-public class InventorySaveEnabler : Translate
+public class InventorySaveEnabler : ITranslate
 {
     public GameObject Item;
     public int SaveID;
@@ -195,7 +195,7 @@ public class InventorySaveEnabler : Translate
 }
 
 [Serializable]
-public class RoomIDAssing : Translate
+public class RoomIDAssing : ITranslate
 {
     public GameObject Room;
     public int SaveID;

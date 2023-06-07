@@ -35,7 +35,7 @@ public class RoomOrganizer : ListFunctionsExtension
 }
 
 [Serializable]
-public class Room : Translate
+public class Room : ITranslate
 {
     public GameObject RoomGO;
     public bool IsLocked;

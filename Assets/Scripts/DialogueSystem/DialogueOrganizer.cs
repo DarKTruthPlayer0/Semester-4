@@ -12,10 +12,11 @@ public class DialogueOrganizer : ListFunctionsExtension
     [SerializeField] private string tagItems;
     [SerializeField] private string tagInteractables;
 
-
+    [SerializeField] private DialogueListSO DialogueListSO;
+    
     public static DialogueClient[] DialogueClientsStatic;
     public static Dialogue[] DialoguesStatic;
-    public List<Dialogue> dialogueList;
+    [HideInInspector] public List<Dialogue> DialogueList;
     [SerializeField] private List<DialogueClient> dialogueClientsList;
 
     private bool helperBool2;
@@ -33,6 +34,7 @@ public class DialogueOrganizer : ListFunctionsExtension
         {
             return;
         }
+        DialogueList = DialogueListSO.dialogueList;
         AssingDialogueClients();
     }
     private void AssingDialogueClients()
@@ -61,28 +63,30 @@ public class DialogueOrganizer : ListFunctionsExtension
     {
         List<DialogueSelect> tmpDialogueSelects = new();
 
-        for (int i = 0; i < dialogueList.Count; i++)
+        for (int i = 0; i < DialogueList.Count; i++)
         {
             Dialogue tmpDialogue = new();
 
             DialogueSelect dialogueSelect = new()
             {
                 SelectedDialogue = tmpDialogue,
-                DialogueClassification = dialogueList[i].DialogueClassification
+                DialogueClassification = DialogueList[i].DialogueClassification
             };
-            dialogueSelect.SelectedDialogue.DialogueParts = new DialoguePart[dialogueList[i].DialogueParts.Length]; ;
+            dialogueSelect.SelectedDialogue.DialogueParts = new DialoguePart[DialogueList[i].DialogueParts.Length]; ;
 
             for (int j = 0; j < dialogueSelect.SelectedDialogue.DialogueParts.Length; j++)
             {
                 dialogueSelect.SelectedDialogue.DialogueParts[j] = new()
                 {
-                    EmotionSprite = dialogueList[i].DialogueParts[j].EmotionSprite,
-                    PersonNameWhichTalks = dialogueList[i].DialogueParts[j].PersonNameWhichTalks,
-                    SentenceThePersonTalk = dialogueList[i].DialogueParts[j].SentenceThePersonTalk
+                    EmotionSprite = DialogueList[i].DialogueParts[j].EmotionSprite,
+                    PersonNameWhichTalks = DialogueList[i].DialogueParts[j].PersonNameWhichTalks,
+                    SentenceThePersonTalk = DialogueList[i].DialogueParts[j].SentenceThePersonTalk
                 };
             }
             tmpDialogueSelects.Add(dialogueSelect);
         }
+
+        /*
         for (int i = 0; i < dialogueClientsList.Count; i++)
         {
             for (int j = 0; j < dialogueClientsList[i].DialogueSelect.Count; j++)
@@ -133,6 +137,50 @@ public class DialogueOrganizer : ListFunctionsExtension
                     DialogueClassification = tmpDialogueSelects[j].DialogueClassification
                 };
                 dialogueClientsList[i].DialogueSelect.Add(tmpDialogueSelect);
+            }
+        }
+        */
+
+
+        var tmpDialogueSelectsDict = new Dictionary<string, DialogueSelect>();
+        foreach (var tmpDialogueSelect in tmpDialogueSelects)
+        {
+            if (tmpDialogueSelect.SelectedDialogue.DialogueClassification != null)
+            {
+                tmpDialogueSelectsDict[tmpDialogueSelect.SelectedDialogue.DialogueClassification] = tmpDialogueSelect;
+            }
+        }
+
+        for (int i = 0; i < dialogueClientsList.Count; i++)
+        {
+            var dialogueClient = dialogueClientsList[i];
+            for (int j = dialogueClient.DialogueSelect.Count - 1; j >= 0; j--)
+            {
+                var dialogueSelect = dialogueClient.DialogueSelect[j];
+                if (dialogueSelect.SelectedDialogue.DialogueClassification != null && tmpDialogueSelectsDict.TryGetValue(dialogueSelect.SelectedDialogue.DialogueClassification, out var tmpDialogueSelect))
+                {
+                    if (dialogueSelect.DialogueClassification != tmpDialogueSelect.DialogueClassification)
+                    {
+                        dialogueSelect.DialogueClassification = tmpDialogueSelect.DialogueClassification;
+                    }
+                }
+                else
+                {
+                    dialogueClient.DialogueSelect.RemoveAt(j);
+                }
+            }
+
+            foreach (var tmpDialogueSelect in tmpDialogueSelects)
+            {
+                if (!dialogueClient.DialogueSelect.Any(ds => CompareDialogueSelects(ds, tmpDialogueSelect)))
+                {
+                    DialogueSelect newDialogueSelect = new()
+                    {
+                        SelectedDialogue = tmpDialogueSelect.SelectedDialogue,
+                        DialogueClassification = tmpDialogueSelect.DialogueClassification
+                    };
+                    dialogueClient.DialogueSelect.Add(newDialogueSelect);
+                }
             }
         }
     }
@@ -192,7 +240,7 @@ class DialogueOrganizerEditor : Editor
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
-        if (GUILayout.Button("Update all Dialogues in DialogueClients"))
+        if (GUILayout.Button("Update all DialogueOptions"))
         {
             tmpDialogueOrganizer = FindObjectOfType<DialogueOrganizer>();
             tmpItemInteractionBrain = FindObjectOfType<ItemInteractionBrain>();
@@ -204,7 +252,7 @@ class DialogueOrganizerEditor : Editor
 }
 
 [Serializable]
-public class DialogueClient : Translate
+public class DialogueClient : ITranslate
 {
     public GameObject GOReference;
     public List<DialogueSelect> DialogueSelect = new();

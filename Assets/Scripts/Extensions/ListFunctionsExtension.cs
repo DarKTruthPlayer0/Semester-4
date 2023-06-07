@@ -55,7 +55,7 @@ public class ListFunctionsExtension : MonoBehaviour
         }
     }
     */
-    public void ListCompare<T>(List<T> ExistingList, List<GameObject> GOCompareList, Func<T> createItem) where T : Translate
+    public void ListCompare<T>(List<T> ExistingList, List<GameObject> GOCompareList, Func<T> createItem) where T : ITranslate
     {
         var goCompareSet = new HashSet<GameObject>(GOCompareList);
         var existingSet = new HashSet<GameObject>(ExistingList.Select(x => x.GOTranslate));
@@ -80,7 +80,7 @@ public class ListFunctionsExtension : MonoBehaviour
     }
 
 
-    public void ListCompareListsUseSameGOs<T>(List<T> ExistingList, List<GameObject> GOCompareList, GameObject CompareObject, Func<T> createItem) where T : Translate
+    public void ListCompareListsUseSameGOs<T>(List<T> ExistingList, List<GameObject> GOCompareList, GameObject CompareObject, Func<T> createItem) where T : ITranslate
     {
         for (int i = 0; i < ExistingList.Count; i++)
         {
@@ -128,12 +128,12 @@ public class ListFunctionsExtension : MonoBehaviour
     }
 }
 
-public interface Translate
+public interface ITranslate
 {
     GameObject GOTranslate { get; set; }
 }
 
-public class Torte : Translate
+public class Torte : ITranslate
 {
     public GameObject TortenGO;
     public bool Existiert;

@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad19d3c3908c1b8408405955516d5672, type: 3}
+  m_Name: Dialogue List
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - DialogueClassification: Hot Dog Sausage
+    DialogueParts:
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: "\u201EMy ex would say that's pretty big. At least average.\u201C"
+  - DialogueClassification: Chainsaw
+    DialogueParts:
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: "\u201EWhat\u2019s this doing in the classroom? Well
+        that might explain what happened to the janitor's arm.\u201C"
+  - DialogueClassification: "Puk\xE8Mon Ball"
+    DialogueParts:
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: "\u201EThere is an inscription on the cheap plastic.
+        It says \"Godda K\xE4TscH Dem All\". Speaking of Puk\xE9, they\u2019re serving
+        gruel in the cafeteria again today.\"\t"
+  - DialogueClassification: Key
+    DialogueParts:
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: "\t\t\u201EPress any key to continue\u201C"
+  - DialogueClassification: Didnt i Do it for you Doggo
+    DialogueParts:
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: "\u201EKermiiit! But as they say... like the nose of
+        a dog... no wait, I think that went differently...\u201C"
+  - DialogueClassification: Six-Pack rings
+    DialogueParts:
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: "\u201ESave the ocean and keep your environment clean!
+        ........................... What are you waiting for... there is no joke.
+        This is a serious issue!\u201C"
+  - DialogueClassification: Hourglass
+    DialogueParts:
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: "\u201EMy father used to say, \"A beautiful watch tells
+        the time, a beautiful woman makes you forget it.\" Then he looked at my mum
+        and was happy what a beautiful watch he had.\u201C"
+  - DialogueClassification: Bong
+    DialogueParts:
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: "\u201ESo many possible uses!\u201C"
+  - DialogueClassification: Key(Horror)
+    DialogueParts:
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: Open up to your worst nightmares
+  - DialogueClassification: Key(Dating-Sim)
+    DialogueParts:
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: Open the hearts of the people
+  - DialogueClassification: Key(Cyberpunk)
+    DialogueParts:
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: 'Open the way to a glorious future for you '
+  - DialogueClassification: Hot-Dog-Sausage (Horror)
+    DialogueParts:
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: "\u201ETell Trudi it's a Veggie Sausage\u201C "
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: "\u201EHey Trudi, look, doesn't that look insanely delicious?
+        100%  without animal suffering and made only from the finest organic peas!\u201C
+        \t "
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: 'Trudi '
+      SentenceThePersonTalk: '*eats sausages and immediately feels sick* "I TASTE
+        THE SUFFERING AND HEAR THE SCREAMS OF THE POOR ANIMALS!!! WHO TOLD YOU THIS
+        WAS VEGGIE?"      '
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: '"Ehm... well... it looked slightly greenish."'
+  - DialogueClassification: Hot-Dog-Sausage (Dating-Sim)
+    DialogueParts:
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: "\u201EPunch Trudi in the face with the sausage\u201C "
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: "\u201EHere Trudi, does this remind you of anything?\"
+        *Slaps Trudi the sausage in her face*  \t "
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: 'Trudi '
+      SentenceThePersonTalk: "*gets flashbacks* \"Oh how I've missed this feeling! 
+        Ehhhhm... I think I have to go look for something for a bit.\u201C "
+  - DialogueClassification: Hot-Dog-Sausage (Cyberpunk)
+    DialogueParts:
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: "\u201ECrush the sausage in front of Trudi's eyes\u201C "
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: '*crushes the sausage in her hand* "Stop animal cruelty! 
+        Eat meat-free!!! Come on Trudi, be a good example and join the boycott!"  '
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: 'Trudi '
+      SentenceThePersonTalk: "\u201EFinally, someone agrees with me! For far too
+        long we\xB4ve stood by and done nothing! The toilets are the base of our
+        resistance from now on!\" "
+  - DialogueClassification: "Puk\xE9Ball (Horror)"
+    DialogueParts:
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: "\u201EMake a P\xFAke-monster appear in front of Helga\u201C"
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: "\u201EGo Pukachu! Vomit Ray!\""
+  - DialogueClassification: "Puk\xE9Ball (Dating-Sim)"
+    DialogueParts:
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: "\u201EThe two belong together like pizza and pineapple\u201C "
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Helga
+      SentenceThePersonTalk: "\u201EOh look at this beautiful ring, it must be from
+        Hartmut! I knew he still loved me!\u201C  "
+  - DialogueClassification: "Puk\xE9Ball (Cyberpunk)"
+    DialogueParts:
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Suki
+      SentenceThePersonTalk: "\u201EBut when the country needed her most, she disappeared...
+        100 years  later...\" "
+    - EmotionSprite: {fileID: 0}
+      PersonNameWhichTalks: Helga
+      SentenceThePersonTalk: '"I always knew this was my true destiny!"'

@@ -53,7 +53,7 @@ public class ItemInteractionAssingmentLoad : ListFunctionsExtension
 }
 
 [Serializable]
-public class ItemToObjectsAssingment : Translate
+public class ItemToObjectsAssingment : ITranslate
 {
     public GameObject Item;
     public List<ItemObjectsInteractionAssingment> InteractionObjects = new();
@@ -66,7 +66,7 @@ public class ItemToObjectsAssingment : Translate
 }
 
 [Serializable]
-public class ItemObjectsInteractionAssingment : Translate
+public class ItemObjectsInteractionAssingment : ITranslate
 {
     public GameObject Object;
     public bool InteractWithObject;
