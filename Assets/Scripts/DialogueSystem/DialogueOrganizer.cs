@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 [ExecuteInEditMode]
@@ -15,7 +16,7 @@ public class DialogueOrganizer : ListFunctionsExtension
     public static DialogueClient[] DialogueClientsStatic;
     public static Dialogue[] DialoguesStatic;
     public List<Dialogue> dialogueList;
-    [SerializeField] List<DialogueClient> dialogueClientsList;
+    [SerializeField] private List<DialogueClient> dialogueClientsList;
 
     private bool helperBool2;
     private bool helperBool3;
@@ -25,6 +26,7 @@ public class DialogueOrganizer : ListFunctionsExtension
     {
         DialogueClientsStatic = dialogueClientsList.ToArray();
     }
+
     private void Update()
     {
         if (Application.isEditor && Application.isPlaying)
@@ -33,7 +35,6 @@ public class DialogueOrganizer : ListFunctionsExtension
         }
         AssingDialogueClients();
     }
-
     private void AssingDialogueClients()
     {
         GameObject[] tempTalkableNPCGOs = GameObject.FindGameObjectsWithTag(tagTalkableNPCs);
@@ -54,8 +55,10 @@ public class DialogueOrganizer : ListFunctionsExtension
         }
 
         ListCompare(dialogueClientsList, tempDialogueClientGOs, () => new DialogueClient());
+    }
 
-
+    public void SyncDialoguesInDialogueClients()
+    {
         List<DialogueSelect> tmpDialogueSelects = new();
 
         for (int i = 0; i < dialogueList.Count; i++)
@@ -80,7 +83,6 @@ public class DialogueOrganizer : ListFunctionsExtension
             }
             tmpDialogueSelects.Add(dialogueSelect);
         }
-
         for (int i = 0; i < dialogueClientsList.Count; i++)
         {
             for (int j = 0; j < dialogueClientsList[i].DialogueSelect.Count; j++)
@@ -181,11 +183,31 @@ public class DialogueOrganizer : ListFunctionsExtension
     }
 }
 
+[CustomEditor(typeof(DialogueOrganizer))]
+class DialogueOrganizerEditor : Editor
+{
+    DialogueOrganizer tmpDialogueOrganizer;
+    ItemInteractionBrain tmpItemInteractionBrain;
+
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+        if (GUILayout.Button("Update all Dialogues in DialogueClients"))
+        {
+            tmpDialogueOrganizer = FindObjectOfType<DialogueOrganizer>();
+            tmpItemInteractionBrain = FindObjectOfType<ItemInteractionBrain>();
+
+            tmpDialogueOrganizer.SyncDialoguesInDialogueClients();
+            tmpItemInteractionBrain.SetDialogueSelect();
+        }
+    }
+}
+
 [Serializable]
 public class DialogueClient : Translate
 {
     public GameObject GOReference;
-    public List<DialogueSelect> DialogueSelect;
+    public List<DialogueSelect> DialogueSelect = new();
 
     public GameObject GOTranslate
     {

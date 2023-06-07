@@ -102,11 +102,9 @@ public class ItemInteractionBrain : MonoBehaviour
         {
             Interactions = tmpInteractions;
         }
-
-        SetDialogueSelect();
     }
 
-    private void SetDialogueSelect()
+    public void SetDialogueSelect()
     {
         DialogueOrganizer dialogueOrganizer = FindObjectOfType<DialogueOrganizer>();
         List<DialogueSelect> tmpDialogueSelects = new();
