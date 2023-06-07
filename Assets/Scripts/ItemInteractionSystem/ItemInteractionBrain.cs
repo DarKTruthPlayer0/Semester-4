@@ -193,5 +193,5 @@ public class Interaction
 public class Paths
 {
     public GameBrainScript.Style Style;
-    public List<DialogueSelect> DialogueSelect;
+    public List<DialogueSelect> DialogueSelect = new();
 }
