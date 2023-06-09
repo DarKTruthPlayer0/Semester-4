@@ -216,8 +216,6 @@ public class DialogueOrganizer : ListFunctionsExtension
                 }
             }
         }
-
-        print(helperBool3);
         return helperBool3;
     }
 }
@@ -260,7 +258,7 @@ public class DialogueSelect
 {
     [HideInInspector] public string DialogueClassification;
     public bool UseThisDialogue;
-    public Dialogue SelectedDialogue = new();
+    [HideInInspector] public Dialogue SelectedDialogue = new();
     [HideInInspector] public bool DialogueSpoken;
 }
 
