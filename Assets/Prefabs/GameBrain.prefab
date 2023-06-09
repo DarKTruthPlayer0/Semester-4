@@ -245,10 +245,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagTalkableNPCs: TalkableNPC
-  tagItems: 
-  tagInteractables: 
-  dialogueList: []
-  dialogueClientsList: []
+  tagItems: Item
+  tagInteractables: Interactable
+  DialogueListSO: {fileID: 11400000, guid: 750998fa9e0199343890c37d91c016e5, type: 2}
+  DialogueList: []
+  dialogueClientsList:
+  - GOReference: {fileID: 0}
+    DialogueSelect: []
 --- !u!1 &4342236226442426625
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,12 +377,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SaveDataContainer:
-    DialogueClientsSave: []
-    InteractionsSave: []
-    InventorySave:
-      Items: []
-    RoomSave: []
+    InventorySaveIDSave: 
+    RoomSaveEnablerSave: []
     StylesSave: 
+  tagItems: 
+  tagRooms: 
+  inventorySaveAssing: []
+  roomIDAssings: []
 --- !u!114 &5543280024515240333
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -109,12 +109,12 @@ public class ItemInteractionBrain : MonoBehaviour
         DialogueOrganizer dialogueOrganizer = FindObjectOfType<DialogueOrganizer>();
         List<DialogueSelect> tmpDialogueSelects = new();
 
-        for (int i = 0; i < dialogueOrganizer.DialogueList.Count; i++)
+        for (int i = 0; i < dialogueOrganizer.DialogueListSO.dialogueList.Count; i++)
         {
             DialogueSelect dialogueSelect = new()
             {
-                SelectedDialogue = dialogueOrganizer.DialogueList[i],
-                DialogueClassification = dialogueOrganizer.DialogueList[i].DialogueClassification
+                SelectedDialogue = dialogueOrganizer.DialogueListSO.dialogueList[i],
+                DialogueClassification = dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueClassification
             };
             tmpDialogueSelects.Add(dialogueSelect);
         }
