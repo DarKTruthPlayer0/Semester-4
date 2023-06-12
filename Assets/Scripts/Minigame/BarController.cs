@@ -5,6 +5,9 @@ using UnityEngine.UIElements;
 
 public class BarController : MonoBehaviour
 {
+    [SerializeField] private string tagPlayerBar;
+    [SerializeField] private string tagNPCBar;
+
     [SerializeField] private float moveDistance;
     [SerializeField] private float smoothTime;
     [SerializeField] private float maxSpeedPlayerBar;
@@ -29,11 +32,16 @@ public class BarController : MonoBehaviour
             targetVec.y = -moveDistance;
         }
 
-        Vector3.SmoothDamp(playerBar.gameObject.transform.position, targetVec, ref currentPlayerBarVelocity, smoothTime, maxSpeedPlayerBar, Time.deltaTime);
+        playerBar.transform.position = Vector3.SmoothDamp(playerBar.gameObject.transform.position, targetVec, ref currentPlayerBarVelocity, smoothTime, maxSpeedPlayerBar, Time.deltaTime);
+    }
+
+    private void Start()
+    {
+        playerBar = GameObject.FindGameObjectWithTag(tagPlayerBar);
     }
 
     private void Update()
     {
-        
+        MovePlayerBar();   
     }
 }

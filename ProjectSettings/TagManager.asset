@@ -9,6 +9,14 @@ TagManager:
   - Interactable
   - ObjectToInteract
   - Room
+  - CamPosition
+  - InventoryPlace
+  - CamHolder
+  - PingPongBall
+  - PlayerBar
+  - NPCBar
+  - PongPlayerDeathZone
+  - PongNPCDeathZone
   layers:
   - Default
   - TransparentFX

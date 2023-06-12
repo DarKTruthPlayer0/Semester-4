@@ -297,7 +297,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155188269}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 75, y: 0, z: 72}
+  m_LocalPosition: {x: 75, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -658,7 +658,7 @@ GameObject:
   - component: {fileID: 609744009}
   m_Layer: 0
   m_Name: Pingo1
-  m_TagString: Untagged
+  m_TagString: NPCBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1035,7 +1035,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!1 &937109858
 GameObject:
@@ -1197,7 +1197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028583180}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -75, y: 0, z: 72}
+  m_LocalPosition: {x: -75, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1520,7 +1520,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagPingPongBall: PingPongBall
-  ballSpeed: 10
+  tagPlayerDeathzone: PongPlayerDeathZone
+  tagNPCDeathzone: PongNPCDeathZone
+  ballSpeed: 50
   scoreToReach: 0
 --- !u!114 &1257515828
 MonoBehaviour:
@@ -1534,7 +1536,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31d833e2bb175f41aa047dd4b2c45bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 0
+  tagPlayerBar: PlayerBar
+  tagNPCBar: NPCBar
+  moveDistance: 31
+  smoothTime: 0.1
+  maxSpeedPlayerBar: 100
 --- !u!1001 &1418364800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2282,7 +2288,7 @@ GameObject:
   - component: {fileID: 1710353739}
   m_Layer: 0
   m_Name: Pingo2
-  m_TagString: Untagged
+  m_TagString: PlayerBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
