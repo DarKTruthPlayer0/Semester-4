@@ -46,7 +46,12 @@ public class ItemInteractionAssingmentLoad : ListFunctionsExtension
             tmpInteractableGOs = GameObject.FindGameObjectsWithTag(tagInteractable);
 
             ListCompare(ItemToObjectsAssingments[i].InteractionObjects, tmpInteractableGOs.ToList(), () => new ItemObjectsInteractionAssingment());
-
+            
+            foreach (ItemObjectsInteractionAssingment tmpIOIA in ItemToObjectsAssingments[i].InteractionObjects)
+            {
+                tmpIOIA.ObjectName = tmpIOIA.Object.name;
+            }
+            ItemToObjectsAssingments[i].ItemName = ItemToObjectsAssingments[i].Item.name;
         }
 
     }
@@ -55,6 +60,7 @@ public class ItemInteractionAssingmentLoad : ListFunctionsExtension
 [Serializable]
 public class ItemToObjectsAssingment : ITranslate
 {
+    [HideInInspector] public string ItemName;
     public GameObject Item;
     public List<ItemObjectsInteractionAssingment> InteractionObjects = new();
 
@@ -68,6 +74,7 @@ public class ItemToObjectsAssingment : ITranslate
 [Serializable]
 public class ItemObjectsInteractionAssingment : ITranslate
 {
+    [HideInInspector] public string ObjectName;
     public GameObject Object;
     public bool InteractWithObject;
 
