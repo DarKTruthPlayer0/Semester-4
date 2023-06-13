@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,7 +16,11 @@ public class ItemInteractionBrain : MonoBehaviour
 
     private bool interactionExist;
     private bool tmpInteractionExist;
+
     private bool helperBool;
+    
+    private bool sentenceCheckBool;
+    private bool personNameCheckBool;
 
     private void Start()
     {
@@ -116,14 +121,27 @@ public class ItemInteractionBrain : MonoBehaviour
 
         for (int i = 0; i < dialogueOrganizer.DialogueListSO.dialogueList.Count; i++)
         {
+
             DialogueSelect dialogueSelect = new()
             {
-                SelectedDialogue = dialogueOrganizer.DialogueListSO.dialogueList[i],
                 DialogueClassification = dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueClassification
             };
+            dialogueSelect.SelectedDialogue.DialogueClassification = dialogueSelect.DialogueClassification;
+            dialogueSelect.SelectedDialogue.DialogueParts = new DialoguePart[dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueParts.Length]; ;
+
+            for (int j = 0; j < dialogueSelect.SelectedDialogue.DialogueParts.Length; j++)
+            {
+                dialogueSelect.SelectedDialogue.DialogueParts[j] = new()
+                {
+                    EmotionSprite = dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueParts[j].EmotionSprite,
+                    PersonNameWhichTalks = dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueParts[j].PersonNameWhichTalks,
+                    SentenceThePersonTalk = dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueParts[j].SentenceThePersonTalk
+                };
+            }
             tmpDialogueSelects.Add(dialogueSelect);
         }
 
+        /*
         for (int i = 0; i < Interactions.Count; i++)
         {
             for (int j = 0; j < Interactions[i].Paths.Length; j++)
@@ -182,6 +200,89 @@ public class ItemInteractionBrain : MonoBehaviour
                 }
             }
         }
+        */
+        for (int i = 0; i < Interactions.Count; i++)
+        {
+            var tmpDialogueSelectsSet = new HashSet<DialogueSelect>(tmpDialogueSelects);
+
+            for (int j = 0; j < Interactions[i].Paths.Length; j++)
+            {
+                var InteractionPath = Interactions[i].Paths[j];
+                for (int k = InteractionPath.DialogueSelect.Count - 1; k >= 0; k--)
+                {
+                    var dialogueSelect = InteractionPath.DialogueSelect[k];
+                    if (!tmpDialogueSelectsSet.Any(tmpDialogueSelect => CompareDialogueSelects(dialogueSelect, tmpDialogueSelect)))
+                    {
+                        InteractionPath.DialogueSelect.RemoveAt(k);
+                    }
+                }
+
+                foreach (var tmpDialogueSelect in tmpDialogueSelects)
+                {
+                    if (!InteractionPath.DialogueSelect.Any(ds => CompareDialogueSelects(ds, tmpDialogueSelect)))
+                    {
+                        DialogueSelect newDialogueSelect = new()
+                        {
+                            SelectedDialogue = tmpDialogueSelect.SelectedDialogue,
+                            DialogueClassification = tmpDialogueSelect.DialogueClassification
+                        };
+                        InteractionPath.DialogueSelect.Add(newDialogueSelect);
+                    }
+                }
+            }
+        }
+    }
+
+    private bool CompareDialogueSelects(DialogueSelect DialogueClientsDialogueSelect, DialogueSelect tmpDialogueSelectsDialogueSelect)
+    {
+        int count = 0;
+        bool helperBool3 = false;
+
+        for (int i = 0; i < tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts.Length; i++)
+        {
+            for (int j = 0; j < DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length; j++)
+            {
+                sentenceCheckBool = false;
+                personNameCheckBool = false;
+                if (string.Equals(DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].SentenceThePersonTalk, tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts[i].SentenceThePersonTalk))
+                {
+                    sentenceCheckBool = true;
+                }
+                if (DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].PersonNameWhichTalks == tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts[i].PersonNameWhichTalks)
+                {
+                    personNameCheckBool = true;
+                }
+                if (sentenceCheckBool && personNameCheckBool)
+                {
+                    count++;
+                }
+            }
+        }
+
+        if (count == DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length)
+        {
+            helperBool3 = true;
+        }
+
+        //Angleiches der DialogueClassification
+        if (DialogueClientsDialogueSelect.DialogueClassification != tmpDialogueSelectsDialogueSelect.DialogueClassification && helperBool3)
+        {
+            DialogueClientsDialogueSelect.DialogueClassification = tmpDialogueSelectsDialogueSelect.DialogueClassification;
+            DialogueClientsDialogueSelect.SelectedDialogue.DialogueClassification = tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueClassification;
+        }
+
+        //Angleichen der EmotionSprites
+        for (int i = 0; i < tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts.Length; i++)
+        {
+            for (int j = 0; j < DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length; j++)
+            {
+                if (DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].EmotionSprite != tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts[i].EmotionSprite && helperBool3)
+                {
+                    DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].EmotionSprite = tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts[i].EmotionSprite;
+                }
+            }
+        }
+        return helperBool3;
     }
 }
 
