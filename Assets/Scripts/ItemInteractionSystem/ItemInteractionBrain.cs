@@ -43,6 +43,7 @@ public class ItemInteractionBrain : MonoBehaviour
                         Item = IIAL.ItemToObjectsAssingments[i].Item,
                         Interactable = IIAL.ItemToObjectsAssingments[i].InteractionObjects[j].Object
                     };
+                    interaction.InteractionName = interaction.Item.name + " interacts with " + interaction.Interactable.name;
                     tmpInteractions.Add(interaction);
 
                 }
@@ -58,6 +59,10 @@ public class ItemInteractionBrain : MonoBehaviour
                 {
                     if (tmpInteractions[i].Item == Interactions[j].Item && tmpInteractions[i].Interactable == Interactions[j].Interactable)
                     {
+                        if (tmpInteractions[i].InteractionName != Interactions[j].InteractionName)
+                        {
+                            Interactions[j].InteractionName = tmpInteractions[i].InteractionName;
+                        }
                         tmpInteractionExist = true;
                         break;
                     }
@@ -183,6 +188,7 @@ public class ItemInteractionBrain : MonoBehaviour
 [Serializable]
 public class Interaction
 {
+    [HideInInspector] public string InteractionName;
     public GameObject Item;
     public GameObject Interactable;
     public Paths[] Paths;

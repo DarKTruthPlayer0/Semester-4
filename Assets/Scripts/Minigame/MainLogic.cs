@@ -13,21 +13,30 @@ public class MainLogic : MonoBehaviour
     [SerializeField] [Range(0, 100)] private float ballSpeed;
 
     [SerializeField] private int scoreToReach;
+    private Vector3 startPos;
     private Rigidbody ballRb;
-    private Score score;
+    private Score score = new();
     private bool gameRunning;
 
     public void SetScore(DeathZone deathZone)
     {
         if (deathZone == DeathZone.PlayerDeathZone)
         {
-            score.PlayerScore++;
+            score.NPCScore++;
         }
         if (deathZone == DeathZone.NPCDeathZone)
         {
-            score.NPCScore++;
+            score.PlayerScore++;
         }
+        ResetBall();
         CheckScore();
+    }
+
+    private void ResetBall()
+    {
+        gameRunning = false;
+        ballRb.velocity = Vector3.zero;
+        ballRb.gameObject.transform.position = startPos;
     }
 
     private bool CheckScore()
@@ -35,11 +44,13 @@ public class MainLogic : MonoBehaviour
         if (score.PlayerScore >= scoreToReach)
         {
             //Player wins
+            print("Player Wins");
             return true;
         }
-        else if (score.NPCScore < scoreToReach)
+        if (score.NPCScore >= scoreToReach)
         {
             //NPC wins
+            print("NPC Wins");
             return true;
         }
         return false;
@@ -50,6 +61,18 @@ public class MainLogic : MonoBehaviour
         ballRb.velocity = Vector3.right * ballSpeed;
     }
 
+    private void SetUpDeathZones()
+    {
+        GameObject tmpPlayerDeathZone = GameObject.FindGameObjectWithTag(tagPlayerDeathzone);
+        DeathZoneTriggerScript tmpPlayerDeathZoneTriggerScript = tmpPlayerDeathZone.AddComponent<DeathZoneTriggerScript>();
+        tmpPlayerDeathZoneTriggerScript.MainLogic = this;
+        tmpPlayerDeathZoneTriggerScript.WhichDeathZone = DeathZone.PlayerDeathZone;
+
+        GameObject tmpNPCDeathZone = GameObject.FindGameObjectWithTag(tagNPCDeathzone);
+        DeathZoneTriggerScript tmpNPCDeathZoneTriggerScript = tmpNPCDeathZone.AddComponent<DeathZoneTriggerScript>();
+        tmpNPCDeathZoneTriggerScript.MainLogic = this;
+        tmpNPCDeathZoneTriggerScript.WhichDeathZone = DeathZone.NPCDeathZone;
+    }
 
     private void Update()
     {
@@ -64,15 +87,9 @@ public class MainLogic : MonoBehaviour
     {
         ballRb = GameObject.FindGameObjectWithTag(TagPingPongBall).GetComponent<Rigidbody>();
 
-        GameObject tmpPlayerDeathZone = GameObject.FindGameObjectWithTag(tagPlayerDeathzone);
-        DeathZoneTriggerScript tmpPlayerDeathZoneTriggerScript = tmpPlayerDeathZone.AddComponent<DeathZoneTriggerScript>();
-        tmpPlayerDeathZoneTriggerScript.MainLogic = this;
-        tmpPlayerDeathZoneTriggerScript.WhichDeathZone = DeathZone.PlayerDeathZone;
+        SetUpDeathZones();
 
-        GameObject tmpNPCDeathZone = GameObject.FindGameObjectWithTag(tagNPCDeathzone);
-        DeathZoneTriggerScript tmpNPCDeathZoneTriggerScript = tmpNPCDeathZone.AddComponent<DeathZoneTriggerScript>();
-        tmpNPCDeathZoneTriggerScript.MainLogic = this;
-        tmpNPCDeathZoneTriggerScript.WhichDeathZone = DeathZone.NPCDeathZone;
+        startPos = ballRb.gameObject.transform.position;
     }
 
 
@@ -98,6 +115,8 @@ public class DeathZoneTriggerScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag(MainLogic.TagPingPongBall))
-        MainLogic.SetScore(WhichDeathZone);
+        {
+            MainLogic.SetScore(WhichDeathZone);
+        }
     }
 }

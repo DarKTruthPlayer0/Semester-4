@@ -283,8 +283,8 @@ GameObject:
   - component: {fileID: 155188270}
   - component: {fileID: 155188271}
   m_Layer: 0
-  m_Name: DeathzonePlayer2
-  m_TagString: Untagged
+  m_Name: PlayerDeathZone
+  m_TagString: PongPlayerDeathZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -907,7 +907,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b2637b1da5ae1d44fb3011bc18dcf1d1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 65.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b2637b1da5ae1d44fb3011bc18dcf1d1,
         type: 3}
@@ -968,26 +968,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 768149571}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &768149573 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b2637b1da5ae1d44fb3011bc18dcf1d1,
-    type: 3}
-  m_PrefabInstance: {fileID: 768149571}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &768149574
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768149573}
-  m_Material: {fileID: 13400000, guid: b39060d8c71775d4db62395245593293, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6935877506589290101, guid: b2637b1da5ae1d44fb3011bc18dcf1d1, type: 3}
 --- !u!1 &921542210
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,6 +978,7 @@ GameObject:
   m_Component:
   - component: {fileID: 921542211}
   - component: {fileID: 921542212}
+  - component: {fileID: 921542213}
   m_Layer: 0
   m_Name: Pongo
   m_TagString: PingPongBall
@@ -1037,6 +1018,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
+--- !u!135 &921542213
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921542210}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &937109858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,8 +1177,8 @@ GameObject:
   - component: {fileID: 1028583181}
   - component: {fileID: 1028583182}
   m_Layer: 0
-  m_Name: DeathzonePlayer1
-  m_TagString: Untagged
+  m_Name: NPCDeathZone
+  m_TagString: PongNPCDeathZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1519,11 +1513,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14fd0c41b6fbaf446a239b27961e5701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagPingPongBall: PingPongBall
+  TagPingPongBall: PingPongBall
   tagPlayerDeathzone: PongPlayerDeathZone
   tagNPCDeathzone: PongNPCDeathZone
   ballSpeed: 50
-  scoreToReach: 0
+  scoreToReach: 10
 --- !u!114 &1257515828
 MonoBehaviour:
   m_ObjectHideFlags: 0
