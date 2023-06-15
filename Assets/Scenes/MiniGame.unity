@@ -907,7 +907,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b2637b1da5ae1d44fb3011bc18dcf1d1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 65.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b2637b1da5ae1d44fb3011bc18dcf1d1,
         type: 3}
@@ -1025,7 +1025,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921542210}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b39060d8c71775d4db62395245593293, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1479,6 +1479,7 @@ GameObject:
   - component: {fileID: 1257515826}
   - component: {fileID: 1257515827}
   - component: {fileID: 1257515828}
+  - component: {fileID: 1257515829}
   m_Layer: 0
   m_Name: MiniGameBrain
   m_TagString: Untagged
@@ -1532,9 +1533,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagPlayerBar: PlayerBar
   tagNPCBar: NPCBar
+  tagPingPongBall: PingPongBall
   moveDistance: 31
   smoothTime: 0.1
   maxSpeedPlayerBar: 100
+  maxSpeedNPCBar: 50
+--- !u!114 &1257515829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257515825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d70887b29bae259418bd2ccc6e0a7e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetHeigth: 0
+  tagPingPongBall: PingPongBall
+  waitforCalculationTime: 0.001
 --- !u!1001 &1418364800
 PrefabInstance:
   m_ObjectHideFlags: 0

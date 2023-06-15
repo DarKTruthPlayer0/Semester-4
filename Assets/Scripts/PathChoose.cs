@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class PathChoose : MonoBehaviour
 {
     public GameObject PathChooseGO;
+    public GameObject RoomToUnlockGO;
     public int InteractionID;
 
     [SerializeField] private Button[] decisionButtons;
@@ -21,7 +22,7 @@ public class PathChoose : MonoBehaviour
         {
             tmpStyles.Add(ItemInteractionBrain.InteractionsStatic[InteractionID].Paths[i].Style);
         }
-        string[] tempStyleNames = Enum.GetNames(typeof(GameBrainScript.Style)); 
+        string[] tempStyleNames = Enum.GetNames(typeof(GameBrainScript.Style));
 
         for (int i = 0; i < tempPathChooseButtonsGO.transform.childCount; i++)
         {
@@ -69,9 +70,24 @@ public class PathChoose : MonoBehaviour
             {
                 for (int j = 0; j < ItemInteractionBrain.InteractionsStatic[InteractionID].Paths[i].DialogueSelect.Count; j++)
                 {
-                //Start Dialogue
-                DialogueSystem.EnterDialogue(ItemInteractionBrain.InteractionsStatic[InteractionID].Paths[i].DialogueSelect[j].SelectedDialogue);
+                    //Start Dialogue
+                    if (ItemInteractionBrain.InteractionsStatic[InteractionID].Paths[i].DialogueSelect[j].UseThisDialogue)
+                    {
+                        for (int k = 0; k < RoomOrganizer.RoomsStatic.Length; k++)
+                        {
+                            if (RoomOrganizer.RoomsStatic[k].RoomGO == RoomToUnlockGO && RoomToUnlockGO != null)
+                            {
+                                RoomOrganizer.RoomsStatic[k].IsLocked = false;
+                                RoomToUnlockGO = null;
+                                break;
+                            }
+
+                        }
+                        DialogueSystem.EnterDialogue(ItemInteractionBrain.InteractionsStatic[InteractionID].Paths[i].DialogueSelect[j].SelectedDialogue);
+                        break;
+                    }
                 }
+                break;
             }
         }
     }
