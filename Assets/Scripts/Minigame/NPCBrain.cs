@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class NPCBrain : MonoBehaviour
     private SphereCollider sphereCollider;
 
     private float timeToCollision;
+    private int tmpVorzeichen;
     private Vector3 ballPos;
 
     // Entfernung gilt ab StartPosition
@@ -34,13 +36,54 @@ public class NPCBrain : MonoBehaviour
     {
         TargetHeigth = 0;
         ballPos = rb.gameObject.transform.position;
-        timeToCollision = (65.5f * 2 / Mathf.Abs(rb.velocity.x));
-        float alpha = Mathf.Atan(Mathf.Abs(rb.velocity.y) / Mathf.Abs(rb.velocity.x));
+        timeToCollision = (ballPos.x + 65.5f / Mathf.Abs(rb.velocity.x));
+        float alpha = Mathf.Atan2(Mathf.Abs(rb.velocity.y), Mathf.Abs(rb.velocity.x));
 
         print("Alpha: " + alpha);
 
+        Debug.Break();
         // Berechnung der anzahl der Abpraller
-        float bounces = ((Mathf.Abs(rb.velocity.y) * timeToCollision) - Mathf.Abs(ballPos.y)) / (40.25f * 2);
+        float bounces = 0  /*((Mathf.Abs(rb.velocity.y) * timeToCollision) - Mathf.Abs(ballPos.y)) / (40.25f * 2)*/;
+        float tmpTimeToCollission = timeToCollision;
+
+        if (rb.velocity.y < 0)
+        {
+            if (ballPos.y < 0)
+            {
+                tmpTimeToCollission -= ((40.25f - ballPos.y) / alpha) / rb.velocity.x;
+            }
+            else
+            {
+                tmpTimeToCollission -= ((40.25f + ballPos.y) / alpha) / rb.velocity.x;
+            }
+        }
+        else
+        {
+            if (ballPos.y < 0)
+            {
+                tmpTimeToCollission -= ((40.25f + ballPos.y) / alpha) / rb.velocity.x;
+            }
+            else
+            {
+                tmpTimeToCollission -= ((40.25f - ballPos.y) / alpha) / rb.velocity.x;
+            }
+        }
+
+        if (tmpTimeToCollission > 0)
+        {
+            bounces += 1;
+
+            float bumpTime = ((40.25f * 2) / alpha) / rb.velocity.x;
+            for (; timeToCollision > bumpTime;)
+            {
+                bounces++;
+                tmpTimeToCollission -= bumpTime;
+            }
+        }
+
+        bounces += (rb.velocity.y * tmpTimeToCollission) / (40.25f * 2);
+        print(bounces);
+        Debug.Break();
 
 
         float length = 65.5f * 2;
@@ -86,14 +129,20 @@ public class NPCBrain : MonoBehaviour
 
 
         // Ermitteln des Vorzeichens
+
         if (rb.velocity.y < 0)
         {
-            bounces *= -1;
+            tmpVorzeichen = -1;
         }
-        print("Bounces: " + bounces);
-        for (; Mathf.Abs(bounces) >= 1;)
+        else
         {
-            bounces *= -1;
+            tmpVorzeichen = 1;
+        }
+
+        print("Vorzeichen: " + tmpVorzeichen);
+        for (; 1 < Mathf.Abs(bounces);)
+        {
+            tmpVorzeichen *= -1;
             if (bounces < 0)
             {
                 bounces += 1;
@@ -106,7 +155,7 @@ public class NPCBrain : MonoBehaviour
 
         // Setzen von targetHeigth
         print(tmpTargetheigth);
-        if (bounces < 0)
+        if (tmpVorzeichen < 0)
         {
             TargetHeigth = 40.25f - tmpTargetheigth;
         }
