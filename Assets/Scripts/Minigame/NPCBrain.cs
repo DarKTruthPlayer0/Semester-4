@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class NPCBrain : MonoBehaviour
 {
-    [HideInInspector] public float TargetHeigth;
+    [HideInInspector] public float TargetHeigth = 0;
     private float tmpTargetheigth;
 
     [SerializeField] private string tagPingPongBall;
     [SerializeField][Range(0, 1)] private float waitforCalculationTime;
     private Rigidbody rb;
-    private SphereCollider sphereCollider;
 
-    private float timeToCollision;
+    private float timeXDirection;
     private int tmpVorzeichen;
     private Vector3 ballPos;
+    private float bounces;
 
     // Entfernung gilt ab StartPosition
     // Entfernung zum LevelRand Vertikal ist +/-40,25
@@ -24,6 +24,7 @@ public class NPCBrain : MonoBehaviour
     public void TriggerBallPosCalculation()
     {
         StartCoroutine(WaitforCalculation());
+        
     }
 
     private IEnumerator WaitforCalculation()
@@ -36,100 +37,78 @@ public class NPCBrain : MonoBehaviour
     {
         TargetHeigth = 0;
         ballPos = rb.gameObject.transform.position;
-        timeToCollision = (ballPos.x + 65.5f / Mathf.Abs(rb.velocity.x));
-        float alpha = Mathf.Atan2(Mathf.Abs(rb.velocity.y), Mathf.Abs(rb.velocity.x));
+        timeXDirection = (ballPos.x + 65.5f) / Mathf.Abs(rb.velocity.x);
+        float alpha = Mathf.Abs(rb.velocity.y) / Mathf.Abs(rb.velocity.x);
+        bounces = 0;
+        
+        // Prevent all uneccesary Errors and Calculations
+        if (alpha == float.NaN)
+        {
+            TargetHeigth = 0;
+            return;
+        }
+        if (rb.velocity.x > 0 || rb.velocity.y == 0)
+        {
+            TargetHeigth = 0;
+            return;
+        }
 
-        print("Alpha: " + alpha);
-
-        Debug.Break();
-        // Berechnung der anzahl der Abpraller
-        float bounces = 0  /*((Mathf.Abs(rb.velocity.y) * timeToCollision) - Mathf.Abs(ballPos.y)) / (40.25f * 2)*/;
-        float tmpTimeToCollission = timeToCollision;
-
+        // Ermitteln ob Bumps
+        float tmpTimeXDirection = timeXDirection;
         if (rb.velocity.y < 0)
         {
             if (ballPos.y < 0)
             {
-                tmpTimeToCollission -= ((40.25f - ballPos.y) / alpha) / rb.velocity.x;
+                tmpTimeXDirection -= ((40.25f - Mathf.Abs(ballPos.y)) / alpha) / Mathf.Abs(rb.velocity.x);
             }
             else
             {
-                tmpTimeToCollission -= ((40.25f + ballPos.y) / alpha) / rb.velocity.x;
+                tmpTimeXDirection -= ((40.25f + Mathf.Abs(ballPos.y)) / alpha) / Mathf.Abs(rb.velocity.x);
             }
         }
         else
         {
             if (ballPos.y < 0)
             {
-                tmpTimeToCollission -= ((40.25f + ballPos.y) / alpha) / rb.velocity.x;
+                tmpTimeXDirection -= ((40.25f + Mathf.Abs(ballPos.y)) / alpha) / Mathf.Abs(rb.velocity.x);
             }
             else
             {
-                tmpTimeToCollission -= ((40.25f - ballPos.y) / alpha) / rb.velocity.x;
+                tmpTimeXDirection -= ((40.25f - Mathf.Abs(ballPos.y)) / alpha) / Mathf.Abs(rb.velocity.x);
             }
         }
 
-        if (tmpTimeToCollission > 0)
+        if (tmpTimeXDirection > 0)
         {
             bounces += 1;
-
-            float bumpTime = ((40.25f * 2) / alpha) / rb.velocity.x;
-            for (; timeToCollision > bumpTime;)
+            float bumpTimeY = ((40.25f * 2) / alpha) / Mathf.Abs(rb.velocity.x);
+            for (; tmpTimeXDirection > bumpTimeY; tmpTimeXDirection -= bumpTimeY)
             {
                 bounces++;
-                tmpTimeToCollission -= bumpTime;
             }
         }
-
-        bounces += (rb.velocity.y * tmpTimeToCollission) / (40.25f * 2);
-        print(bounces);
-        Debug.Break();
-
-
-        float length = 65.5f * 2;
-
-        float tmpBounces = bounces;
-        if (tmpBounces >= 1)
+        //Ermitteln der Targetheigth no Bumps
+        else
         {
+            float tmpOvertime = Mathf.Abs(tmpTimeXDirection);
+            float tmpTargetheigth = 0;
 
-            // Abzug der Strecke bis ersten Abpraller
+            tmpTargetheigth = (tmpOvertime * Mathf.Abs(rb.velocity.x)) * alpha;
             if (rb.velocity.y < 0)
             {
-                if (ballPos.y < 0)
-                {
-                    length -= (40.25f - ballPos.y) / alpha;
-                }
-                else
-                {
-                    length -= (40.25f + ballPos.y) / alpha;
-                }
+                TargetHeigth = -40.25f + tmpTargetheigth;
             }
             else
             {
-                if (ballPos.y < 0)
-                {
-                    length -= (40.25f + ballPos.y) / alpha;
-                }
-                else
-                {
-                    length -= (40.25f - ballPos.y) / alpha;
-                }
+                TargetHeigth = 40.25f - tmpTargetheigth;
             }
-            tmpBounces -= 1;
-
-
-            // Berechnung der Strecke für jeden Abpraller
-            for (float i = tmpBounces; i > 1; i--)
-            {
-                length -= (40.25f * 2) / alpha;
-            }
-
-            tmpTargetheigth = alpha * length;
+            return;
         }
+
+        bounces += (Mathf.Abs(rb.velocity.y) * tmpTimeXDirection) / (40.25f * 2);
 
 
         // Ermitteln des Vorzeichens
-
         if (rb.velocity.y < 0)
         {
             tmpVorzeichen = -1;
@@ -139,7 +118,6 @@ public class NPCBrain : MonoBehaviour
             tmpVorzeichen = 1;
         }
 
-        print("Vorzeichen: " + tmpVorzeichen);
         for (; 1 < Mathf.Abs(bounces);)
         {
             tmpVorzeichen *= -1;
@@ -153,26 +131,22 @@ public class NPCBrain : MonoBehaviour
             }
         }
 
-        // Setzen von targetHeigth
-        print(tmpTargetheigth);
+        // Ermitteln der Targetheigth mit Bumps
+        tmpTargetheigth = (40.25f * 2) * bounces;
+
         if (tmpVorzeichen < 0)
         {
             TargetHeigth = 40.25f - tmpTargetheigth;
         }
         else
         {
-            TargetHeigth = - 40.25f + tmpTargetheigth;
+            TargetHeigth = -40.25f + tmpTargetheigth;
         }
-
-
-        print("Targetheigth: " + TargetHeigth);
-        Debug.Break();
     }
 
     private void Start()
     {
         GameObject tmpGO = GameObject.FindGameObjectWithTag(tagPingPongBall);
         rb = tmpGO.GetComponent<Rigidbody>();
-        sphereCollider = tmpGO.GetComponent<SphereCollider>();
     }
 }
