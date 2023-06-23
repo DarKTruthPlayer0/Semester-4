@@ -16,7 +16,7 @@ public class ItemInteractionAssingmentLoad : ListFunctionsExtension
 
     private GameObject[] tmpInteractableGOs;
     private GameObject[] tmpItemGOs;
-
+    /*
     private void Awake()
     {
         if (Application.isEditor && Application.isPlaying)
@@ -29,6 +29,7 @@ public class ItemInteractionAssingmentLoad : ListFunctionsExtension
 
         ListCompare(ItemToObjectsAssingments, tmpItemGOs.ToList(), () => new ItemToObjectsAssingment());
     }
+    */
 
     private void Start()
     {
@@ -41,6 +42,12 @@ public class ItemInteractionAssingmentLoad : ListFunctionsExtension
         {
             return;
         }
+
+        tmpItemGOs = GameObject.FindGameObjectsWithTag(tagItem);
+        tmpInteractableGOs = GameObject.FindGameObjectsWithTag(tagInteractable);
+
+        ListCompare(ItemToObjectsAssingments, tmpItemGOs.ToList(), () => new ItemToObjectsAssingment());
+
         for (int i = 0; i < ItemToObjectsAssingments.Count; i++)
         {
             tmpInteractableGOs = GameObject.FindGameObjectsWithTag(tagInteractable);
