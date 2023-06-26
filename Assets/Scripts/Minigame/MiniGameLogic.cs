@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainLogic : MonoBehaviour
+public class MiniGameLogic : MonoBehaviour
 {
     public string TagPingPongBall;
 
@@ -16,6 +16,7 @@ public class MainLogic : MonoBehaviour
     private Vector3 startPos;
     private Rigidbody ballRb;
     private Score score = new();
+    private NPCBrain nPCBrain;
     private bool gameRunning;
 
     public void SetScore(DeathZone deathZone)
@@ -35,6 +36,7 @@ public class MainLogic : MonoBehaviour
     private void ResetBall()
     {
         gameRunning = false;
+        nPCBrain.TargetHeigth = 0;
         ballRb.velocity = Vector3.zero;
         ballRb.gameObject.transform.position = startPos;
     }
@@ -90,6 +92,8 @@ public class MainLogic : MonoBehaviour
         SetUpDeathZones();
 
         startPos = ballRb.gameObject.transform.position;
+
+        nPCBrain = GetComponent<NPCBrain>();
     }
 
 
@@ -109,7 +113,7 @@ public class Score
 
 public class DeathZoneTriggerScript : MonoBehaviour
 {
-    public MainLogic MainLogic;
+    public MiniGameLogic MainLogic;
     public DeathZone WhichDeathZone;
 
     private void OnTriggerEnter(Collider other)

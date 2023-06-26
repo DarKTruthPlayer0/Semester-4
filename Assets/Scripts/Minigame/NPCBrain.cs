@@ -1,19 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NPCBrain : MonoBehaviour
 {
-    [HideInInspector] public float TargetHeigth;
+    [HideInInspector] public float TargetHeigth = 0;
     private float tmpTargetheigth;
 
     [SerializeField] private string tagPingPongBall;
     [SerializeField][Range(0, 1)] private float waitforCalculationTime;
     private Rigidbody rb;
-    private SphereCollider sphereCollider;
 
-    private float timeToCollision;
+    private float timeXDirection;
+    private int tmpVorzeichen;
     private Vector3 ballPos;
+    private float bounces;
 
     // Entfernung gilt ab StartPosition
     // Entfernung zum LevelRand Vertikal ist +/-40,25
@@ -22,6 +24,7 @@ public class NPCBrain : MonoBehaviour
     public void TriggerBallPosCalculation()
     {
         StartCoroutine(WaitforCalculation());
+        
     }
 
     private IEnumerator WaitforCalculation()
@@ -34,66 +37,90 @@ public class NPCBrain : MonoBehaviour
     {
         TargetHeigth = 0;
         ballPos = rb.gameObject.transform.position;
-        timeToCollision = (65.5f * 2 / Mathf.Abs(rb.velocity.x));
-        float alpha = Mathf.Atan(Mathf.Abs(rb.velocity.y) / Mathf.Abs(rb.velocity.x));
-
-        print("Alpha: " + alpha);
-
-        // Berechnung der anzahl der Abpraller
-        float bounces = ((Mathf.Abs(rb.velocity.y) * timeToCollision) - Mathf.Abs(ballPos.y)) / (40.25f * 2);
-
-
-        float length = 65.5f * 2;
-
-        float tmpBounces = bounces;
-        if (tmpBounces >= 1)
+        timeXDirection = (ballPos.x + 65.5f) / Mathf.Abs(rb.velocity.x);
+        float alpha = Mathf.Abs(rb.velocity.y) / Mathf.Abs(rb.velocity.x);
+        bounces = 0;
+        
+        // Prevent all uneccesary Errors and Calculations
+        if (alpha == float.NaN)
         {
+            TargetHeigth = 0;
+            return;
+        }
+        if (rb.velocity.x > 0 || rb.velocity.y == 0)
+        {
+            TargetHeigth = 0;
+            return;
+        }
 
-            // Abzug der Strecke bis ersten Abpraller
-            if (rb.velocity.y < 0)
+        // Ermitteln ob Bumps
+        float tmpTimeXDirection = timeXDirection;
+        if (rb.velocity.y < 0)
+        {
+            if (ballPos.y < 0)
             {
-                if (ballPos.y < 0)
-                {
-                    length -= (40.25f - ballPos.y) / alpha;
-                }
-                else
-                {
-                    length -= (40.25f + ballPos.y) / alpha;
-                }
+                tmpTimeXDirection -= ((40.25f - Mathf.Abs(ballPos.y)) / alpha) / Mathf.Abs(rb.velocity.x);
             }
             else
             {
-                if (ballPos.y < 0)
-                {
-                    length -= (40.25f + ballPos.y) / alpha;
-                }
-                else
-                {
-                    length -= (40.25f - ballPos.y) / alpha;
-                }
+                tmpTimeXDirection -= ((40.25f + Mathf.Abs(ballPos.y)) / alpha) / Mathf.Abs(rb.velocity.x);
             }
-            tmpBounces -= 1;
-
-
-            // Berechnung der Strecke für jeden Abpraller
-            for (float i = tmpBounces; i > 1; i--)
-            {
-                length -= (40.25f * 2) / alpha;
-            }
-
-            tmpTargetheigth = alpha * length;
         }
+        else
+        {
+            if (ballPos.y < 0)
+            {
+                tmpTimeXDirection -= ((40.25f + Mathf.Abs(ballPos.y)) / alpha) / Mathf.Abs(rb.velocity.x);
+            }
+            else
+            {
+                tmpTimeXDirection -= ((40.25f - Mathf.Abs(ballPos.y)) / alpha) / Mathf.Abs(rb.velocity.x);
+            }
+        }
+
+        if (tmpTimeXDirection > 0)
+        {
+            bounces += 1;
+            float bumpTimeY = ((40.25f * 2) / alpha) / Mathf.Abs(rb.velocity.x);
+            for (; tmpTimeXDirection > bumpTimeY; tmpTimeXDirection -= bumpTimeY)
+            {
+                bounces++;
+            }
+        }
+        //Ermitteln der Targetheigth no Bumps
+        else
+        {
+            float tmpOvertime = Mathf.Abs(tmpTimeXDirection);
+            float tmpTargetheigth = 0;
+
+            tmpTargetheigth = (tmpOvertime * Mathf.Abs(rb.velocity.x)) * alpha;
+            if (rb.velocity.y < 0)
+            {
+                TargetHeigth = -40.25f + tmpTargetheigth;
+            }
+            else
+            {
+                TargetHeigth = 40.25f - tmpTargetheigth;
+            }
+            return;
+        }
+
+        bounces += (Mathf.Abs(rb.velocity.y) * tmpTimeXDirection) / (40.25f * 2);
 
 
         // Ermitteln des Vorzeichens
         if (rb.velocity.y < 0)
         {
-            bounces *= -1;
+            tmpVorzeichen = -1;
         }
-        print("Bounces: " + bounces);
-        for (; Mathf.Abs(bounces) >= 1;)
+        else
         {
-            bounces *= -1;
+            tmpVorzeichen = 1;
+        }
+
+        for (; 1 < Mathf.Abs(bounces);)
+        {
+            tmpVorzeichen *= -1;
             if (bounces < 0)
             {
                 bounces += 1;
@@ -104,26 +131,22 @@ public class NPCBrain : MonoBehaviour
             }
         }
 
-        // Setzen von targetHeigth
-        print(tmpTargetheigth);
-        if (bounces < 0)
+        // Ermitteln der Targetheigth mit Bumps
+        tmpTargetheigth = (40.25f * 2) * bounces;
+
+        if (tmpVorzeichen < 0)
         {
             TargetHeigth = 40.25f - tmpTargetheigth;
         }
         else
         {
-            TargetHeigth = - 40.25f + tmpTargetheigth;
+            TargetHeigth = -40.25f + tmpTargetheigth;
         }
-
-
-        print("Targetheigth: " + TargetHeigth);
-        Debug.Break();
     }
 
     private void Start()
     {
         GameObject tmpGO = GameObject.FindGameObjectWithTag(tagPingPongBall);
         rb = tmpGO.GetComponent<Rigidbody>();
-        sphereCollider = tmpGO.GetComponent<SphereCollider>();
     }
 }
