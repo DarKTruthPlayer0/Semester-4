@@ -63,6 +63,7 @@ public class MiniGameLogic : MonoBehaviour
         tmpStartVec.x = 1;
         tmpStartVec.y = Random.Range(-1f, 1f);
         tmpStartVec.z = 0;
+        tmpStartVec = tmpStartVec.normalized;
         ballRb.velocity = tmpStartVec * ballSpeed;
     }
 
