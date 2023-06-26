@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -60,7 +59,11 @@ public class MiniGameLogic : MonoBehaviour
 
     private void StartRound()
     {
-        ballRb.velocity = Vector3.right * ballSpeed;
+        Vector3 tmpStartVec;
+        tmpStartVec.x = 1;
+        tmpStartVec.y = Random.Range(-1f, 1f);
+        tmpStartVec.z = 0;
+        ballRb.velocity = tmpStartVec * ballSpeed;
     }
 
     private void SetUpDeathZones()
@@ -104,7 +107,7 @@ public enum DeathZone
     NPCDeathZone
 }
 
-[Serializable]
+[System.Serializable]
 public class Score
 {
     public int PlayerScore;
