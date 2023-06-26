@@ -4,13 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Directions
-{
-    Right,
-    Left,
-    Up,
-    Down
-}
 [ExecuteInEditMode]
 public class CamMoveV2 : ListFunctionsExtension
 {
