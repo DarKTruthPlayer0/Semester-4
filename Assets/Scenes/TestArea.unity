@@ -3727,7 +3727,7 @@ MonoBehaviour:
   MoveDirection: 0
   cam: {fileID: 1557989327}
   camMoveSpeed: 2
-  camSmoothTime: 0.1
+  camSmoothTime: 0.01
   maxCamMoveSpeed: 10
   tagBorders: Border
   borders:

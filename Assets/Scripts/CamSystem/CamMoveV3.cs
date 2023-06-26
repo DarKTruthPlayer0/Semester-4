@@ -185,16 +185,16 @@ public class CamMoveV3 : MonoBehaviour
 
     private void Start()
     {
-        if (Application.isEditor && Application.isPlaying)
-        {
-            return;
-        }
+        camTargetPosition = gameObject.transform.position;
+
         SetBorderGOs();
 
         rightArrow = GameObject.Find("RightArrow");
         leftArrow = GameObject.Find("LeftArrow");
         upArrow = GameObject.Find("UpArrow");
         downArrow = GameObject.Find("DownArrow");
+
+        cam = gameObject.transform.parent.GetChild(0).gameObject;
     }
     private void Update()
     {

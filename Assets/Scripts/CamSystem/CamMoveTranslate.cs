@@ -2,51 +2,23 @@ using UnityEngine;
 
 public class CamMoveTranslate : MonoBehaviour
 {
-    private CamMoveV2[] camMoveV2s;
+    private CamMoveV3[] camMoveV3s;
 
-    public void TranslateRight()
+    public void SetCamMove(bool MoveToDirectionTranslate, Directions direction)
     {
-        foreach (CamMoveV2 cMV2 in camMoveV2s)
+        for (int i = 0; i < camMoveV3s.Length; i++)
         {
-            if (cMV2.transform.parent.gameObject.activeInHierarchy)
+            if (!camMoveV3s[i].gameObject.activeInHierarchy)
             {
-                cMV2.MoveRight();
+                continue;
             }
-        }
-    }
-    public void TranslateLeft()
-    {
-        foreach (CamMoveV2 cMV2 in camMoveV2s)
-        {
-            if (cMV2.transform.parent.gameObject.activeInHierarchy)
-            {
-                cMV2.MoveLeft();
-            }
-        }
-    }
-    public void TranslateUp()
-    {
-        foreach (CamMoveV2 cMV2 in camMoveV2s)
-        {
-            if (cMV2.transform.parent.gameObject.activeInHierarchy)
-            {
-                cMV2.MoveUp();
-            }
-        }
-    }
-    public void TranslateDown()
-    {
-        foreach (CamMoveV2 cMV2 in camMoveV2s)
-        {
-            if (cMV2.transform.parent.gameObject.activeInHierarchy)
-            {
-                cMV2.MoveDown();
-            }
+            camMoveV3s[i].MoveToDirection = MoveToDirectionTranslate;
+            camMoveV3s[i].MoveDirection = direction;
         }
     }
 
     private void Start()
     {
-        camMoveV2s = FindObjectsOfType<CamMoveV2>();
+        camMoveV3s = FindObjectsOfType<CamMoveV3>();
     }
 }

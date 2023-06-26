@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class CamMoveServant : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    public CamMoveV3 moveV3;
+    public CamMoveTranslate camMoveTranslate;
     
     [SerializeField] private Directions direction;
     private bool holdingMouse;
@@ -29,21 +29,22 @@ public class CamMoveServant : MonoBehaviour, IPointerDownHandler, IPointerUpHand
         switch (direction)
         {
             case Directions.Left:
-                moveV3.MoveToDirection = holdingMouse;
-                moveV3.MoveDirection = Directions.Left;
+                camMoveTranslate.SetCamMove(holdingMouse, Directions.Left);
                 break;
             case Directions.Right:
-                moveV3.MoveToDirection = holdingMouse;
-                moveV3.MoveDirection = Directions.Right;
+                camMoveTranslate.SetCamMove(holdingMouse, Directions.Right);
                 break;
             case Directions.Up:
-                moveV3.MoveToDirection = holdingMouse;
-                moveV3.MoveDirection = Directions.Up;
+                camMoveTranslate.SetCamMove(holdingMouse, Directions.Up);
                 break;
             case Directions.Down:
-                moveV3.MoveToDirection = holdingMouse;
-                moveV3.MoveDirection = Directions.Down;
+                camMoveTranslate.SetCamMove(holdingMouse, Directions.Down);
                 break;
         }
+    }
+
+    private void Start()
+    {
+        camMoveTranslate = FindObjectOfType<CamMoveTranslate>();
     }
 }
