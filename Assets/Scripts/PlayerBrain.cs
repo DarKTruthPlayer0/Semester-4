@@ -130,7 +130,6 @@ public class PlayerBrain : MonoBehaviour
         {
             if (Inventory.Items[i].ItemGO == null)
             {
-                print("HI");
                 Inventory.Items[i].ItemGO = TempItemGO;
                 //Dialog einblenden
                 for (int j = 0; j < DialogueOrganizer.DialogueClientsStatic.Length; j++)
