@@ -78,10 +78,18 @@ public class DialogueOrganizer : ListFunctionsExtension
             {
                 dialogueSelect.SelectedDialogue.DialogueParts[j] = new()
                 {
-                    EmotionSprite = DialogueListSO.dialogueList[i].DialogueParts[j].EmotionSprite,
+                    Emotions = new Emotion[DialogueListSO.dialogueList[i].DialogueParts[j].Emotions.Length],
                     PersonNameWhichTalks = DialogueListSO.dialogueList[i].DialogueParts[j].PersonNameWhichTalks,
                     SentenceThePersonTalk = DialogueListSO.dialogueList[i].DialogueParts[j].SentenceThePersonTalk
                 };
+                for (int k = 0; k < dialogueSelect.SelectedDialogue.DialogueParts[j].Emotions.Length; k++)
+                {
+                    dialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k] = new()
+                    {
+                        EmotionSprite = DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].EmotionSprite,
+                        style = DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].style
+                    };
+                }
             }
             tmpDialogueSelects.Add(dialogueSelect);
         }
@@ -210,9 +218,12 @@ public class DialogueOrganizer : ListFunctionsExtension
         {
             for (int j = 0; j < DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length; j++)
             {
-                if (DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].EmotionSprite != tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts[i].EmotionSprite && helperBool3)
+                for (int k = 0; k < DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length; k++)
                 {
-                    DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].EmotionSprite = tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts[i].EmotionSprite;
+                    if (DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSprite != tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSprite && helperBool3)
+                    {
+                        DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSprite = tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSprite;
+                    }
                 }
             }
         }
@@ -272,7 +283,14 @@ public class Dialogue
 [Serializable]
 public class DialoguePart
 {
-    public Sprite EmotionSprite;
+    public Emotion[] Emotions = new Emotion[3];
     public string PersonNameWhichTalks;
     public string SentenceThePersonTalk;
+}
+
+[Serializable]
+public class Emotion
+{
+    public Sprite EmotionSprite;
+    public GameBrainScript.Style style;
 }

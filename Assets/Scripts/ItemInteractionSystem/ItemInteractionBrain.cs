@@ -133,10 +133,18 @@ public class ItemInteractionBrain : MonoBehaviour
             {
                 dialogueSelect.SelectedDialogue.DialogueParts[j] = new()
                 {
-                    EmotionSprite = dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueParts[j].EmotionSprite,
+                    Emotions = new Emotion[dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueParts[j].Emotions.Length],
                     PersonNameWhichTalks = dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueParts[j].PersonNameWhichTalks,
                     SentenceThePersonTalk = dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueParts[j].SentenceThePersonTalk
                 };
+                for (int k = 0; k < dialogueSelect.SelectedDialogue.DialogueParts[j].Emotions.Length; k++)
+                {
+                    dialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k] = new()
+                    {
+                        EmotionSprite = dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].EmotionSprite,
+                        style = dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].style
+                    };
+                }
             }
             tmpDialogueSelects.Add(dialogueSelect);
         }
@@ -276,9 +284,12 @@ public class ItemInteractionBrain : MonoBehaviour
         {
             for (int j = 0; j < DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length; j++)
             {
-                if (DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].EmotionSprite != tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts[i].EmotionSprite && helperBool3)
+                for (int k = 0; k < DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length; k++)
                 {
-                    DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].EmotionSprite = tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts[i].EmotionSprite;
+                    if (DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSprite != tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSprite && helperBool3)
+                    {
+                        DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSprite = tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSprite;
+                    }
                 }
             }
         }
