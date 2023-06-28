@@ -33,7 +33,6 @@ public class CamMoveV3 : MonoBehaviour
         switch (MoveDirection)
         {
             case Directions.Right:
-                print("Right");
                 if (camTargetPosition.x + (Time.deltaTime * camMoveSpeed) < BorderValue())
                 {
                     camTargetPosition.x += Time.deltaTime * camMoveSpeed;
@@ -50,7 +49,6 @@ public class CamMoveV3 : MonoBehaviour
                 }
                 break;
             case Directions.Left:
-                print("Left");
                 if (camTargetPosition.x - (Time.deltaTime * camMoveSpeed) > BorderValue())
                 {
                     camTargetPosition.x -= Time.deltaTime * camMoveSpeed;
@@ -67,7 +65,6 @@ public class CamMoveV3 : MonoBehaviour
                 }
                 break;
             case Directions.Up:
-                print("Up");
                 if (camTargetPosition.y + (Time.deltaTime * camMoveSpeed) < BorderValue())
                 {
                     camTargetPosition.y += Time.deltaTime * camMoveSpeed;
@@ -84,7 +81,6 @@ public class CamMoveV3 : MonoBehaviour
                 }
                 break;
             case Directions.Down:
-                print("Down");
                 if (camTargetPosition.y - (Time.deltaTime * camMoveSpeed) > BorderValue())
                 {
                     camTargetPosition.y -= Time.deltaTime * camMoveSpeed;

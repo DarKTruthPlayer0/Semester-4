@@ -216,6 +216,7 @@ public class PlayerBrain : MonoBehaviour
 [Serializable]
 public class Inventory
 {
+    // Definition wie viele Items ins Iventar passen;
     public Item[] Items;
 }
 [Serializable]
@@ -231,7 +232,6 @@ public class PlayerServant : MonoBehaviour
 
     public void MouseDown()
     {
-        print("Mouse down on" + gameObject.name);
         pBrain.Interaction(gameObject);
     }
 }

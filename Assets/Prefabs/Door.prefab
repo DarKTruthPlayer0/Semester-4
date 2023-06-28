@@ -71,5 +71,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc5f4cbfe2d4fa4480ce4d1dc479153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagCam: CamHolder
+  tagCamHolder: CamHolder
   camToActivate: {fileID: 0}

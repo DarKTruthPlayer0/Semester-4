@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayersInputSystem : MonoBehaviour
 {
+    public static Camera ActiveCam;
+
     [SerializeField] private string tagCamMoveDirectionArrow;
     [SerializeField] private string tagItems;
     [SerializeField] private string tagInteractable;
@@ -35,8 +37,8 @@ public class PlayersInputSystem : MonoBehaviour
         else
         {
             // Checkob 2D- oder 3D-Objekt getroffen
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit2D = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            Ray ray = ActiveCam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit2D = Physics2D.Raycast(ActiveCam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             // 3D Object
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
