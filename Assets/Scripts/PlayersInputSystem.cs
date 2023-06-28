@@ -6,7 +6,13 @@ using UnityEngine.UI;
 
 public class PlayersInputSystem : MonoBehaviour
 {
+    [SerializeField] private string tagCamMoveDirectionArrow;
+    [SerializeField] private string tagItems;
+    [SerializeField] private string tagInteractable;
+    [SerializeField] private string tagDoor;
+
     [SerializeField] private GameObject gameObjectUI;
+    private CamMoveServant camMoveServant;
 
     private void CheckPlayerInput()
     {
@@ -20,31 +26,36 @@ public class PlayersInputSystem : MonoBehaviour
 
         if (results.Count > 0)
         {
-            // Ein UI-Element wurde getroffen
-            // Führe die entsprechende Aktion aus
-            print(results[0].gameObject);
+            if (results[0].gameObject.CompareTag(tagCamMoveDirectionArrow))
+            {
+                camMoveServant = results[0].gameObject.GetComponent<CamMoveServant>();
+                camMoveServant.ArrowDown();
+            }
         }
         else
         {
-            // Überprüfe, ob ein 2D- oder 3D-Objekt getroffen wurde
+            // Checkob 2D- oder 3D-Objekt getroffen
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit2D = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            // 3D Object
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                // Ein 3D-Objekt wurde getroffen
-                // Führe die entsprechende Aktion aus
-                print(hit.collider.gameObject);
+                if (hit.collider.gameObject.CompareTag(tagItems))
+                {
+                    hit.collider.gameObject.GetComponent<PlayerServant>().MouseDown();
+                }
             }
+            // 2D Object
             else if (hit2D.collider != null)
             {
-                // Ein 2D-Objekt wurde getroffen
-                // Führe die entsprechende Aktion aus
-                print(hit2D.collider.gameObject);
-            }
-            else
-            {
-                // Kein Objekt wurde getroffen
-                // Führe die entsprechende Aktion aus
+                if (hit2D.collider.gameObject.CompareTag(tagInteractable))
+                {
+                    hit2D.collider.gameObject.GetComponent<PlayerServant>().MouseDown();
+                }
+                if (hit2D.collider.gameObject.CompareTag(tagDoor))
+                {
+                    hit2D.collider.gameObject.GetComponent<DoorClient>().MouseDown();
+                }
             }
         }
     }
@@ -54,6 +65,14 @@ public class PlayersInputSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             CheckPlayerInput();
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            if (camMoveServant != null)
+            {
+                camMoveServant.ArrowUp();
+                camMoveServant = null;
+            }
         }
     }
 }

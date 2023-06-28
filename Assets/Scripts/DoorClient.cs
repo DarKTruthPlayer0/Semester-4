@@ -10,7 +10,7 @@ public class DoorClient : MonoBehaviour
     private GameObject[] tmpCamGOs;
     private bool helperBool;
 
-    private void OnMouseDown()
+    public void MouseDown()
     {
         ChangeCam();
     }

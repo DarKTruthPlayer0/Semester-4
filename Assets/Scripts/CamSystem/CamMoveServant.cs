@@ -3,23 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CamMoveServant : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class CamMoveServant : MonoBehaviour
 {
     public CamMoveTranslate camMoveTranslate;
     
     [SerializeField] private Directions direction;
     private bool holdingMouse;
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void ArrowDown()
     {
-        print("Mouse Down");
         holdingMouse = true;
         SetMoveDirection();
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public void ArrowUp()
     {
-        print("Mouse UP");
         holdingMouse = false;
         SetMoveDirection();
     }

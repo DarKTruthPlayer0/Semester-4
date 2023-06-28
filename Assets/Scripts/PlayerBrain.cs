@@ -194,15 +194,15 @@ public class PlayerBrain : MonoBehaviour
 
         foreach (GameObject go in tmpTTNGOs)
         {
-            go.AddComponent<PlayerServant>();
+            go.AddComponent<PlayerServant>().pBrain = this;
         }
         foreach (GameObject go in tmpTWIIOGOs)
         { 
-            go.AddComponent<PlayerServant>();
+            go.AddComponent<PlayerServant>().pBrain = this;
         }
         foreach(GameObject go in tmpTIGOs)
         { 
-            go.AddComponent<PlayerServant>();
+            go.AddComponent<PlayerServant>().pBrain = this;
         }
 
         pathChoose = FindObjectOfType<PathChoose>();
@@ -227,16 +227,11 @@ public class Item
 }
 public class PlayerServant : MonoBehaviour
 {
-    private PlayerBrain pBrain;
+    [HideInInspector] public PlayerBrain pBrain;
 
-    private void OnMouseDown()
+    public void MouseDown()
     {
         print("Mouse down on" + gameObject.name);
         pBrain.Interaction(gameObject);
-    }
-
-    private void Start()
-    {
-        pBrain = FindObjectOfType<PlayerBrain>();
     }
 }
