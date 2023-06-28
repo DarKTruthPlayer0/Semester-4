@@ -15,36 +15,36 @@ MonoBehaviour:
   dialogueList:
   - DialogueClassification: Hot Dog Sausage
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EMy ex would say that's pretty big. At least average.\u201C"
   - DialogueClassification: Chainsaw
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EWhat\u2019s this doing in the classroom? Well
         that might explain what happened to the janitor's arm.\u201C"
   - DialogueClassification: "Puk\xE8Mon Ball"
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EThere is an inscription on the cheap plastic.
         It says \"Godda K\xE4TscH Dem All\". Speaking of Puk\xE9, they\u2019re serving
         gruel in the cafeteria again today.\"\t"
   - DialogueClassification: Key
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\t\t\u201EPress any key to continue\u201C"
   - DialogueClassification: Didnt i Do it for you Doggo
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EKermiiit! But as they say... like the nose of
         a dog... no wait, I think that went differently...\u201C"
   - DialogueClassification: Six-Pack rings
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 2c2c1e187f86d6d43bc8c6b5430b0ae5, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201ESave the ocean and keep your environment clean!
         ........................... What are you waiting for... there is no joke.
@@ -58,7 +58,7 @@ MonoBehaviour:
         and was happy what a beautiful watch he had.\u201C"
   - DialogueClassification: Bong
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 0e6ccdad101b4114691e89b9aa0f30f9, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201ESo many possible uses!\u201C"
   - DialogueClassification: Key(Horror)
@@ -78,139 +78,139 @@ MonoBehaviour:
       SentenceThePersonTalk: 'Open the way to a glorious future for you '
   - DialogueClassification: Hot-Dog-Sausage (Horror)
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201ETell Trudi it's a Veggie Sausage\u201C "
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 0e6ccdad101b4114691e89b9aa0f30f9, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EHey Trudi, look, doesn't that look insanely delicious?
         100%  without animal suffering and made only from the finest organic peas!\u201C
         \t "
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 5d4b0c298eefcdb409228c65f9dfcb22, type: 3}
       PersonNameWhichTalks: 'Trudi '
       SentenceThePersonTalk: '*eats sausages and immediately feels sick* "I TASTE
         THE SUFFERING AND HEAR THE SCREAMS OF THE POOR ANIMALS!!! WHO TOLD YOU THIS
         WAS VEGGIE?"      '
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: '"Ehm... well... it looked slightly greenish."'
   - DialogueClassification: Hot-Dog-Sausage (Dating-Sim)
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EPunch Trudi in the face with the sausage\u201C "
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 0e6ccdad101b4114691e89b9aa0f30f9, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EHere Trudi, does this remind you of anything?\"
         *Slaps Trudi the sausage in her face*  \t "
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: d64e7258d77ebd94fa006377c7d3bf47, type: 3}
       PersonNameWhichTalks: 'Trudi '
       SentenceThePersonTalk: "*gets flashbacks* \"Oh how I've missed this feeling! 
         Ehhhhm... I think I have to go look for something for a bit.\u201C "
   - DialogueClassification: Hot-Dog-Sausage (Cyberpunk)
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201ECrush the sausage in front of Trudi's eyes\u201C "
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 0e6ccdad101b4114691e89b9aa0f30f9, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: '*crushes the sausage in her hand* "Stop animal cruelty! 
         Eat meat-free!!! Come on Trudi, be a good example and join the boycott!"  '
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 4571e4b79656a5d47b6ede3fedbda286, type: 3}
       PersonNameWhichTalks: 'Trudi '
       SentenceThePersonTalk: "\u201EFinally, someone agrees with me! For far too
         long we\xB4ve stood by and done nothing! The toilets are the base of our
         resistance from now on!\" "
   - DialogueClassification: "Puk\xE9Ball (Horror)"
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EMake a P\xFAke-monster appear in front of Helga\u201C"
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 0e6ccdad101b4114691e89b9aa0f30f9, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EGo Pukachu! Vomit Ray!\""
   - DialogueClassification: "Puk\xE9Ball (Dating-Sim)"
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EThe two belong together like pizza and pineapple\u201C "
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: d48dd116686a79e4d8b6e0b38345f97e, type: 3}
       PersonNameWhichTalks: Helga
       SentenceThePersonTalk: "\u201EOh look at this beautiful ring, it must be from
         Hartmut! I knew he still loved me!\u201C  "
   - DialogueClassification: "Puk\xE9Ball (Cyberpunk)"
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EBut when the country needed her most, she disappeared...
         100 years  later...\" "
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 5456be20857bd6b4d9c38ebca7586b47, type: 3}
       PersonNameWhichTalks: Helga
       SentenceThePersonTalk: '"I always knew this was my true destiny!"'
   - DialogueClassification: Six-Pack Rings(Horror)
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 2c2c1e187f86d6d43bc8c6b5430b0ae5, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: '"I have long since seen through you and your plans
         Gunnibert! You  are not a normal turtle and you tried to stop me by talking
         me out of being a samurai! But that is over now and I will stop you all!" '
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 871285a192b3b094d87520138885ba82, type: 3}
       PersonNameWhichTalks: Gunnibert
       SentenceThePersonTalk: '"Try it! You''re not the first samurai who''s tried
         to stop me!"  '
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 2c2c1e187f86d6d43bc8c6b5430b0ae5, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: '"But I will be the last!"'
   - DialogueClassification: Six-Pack Rings(Dating-Sim)
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 2c2c1e187f86d6d43bc8c6b5430b0ae5, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: '"I know that you are strictly against samurai, but
         me and your son are  meant for each other and I will not let anything come
         between us!"   '
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 44a7d1c4af7f46a42bc15c327a49cc58, type: 3}
       PersonNameWhichTalks: Tobi
       SentenceThePersonTalk: '"Exactly!"  '
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 2c37bdc6c04862b438c5bbdb90c91dbe, type: 3}
       PersonNameWhichTalks: Gunnibert
       SentenceThePersonTalk: 'I know how to prevent that. I was against you being
         admitted to the school and I will get you out of here too. And my son will
         have to realize that as well! '
   - DialogueClassification: Six-Pack Rings(Cyberpunk)
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\"Stop it now! We must rid the oceans of plastic and
         above all save the  turtles! I LIKE TURTLES!\" \t "
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: b108481fe0f4a66468dc13c7483d59c5, type: 3}
       PersonNameWhichTalks: Gunnibert
       SentenceThePersonTalk: "\u201EI thank you for these wise words and am glad
         to have welcomed  you to my school. Let's take our future in our flipper
         feet and take action together against the plastic mafia!\" "
   - DialogueClassification: Chainsaw(Horror)
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EMhh I already know exactly what I can carve out
         of this. My little  Brother Georgie likes it so much!\" "
   - DialogueClassification: Chainsaw(Dating-Sim)
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 77202cbafa419d740afe73d72943e5d1, type: 3}
       PersonNameWhichTalks: Tobi
       SentenceThePersonTalk: "\u201EHey, Suki, you got anything I can use to open
         up this shiny, pretty  Coke? "
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 0e6ccdad101b4114691e89b9aa0f30f9, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: '"You can tell you''re all city kids. Us village kids
         can open it with  everything!" *opens bottle with chainsaw*    '
   - DialogueClassification: Chainsaw(Cyberpunk)
     DialogueParts:
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c, type: 3}
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201E\u041F\u0440\u0438\u0432\u0435\u0442 Helga, have
         you ever thought about increasing the sausage production a little bit? I
         have just the right thing for you!\u201D "
-    - EmotionSprite: {fileID: 0}
+    - EmotionSprite: {fileID: 21300000, guid: 5456be20857bd6b4d9c38ebca7586b47, type: 3}
       PersonNameWhichTalks: Helga
       SentenceThePersonTalk: "\u201EJust give it to me, the less I have to worry
         about my work the more time I have for my weapons.... Eh I mean weather...
