@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine.Video;
 
 public class FinalTrigger : MonoBehaviour
 {
+    [SerializeField] private string tagFinalDoor;
     [SerializeField] private GameObject rectorateGO;
     [SerializeField] private VideoPlayer player;
     [SerializeField] private VideoClip cyberpunktOutro;
@@ -54,5 +56,18 @@ public class FinalTrigger : MonoBehaviour
         gameBrainScript = FindObjectOfType<GameBrainScript>();
         player = GameObject.Find("OutroHolder").GetComponent<VideoPlayer>();
         player.gameObject.SetActive(false);
+
+        GameObject.FindGameObjectWithTag(tagFinalDoor).AddComponent<FinalTriggerClient>().FinalTriggerScript = this;
+    }
+}
+
+[Serializable]
+public class FinalTriggerClient : MonoBehaviour
+{
+    public FinalTrigger FinalTriggerScript;
+
+    public void TriggerFinalCheck()
+    {
+        FinalTriggerScript.CheckFinalLocked();
     }
 }

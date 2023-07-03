@@ -61,7 +61,7 @@ public class PlayersInputSystem : MonoBehaviour
                 }
                 if (hit2D.collider.gameObject.CompareTag(tagFinalDoor))
                 {
-                    hit2D.collider.gameObject.GetComponent <FinalTrigger>().CheckFinalLocked();
+                    hit2D.collider.gameObject.GetComponent<FinalTriggerClient>().TriggerFinalCheck();
                 }
             }
         }
