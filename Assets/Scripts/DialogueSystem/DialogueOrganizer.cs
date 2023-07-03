@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 [ExecuteInEditMode]
 public class DialogueOrganizer : ListFunctionsExtension
