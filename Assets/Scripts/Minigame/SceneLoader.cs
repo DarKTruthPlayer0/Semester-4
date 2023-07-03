@@ -3,30 +3,67 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class SceneLoader : MonoBehaviour
 {
     [HideInInspector] public int SelectedSceneIndex;
 
+    private VideoPlayer player;
     private AsyncOperation async;
+    private bool starttime = true;
 
-    private void OnMouseDown()
+    public void LoadScene()
     {
-        print("Mouse down on" + gameObject.name);
         StartCoroutine(loadScene());
+    }
+
+    private IEnumerator CheckVideoFinished()
+    {
+        while (player.isPlaying)
+        {
+            yield return null;
+        }
+        print("VideoDone");
+        starttime = false;
     }
 
     private IEnumerator loadScene()
     {
-        async = SceneManager.LoadSceneAsync(SelectedSceneIndex);
-        async.allowSceneActivation = true;
+        async = SceneManager.LoadSceneAsync(SelectedSceneIndex, LoadSceneMode.Single);
+        async.allowSceneActivation = false;
 
-        while (!async.isDone)
+        while (!async.isDone && starttime)
         {
-            print(async.progress + "");
+            print(async.progress);
             yield return null;
         }
+        showScene();
+        print("SceneLoadDone");
+    }
 
+    private void OnVideoStarted(VideoPlayer source)
+    {
+        StartCoroutine(CheckVideoFinished());
+    }
+
+    private void showScene()
+    {
+        async.allowSceneActivation = true;
+    }
+
+    private void Start()
+    {
+        if (TryGetComponent(out VideoPlayer videoPlayer))
+        {
+            player = videoPlayer;
+            player.started += OnVideoStarted;
+            StartCoroutine(loadScene());
+        }
+        else
+        {
+            starttime = false;
+        }
     }
 }
 

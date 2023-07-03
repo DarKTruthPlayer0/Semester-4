@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseMenue : MonoBehaviour
+public class MenueHandler : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenue;
     [SerializeField] private GameObject optionsMenue;
@@ -29,7 +29,7 @@ public class PauseMenue : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && pauseMenue != null)
         {
             pauseMenue.SetActive(true);
         }
