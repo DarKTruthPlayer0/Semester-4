@@ -12,6 +12,7 @@ public class PlayersInputSystem : MonoBehaviour
     [SerializeField] private string tagItems;
     [SerializeField] private string tagInteractable;
     [SerializeField] private string tagDoor;
+    [SerializeField] private string tagFinalDoor;
 
     [SerializeField] private GameObject gameObjectUI;
     private CamMoveServant camMoveServant;
@@ -57,6 +58,10 @@ public class PlayersInputSystem : MonoBehaviour
                 if (hit2D.collider.gameObject.CompareTag(tagDoor))
                 {
                     hit2D.collider.gameObject.GetComponent<DoorClient>().MouseDown();
+                }
+                if (hit2D.collider.gameObject.CompareTag(tagFinalDoor))
+                {
+                    hit2D.collider.gameObject.GetComponent <FinalTrigger>().CheckFinalLocked();
                 }
             }
         }

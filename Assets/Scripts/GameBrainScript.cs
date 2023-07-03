@@ -12,16 +12,16 @@ public class GameBrainScript : MonoBehaviour
         Datingsim,
         Cyberpunk
     }
+    public Style PresentStyle;
 
     [SerializeField] private StyleClass[] styleClasses;
     private Camera cam;
-    private Style presentStyle;
 
     private void SetStyle()
     {
         for (int i = 0; i < styleClasses.Length; i++)
         {
-            if (presentStyle == styleClasses[i].style)
+            if (PresentStyle == styleClasses[i].style)
             {
                 cam.cullingMask = styleClasses[i].layerMask;
             }
@@ -58,7 +58,7 @@ public class GameBrainScript : MonoBehaviour
                 y = i;
             }
         }
-        presentStyle = (Style)y;
+        PresentStyle = (Style)y;
     }
 
     private void Start()
