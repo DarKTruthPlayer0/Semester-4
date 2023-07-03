@@ -87,6 +87,7 @@ public class DialogueOrganizer : ListFunctionsExtension
                     dialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k] = new()
                     {
                         EmotionSprite = DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].EmotionSprite,
+                        EmotionSound = DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].EmotionSound,
                         style = DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].style
                     };
                 }
@@ -224,6 +225,11 @@ public class DialogueOrganizer : ListFunctionsExtension
                     {
                         DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSprite = tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSprite;
                     }
+
+                    if (DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSound != tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSound && helperBool3)
+                    {
+                        DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSound = tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSound;
+                    }
                 }
             }
         }
@@ -292,5 +298,6 @@ public class DialoguePart
 public class Emotion
 {
     public Sprite EmotionSprite;
+    public AudioClip EmotionSound;
     public GameBrainScript.Style style;
 }

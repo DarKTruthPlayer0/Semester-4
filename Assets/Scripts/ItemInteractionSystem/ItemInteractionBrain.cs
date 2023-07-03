@@ -142,6 +142,7 @@ public class ItemInteractionBrain : MonoBehaviour
                     dialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k] = new()
                     {
                         EmotionSprite = dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].EmotionSprite,
+                        EmotionSound = dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].EmotionSound,
                         style = dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].style
                     };
                 }
@@ -289,6 +290,11 @@ public class ItemInteractionBrain : MonoBehaviour
                     if (DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSprite != tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSprite && helperBool3)
                     {
                         DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSprite = tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSprite;
+                    }
+
+                    if (DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSound != tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSound && helperBool3)
+                    {
+                        DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSound = tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSound;
                     }
                 }
             }
