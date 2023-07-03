@@ -285,7 +285,7 @@ public class ItemInteractionBrain : MonoBehaviour
         {
             for (int j = 0; j < DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length; j++)
             {
-                for (int k = 0; k < DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length; k++)
+                for (int k = 0; k < DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions.Length; k++)
                 {
                     if (DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSprite != tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSprite && helperBool3)
                     {
