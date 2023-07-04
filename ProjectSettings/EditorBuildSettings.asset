@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/VerticalSlice.unity
     guid: 0cd590d92e26d3646b569353b44bb684
   - enabled: 1
-    path: Assets/Scenes/EndingCutscenes.unity
-    guid: 8df3ef2459c995e4787dc14d1dff8181
+    path: Assets/Scenes/MiniGame.unity
+    guid: 5a8f22ba6a8b44c419c5589df55f6ce9
   m_configObjects: {}

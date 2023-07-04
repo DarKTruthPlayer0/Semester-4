@@ -34,4 +34,9 @@ public class MenueHandler : MonoBehaviour
             pauseMenue.SetActive(true);
         }
     }
+
+    private void Start()
+    {
+        pauseMenue.SetActive(false);
+    }
 }

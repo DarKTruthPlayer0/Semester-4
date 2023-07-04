@@ -13,6 +13,7 @@ public class PlayersInputSystem : MonoBehaviour
     [SerializeField] private string tagInteractable;
     [SerializeField] private string tagDoor;
     [SerializeField] private string tagFinalDoor;
+    [SerializeField] private string tagMinigameTrigger;
 
     [SerializeField] private GameObject gameObjectUI;
     private CamMoveServant camMoveServant;
@@ -46,6 +47,10 @@ public class PlayersInputSystem : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag(tagItems))
                 {
                     hit.collider.gameObject.GetComponent<PlayerServant>().MouseDown();
+                }
+                if (hit.collider.gameObject.CompareTag(tagMinigameTrigger))
+                {
+                    hit.collider.gameObject.GetComponent<SceneLoader>().LoadScene();
                 }
             }
             // 2D Object

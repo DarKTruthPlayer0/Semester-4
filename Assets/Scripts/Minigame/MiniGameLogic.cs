@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MiniGameLogic : MonoBehaviour
@@ -12,6 +13,13 @@ public class MiniGameLogic : MonoBehaviour
     [SerializeField] [Range(0, 100)] private float ballSpeed;
 
     [SerializeField] private int scoreToReach;
+
+    [SerializeField] private TMP_Text playerScoreText;
+    [SerializeField] private TMP_Text nPCScoreText;
+
+    [SerializeField] private GameObject winScreen;
+    [SerializeField] private TMP_Text WinScreenText;
+
     private Vector3 startPos;
     private Rigidbody ballRb;
     private Score score = new();
@@ -23,10 +31,12 @@ public class MiniGameLogic : MonoBehaviour
         if (deathZone == DeathZone.PlayerDeathZone)
         {
             score.NPCScore++;
+            nPCScoreText.text = score.NPCScore.ToString();
         }
         if (deathZone == DeathZone.NPCDeathZone)
         {
             score.PlayerScore++;
+            playerScoreText.text = score.PlayerScore.ToString();
         }
         ResetBall();
         CheckScore();
@@ -46,12 +56,20 @@ public class MiniGameLogic : MonoBehaviour
         {
             //Player wins
             print("Player Wins");
+            if (!winScreen.activeInHierarchy)
+            {
+                winScreen.SetActive(true);
+            }
             return true;
         }
         if (score.NPCScore >= scoreToReach)
         {
             //NPC wins
             print("NPC Wins");
+            if (!winScreen.activeInHierarchy)
+            {
+                winScreen.SetActive(true);
+            }
             return true;
         }
         return false;
@@ -82,7 +100,7 @@ public class MiniGameLogic : MonoBehaviour
 
     private void Update()
     {
-        if (Input.anyKeyDown && !gameRunning)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !gameRunning && !CheckScore())
         {
             StartRound();
             gameRunning = true;
