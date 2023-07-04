@@ -237,6 +237,7 @@ public class DialogueOrganizer : ListFunctionsExtension
     }
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(DialogueOrganizer))]
 class DialogueOrganizerEditor : Editor
 {
@@ -256,6 +257,7 @@ class DialogueOrganizerEditor : Editor
         }
     }
 }
+#endif
 
 [Serializable]
 public class DialogueClient : ITranslate

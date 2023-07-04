@@ -67,6 +67,7 @@ public class SceneLoader : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(SceneLoader))]
 class ActivateNPCDialogueEditor : Editor
 {
@@ -84,7 +85,7 @@ class ActivateNPCDialogueEditor : Editor
             }
         }
         DrawDefaultInspector();
-        if (GUILayout.Button("Current SceneToLoad Index: "+ sceneLoader.SelectedSceneIndex))
+        if (GUILayout.Button("Current SceneToLoad Index: " + sceneLoader.SelectedSceneIndex))
         {
             GenericMenu menu = new GenericMenu();
             for (int i = 0; i < scenes.Count; i++)
@@ -100,3 +101,4 @@ class ActivateNPCDialogueEditor : Editor
         }
     }
 }
+#endif
