@@ -56,6 +56,7 @@ public class MiniGameLogic : MonoBehaviour
         {
             //Player wins
             print("Player Wins");
+            WinScreenText.text = "Player won the game!";
             if (!winScreen.activeInHierarchy)
             {
                 winScreen.SetActive(true);
@@ -66,6 +67,7 @@ public class MiniGameLogic : MonoBehaviour
         {
             //NPC wins
             print("NPC Wins");
+            WinScreenText.text = "NPC won the game!";
             if (!winScreen.activeInHierarchy)
             {
                 winScreen.SetActive(true);
@@ -116,6 +118,8 @@ public class MiniGameLogic : MonoBehaviour
         startPos = ballRb.gameObject.transform.position;
 
         nPCBrain = GetComponent<NPCBrain>();
+
+        winScreen.SetActive(false);
     }
 
 
