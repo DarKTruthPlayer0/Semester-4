@@ -23,6 +23,7 @@ public class CamManager : MonoBehaviour
             if (CamHolders[i] == newCamHolder)
             {
                 newCamHolder.SetActive(true);
+                newCamHolder.GetComponentInChildren<CamMoveV3>().ResetCamAndArrows();
                 continue;
             }
             CamHolders[i].SetActive(false);

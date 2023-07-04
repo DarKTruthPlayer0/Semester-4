@@ -179,6 +179,16 @@ public class CamMoveV3 : MonoBehaviour
         }
     }
 
+    public void ResetCamAndArrows()
+    {
+        rightArrow.SetActive(true);
+        leftArrow.SetActive(true);
+        upArrow.SetActive(true);
+        downArrow.SetActive(true);
+
+        //camTargetPosition = gameObject.transform.position;
+    }
+
     private void Start()
     {
         camTargetPosition = gameObject.transform.position;
