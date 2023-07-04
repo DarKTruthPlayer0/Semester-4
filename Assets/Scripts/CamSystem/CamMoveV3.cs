@@ -33,7 +33,7 @@ public class CamMoveV3 : MonoBehaviour
         switch (MoveDirection)
         {
             case Directions.Right:
-                if (camTargetPosition.x + (Time.deltaTime * camMoveSpeed) < BorderValue())
+                if (camTargetPosition.x + (Time.deltaTime * camMoveSpeed) <= BorderValue())
                 {
                     camTargetPosition.x += Time.deltaTime * camMoveSpeed;
                     if (!leftArrow.activeInHierarchy)
@@ -49,7 +49,7 @@ public class CamMoveV3 : MonoBehaviour
                 }
                 break;
             case Directions.Left:
-                if (camTargetPosition.x - (Time.deltaTime * camMoveSpeed) > BorderValue())
+                if (camTargetPosition.x - (Time.deltaTime * camMoveSpeed) >= BorderValue())
                 {
                     camTargetPosition.x -= Time.deltaTime * camMoveSpeed;
                     if (!rightArrow.activeInHierarchy) 
@@ -65,7 +65,7 @@ public class CamMoveV3 : MonoBehaviour
                 }
                 break;
             case Directions.Up:
-                if (camTargetPosition.y + (Time.deltaTime * camMoveSpeed) < BorderValue())
+                if (camTargetPosition.y + (Time.deltaTime * camMoveSpeed) <= BorderValue())
                 {
                     camTargetPosition.y += Time.deltaTime * camMoveSpeed;
                     if (!downArrow.activeInHierarchy) 
@@ -81,7 +81,7 @@ public class CamMoveV3 : MonoBehaviour
                 }
                 break;
             case Directions.Down:
-                if (camTargetPosition.y - (Time.deltaTime * camMoveSpeed) > BorderValue())
+                if (camTargetPosition.y - (Time.deltaTime * camMoveSpeed) >= BorderValue())
                 {
                     camTargetPosition.y -= Time.deltaTime * camMoveSpeed;
                     if (!upArrow.activeInHierarchy) 
