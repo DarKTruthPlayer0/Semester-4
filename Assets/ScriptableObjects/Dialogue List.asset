@@ -16,28 +16,34 @@ MonoBehaviour:
   - DialogueClassification: Hot Dog Sausage
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EMy ex would say that's pretty big. At least average.\u201C"
   - DialogueClassification: Chainsaw
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EWhat\u2019s this doing in the classroom? Well
@@ -45,14 +51,17 @@ MonoBehaviour:
   - DialogueClassification: "Puk\xE8Mon Ball"
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EThere is an inscription on the cheap plastic.
@@ -61,28 +70,34 @@ MonoBehaviour:
   - DialogueClassification: Key
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\t\t\u201EPress any key to continue\u201C"
   - DialogueClassification: Didnt i Do it for you Doggo
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EKermiiit! But as they say... like the nose of
@@ -90,14 +105,17 @@ MonoBehaviour:
   - DialogueClassification: Six-Pack rings
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 2c2c1e187f86d6d43bc8c6b5430b0ae5,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 3c09ebf5ffab4564d8ac37aba1087a2b, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 2c2c1e187f86d6d43bc8c6b5430b0ae5,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 3c09ebf5ffab4564d8ac37aba1087a2b, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: 2c2c1e187f86d6d43bc8c6b5430b0ae5,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 3c09ebf5ffab4564d8ac37aba1087a2b, type: 3}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201ESave the ocean and keep your environment clean!
@@ -108,10 +126,10 @@ MonoBehaviour:
     - Emotions:
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
-        style: 0
+        style: 2
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
-        style: 0
+        style: 1
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -178,7 +196,8 @@ MonoBehaviour:
   - DialogueClassification: Hot-Dog-Sausage (Horror)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
         style: 0
       - EmotionSprite: {fileID: 0}
@@ -190,8 +209,9 @@ MonoBehaviour:
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201ETell Trudi it's a Veggie Sausage\u201C "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 0e6ccdad101b4114691e89b9aa0f30f9,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 6939c43a83f987940a2e96b795dd63c4, type: 3}
         style: 0
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
@@ -204,8 +224,9 @@ MonoBehaviour:
         100%  without animal suffering and made only from the finest organic peas!\u201C
         \t "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 5d4b0c298eefcdb409228c65f9dfcb22,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 5f839158f4b00ac4e835d8afe344f587, type: 3}
         style: 0
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
@@ -218,7 +239,8 @@ MonoBehaviour:
         THE SUFFERING AND HEAR THE SCREAMS OF THE POOR ANIMALS!!! WHO TOLD YOU THIS
         WAS VEGGIE?"      '
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
         style: 0
       - EmotionSprite: {fileID: 0}
@@ -232,9 +254,10 @@ MonoBehaviour:
   - DialogueClassification: Hot-Dog-Sausage (Dating-Sim)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
+        style: 1
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -244,9 +267,10 @@ MonoBehaviour:
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EPunch Trudi in the face with the sausage\u201C "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
+      - EmotionSprite: {fileID: 21300000, guid: 0e6ccdad101b4114691e89b9aa0f30f9,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 6939c43a83f987940a2e96b795dd63c4, type: 3}
+        style: 1
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -257,9 +281,10 @@ MonoBehaviour:
       SentenceThePersonTalk: "\u201EHere Trudi, does this remind you of anything?\"
         *Slaps Trudi the sausage in her face*  \t "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
+      - EmotionSprite: {fileID: 21300000, guid: d64e7258d77ebd94fa006377c7d3bf47,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 0486843765c966049bb8e98847606608, type: 3}
+        style: 1
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -272,9 +297,10 @@ MonoBehaviour:
   - DialogueClassification: Hot-Dog-Sausage (Cyberpunk)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
+        style: 2
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -284,9 +310,10 @@ MonoBehaviour:
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201ECrush the sausage in front of Trudi's eyes\u201C "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
+      - EmotionSprite: {fileID: 21300000, guid: 0e6ccdad101b4114691e89b9aa0f30f9,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 6939c43a83f987940a2e96b795dd63c4, type: 3}
+        style: 2
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -297,9 +324,10 @@ MonoBehaviour:
       SentenceThePersonTalk: '*crushes the sausage in her hand* "Stop animal cruelty! 
         Eat meat-free!!! Come on Trudi, be a good example and join the boycott!"  '
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
+      - EmotionSprite: {fileID: 21300000, guid: 4571e4b79656a5d47b6ede3fedbda286,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 62ba7722f2bdebb4180461372717bb38, type: 3}
+        style: 2
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -313,7 +341,8 @@ MonoBehaviour:
   - DialogueClassification: "Puk\xE9Ball (Horror)"
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
         style: 0
       - EmotionSprite: {fileID: 0}
@@ -325,8 +354,9 @@ MonoBehaviour:
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EMake a P\xFAke-monster appear in front of Helga\u201C"
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 0e6ccdad101b4114691e89b9aa0f30f9,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 6939c43a83f987940a2e96b795dd63c4, type: 3}
         style: 0
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
@@ -339,9 +369,10 @@ MonoBehaviour:
   - DialogueClassification: "Puk\xE9Ball (Dating-Sim)"
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
+        style: 1
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -351,9 +382,10 @@ MonoBehaviour:
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201EThe two belong together like pizza and pineapple\u201C "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: d48dd116686a79e4d8b6e0b38345f97e,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
+        style: 1
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -366,9 +398,10 @@ MonoBehaviour:
   - DialogueClassification: "Puk\xE9Ball (Cyberpunk)"
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
+        style: 2
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -379,9 +412,10 @@ MonoBehaviour:
       SentenceThePersonTalk: "\u201EBut when the country needed her most, she disappeared...
         100 years  later...\" "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 5456be20857bd6b4d9c38ebca7586b47,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
+        style: 2
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -393,8 +427,9 @@ MonoBehaviour:
   - DialogueClassification: Six-Pack Rings(Horror)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 2c2c1e187f86d6d43bc8c6b5430b0ae5,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 3c09ebf5ffab4564d8ac37aba1087a2b, type: 3}
         style: 0
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
@@ -407,8 +442,9 @@ MonoBehaviour:
         Gunnibert! You  are not a normal turtle and you tried to stop me by talking
         me out of being a samurai! But that is over now and I will stop you all!" '
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 871285a192b3b094d87520138885ba82,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 4cc6f1485bc31764895a9e3f12a4b2b8, type: 3}
         style: 0
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
@@ -420,8 +456,9 @@ MonoBehaviour:
       SentenceThePersonTalk: '"Try it! You''re not the first samurai who''s tried
         to stop me!"  '
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 2c2c1e187f86d6d43bc8c6b5430b0ae5,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 3c09ebf5ffab4564d8ac37aba1087a2b, type: 3}
         style: 0
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
@@ -434,9 +471,10 @@ MonoBehaviour:
   - DialogueClassification: Six-Pack Rings(Dating-Sim)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
+      - EmotionSprite: {fileID: 21300000, guid: 2c2c1e187f86d6d43bc8c6b5430b0ae5,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 3c09ebf5ffab4564d8ac37aba1087a2b, type: 3}
+        style: 1
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -448,9 +486,10 @@ MonoBehaviour:
         me and your son are  meant for each other and I will not let anything come
         between us!"   '
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
+      - EmotionSprite: {fileID: 21300000, guid: 44a7d1c4af7f46a42bc15c327a49cc58,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: d0b00bdf75b26114c80bde9970d81ccf, type: 3}
+        style: 1
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -460,9 +499,10 @@ MonoBehaviour:
       PersonNameWhichTalks: Tobi
       SentenceThePersonTalk: '"Exactly!"  '
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
+      - EmotionSprite: {fileID: 21300000, guid: 2c37bdc6c04862b438c5bbdb90c91dbe,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 4cc6f1485bc31764895a9e3f12a4b2b8, type: 3}
+        style: 1
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -476,9 +516,10 @@ MonoBehaviour:
   - DialogueClassification: Six-Pack Rings(Cyberpunk)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
+        style: 2
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -489,9 +530,10 @@ MonoBehaviour:
       SentenceThePersonTalk: "\"Stop it now! We must rid the oceans of plastic and
         above all save the  turtles! I LIKE TURTLES!\" \t "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
+      - EmotionSprite: {fileID: 21300000, guid: b108481fe0f4a66468dc13c7483d59c5,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 4cc6f1485bc31764895a9e3f12a4b2b8, type: 3}
+        style: 2
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -505,8 +547,9 @@ MonoBehaviour:
   - DialogueClassification: Chainsaw(Horror)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
         style: 0
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
@@ -520,9 +563,10 @@ MonoBehaviour:
   - DialogueClassification: Chainsaw(Dating-Sim)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
+      - EmotionSprite: {fileID: 21300000, guid: 77202cbafa419d740afe73d72943e5d1,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: d0b00bdf75b26114c80bde9970d81ccf, type: 3}
+        style: 1
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -533,9 +577,10 @@ MonoBehaviour:
       SentenceThePersonTalk: "\u201EHey, Suki, you got anything I can use to open
         up this shiny, pretty  Coke? "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
+      - EmotionSprite: {fileID: 21300000, guid: 0e6ccdad101b4114691e89b9aa0f30f9,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 6939c43a83f987940a2e96b795dd63c4, type: 3}
+        style: 1
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -548,9 +593,10 @@ MonoBehaviour:
   - DialogueClassification: Chainsaw(Cyberpunk)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
+        style: 2
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -562,9 +608,10 @@ MonoBehaviour:
         you ever thought about increasing the sausage production a little bit? I
         have just the right thing for you!\u201D "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 5456be20857bd6b4d9c38ebca7586b47,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
+        style: 2
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -578,8 +625,9 @@ MonoBehaviour:
   - DialogueClassification: Doggo(Horror)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 0e6ccdad101b4114691e89b9aa0f30f9,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 6939c43a83f987940a2e96b795dd63c4, type: 3}
         style: 0
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
@@ -594,9 +642,10 @@ MonoBehaviour:
   - DialogueClassification: Doggo(Dating-Sim)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
+      - EmotionSprite: {fileID: 21300000, guid: c823f37875182544a885e3d802ca2ac5,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 5d0f231d23c1eaf48b7478f4db72f85f, type: 3}
+        style: 1
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -606,9 +655,10 @@ MonoBehaviour:
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: '"Look Tobi, our first pet together!"'
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
+      - EmotionSprite: {fileID: 21300000, guid: f135210cfbde4c041a2d9c553f68a916,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: d0b00bdf75b26114c80bde9970d81ccf, type: 3}
+        style: 1
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -619,9 +669,10 @@ MonoBehaviour:
       SentenceThePersonTalk: '"Um, don''t you think this is all happening a little
         fast?"'
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
+        style: 1
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -634,9 +685,10 @@ MonoBehaviour:
   - DialogueClassification: Doggo(Cyberpunk)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
+        style: 2
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -649,7 +701,7 @@ MonoBehaviour:
     - Emotions:
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
-        style: 0
+        style: 2
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -662,9 +714,10 @@ MonoBehaviour:
         that perfect Dream By an Auroral stain But so adjust my daily Night That
         it will come again.\u201C \u201EEmily Dickinson wrote that\u201C  "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
+      - EmotionSprite: {fileID: 21300000, guid: f34bad0ac23796c429a2def07ae9a65c,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 5b2135f278b82b44bb44c68412cc62a7, type: 3}
+        style: 2
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -676,7 +729,7 @@ MonoBehaviour:
     - Emotions:
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
-        style: 0
+        style: 2
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -689,9 +742,10 @@ MonoBehaviour:
         awoke with a  fright in the middle of the night that is dream had come true.
         \u201C  "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
+        style: 2
       - EmotionSprite: {fileID: 0}
         EmotionSound: {fileID: 0}
         style: 0
@@ -871,42 +925,51 @@ MonoBehaviour:
   - DialogueClassification: Bild des Rektors (Flur)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: c823f37875182544a885e3d802ca2ac5,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 5d0f231d23c1eaf48b7478f4db72f85f, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: c823f37875182544a885e3d802ca2ac5,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 5d0f231d23c1eaf48b7478f4db72f85f, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: c823f37875182544a885e3d802ca2ac5,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 5d0f231d23c1eaf48b7478f4db72f85f, type: 3}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: '"They really seem to care about animals here."'
   - DialogueClassification: Uhr (Flur)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201ETik Tok on the clock but the Party won\xB4t stop!\u201C "
   - DialogueClassification: "B\xFCcherregal (Klassenzimmer)"
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: '"Wow so much world literature, Kafka, Kant, Faust,
@@ -914,68 +977,83 @@ MonoBehaviour:
   - DialogueClassification: "L\xFCftung (Toiletten)"
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: 21c3727e491376e48b8f4e9a019fc791,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 46d5a616147231849891ba1ae694e6b7, type: 3}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201ESus!\u201C "
   - DialogueClassification: "Kabinent\xFCr (Toiletten)"
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: '"Uff, finally the toilets, I''ve been needing to pee
         so badly all this time."'
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 938f2eaa0d350464e9e191a6dff38b35,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 95b01ba3530dac64db46cbc47a1d4d54, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 30d39a728964dea4f9be3d0ff7ca50ec,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 76cd63f100fb2324b82e63e98f6c8b41, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: 5d4b0c298eefcdb409228c65f9dfcb22,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 5f839158f4b00ac4e835d8afe344f587, type: 3}
         style: 0
       PersonNameWhichTalks: Trudi
       SentenceThePersonTalk: '"Hands off the toilets!!!"   '
   - DialogueClassification: "Getr\xE4nkeautomat (Cafeteria)"
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 0e6ccdad101b4114691e89b9aa0f30f9,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 6939c43a83f987940a2e96b795dd63c4, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 0e6ccdad101b4114691e89b9aa0f30f9,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 6939c43a83f987940a2e96b795dd63c4, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: 0e6ccdad101b4114691e89b9aa0f30f9,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 6939c43a83f987940a2e96b795dd63c4, type: 3}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\u201ETantruuuum\u201C "
   - DialogueClassification: "M\xFClleimer (Cafeteria)"
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
         style: 0
       PersonNameWhichTalks: Suki
@@ -1041,41 +1119,50 @@ MonoBehaviour:
   - DialogueClassification: Erste Begegnung(Tobi)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: c436230cdd092e24a810752e06d1a6cd,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8493f90402f5080448639ba657170d45, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 77202cbafa419d740afe73d72943e5d1,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: d0b00bdf75b26114c80bde9970d81ccf, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: f2ae9b0167555044081d88cf4cf91bc7,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: fdbebc67e5f70ea44b8bed7a44002a31, type: 3}
         style: 0
       PersonNameWhichTalks: Tobi
       SentenceThePersonTalk: "\u201EOh hey you must be Suki, we have heard a lot
         about you and I have been   been looking forward to finally meeting our main
         character.\u201D "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\"Hey Tobi, yes, I'm quite excited too and I really
         don't know what to expect  here.\u201C "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: c436230cdd092e24a810752e06d1a6cd,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8493f90402f5080448639ba657170d45, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 77202cbafa419d740afe73d72943e5d1,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: d0b00bdf75b26114c80bde9970d81ccf, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: f2ae9b0167555044081d88cf4cf91bc7,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: fdbebc67e5f70ea44b8bed7a44002a31, type: 3}
         style: 0
       PersonNameWhichTalks: Tobi
       SentenceThePersonTalk: '"Haha, I''ve been in here a while and still have no
@@ -1083,130 +1170,160 @@ MonoBehaviour:
   - DialogueClassification: Erste Begegnung(Gunnibert)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: b108481fe0f4a66468dc13c7483d59c5,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 4cc6f1485bc31764895a9e3f12a4b2b8, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 2c37bdc6c04862b438c5bbdb90c91dbe,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 4cc6f1485bc31764895a9e3f12a4b2b8, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: 871285a192b3b094d87520138885ba82,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 4cc6f1485bc31764895a9e3f12a4b2b8, type: 3}
         style: 0
       PersonNameWhichTalks: Gunnibert
       SentenceThePersonTalk: '"Good afternoon Miss Suki, I''m glad to finally welcome
         you to our school  and hope you will make a wonderful game out of our school."  '
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: f34bad0ac23796c429a2def07ae9a65c,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 5b2135f278b82b44bb44c68412cc62a7, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: f34bad0ac23796c429a2def07ae9a65c,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 5b2135f278b82b44bb44c68412cc62a7, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: f34bad0ac23796c429a2def07ae9a65c,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 5b2135f278b82b44bb44c68412cc62a7, type: 3}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: '"Ehm... you are a..."'
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: b108481fe0f4a66468dc13c7483d59c5,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 4cc6f1485bc31764895a9e3f12a4b2b8, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 2c37bdc6c04862b438c5bbdb90c91dbe,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 4cc6f1485bc31764895a9e3f12a4b2b8, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: 871285a192b3b094d87520138885ba82,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 4cc6f1485bc31764895a9e3f12a4b2b8, type: 3}
         style: 0
       PersonNameWhichTalks: Gunnibert
       SentenceThePersonTalk: '"Yes, that''s right, I''m a turtle, as you can easily
         see.   Don''t you trust a reptile to run a school?" '
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: '"Yes, I do! I''m a big fan of... Turtles! I''m sure
         you''d make a great director,  *whispers* at least when it''s warm" '
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: b108481fe0f4a66468dc13c7483d59c5,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 4cc6f1485bc31764895a9e3f12a4b2b8, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 2c37bdc6c04862b438c5bbdb90c91dbe,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 4cc6f1485bc31764895a9e3f12a4b2b8, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: 871285a192b3b094d87520138885ba82,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 4cc6f1485bc31764895a9e3f12a4b2b8, type: 3}
         style: 0
       PersonNameWhichTalks: Gunnibert
       SentenceThePersonTalk: Pardon?
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: '"Oh nothing, I''m happy to be a student at your school!"'
   - DialogueClassification: Erste Begegnung(Hartmut)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: e14ac5407258d2c4e88bdc44f64f9ac3,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8c4f10059ff39ff469f0b8902cd2c6e7, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 1d4b3eecc43aa3046a5c6b4df891f725,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: a298db31bb445264a9f964b2199a347c, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: 1c4eca709f74b3d47bc2ce6858696c27,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 63bfacb9c11807549bab08365089d57d, type: 3}
         style: 0
       PersonNameWhichTalks: Hartmut
       SentenceThePersonTalk: ' "What are you staring at? Never seen an alien caretaker
         before?   We''re not trusted with other jobs here." '
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: '"What no! Everything''s great, I was just wondering
         what happened to your  arm..." '
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 4888e1ef103a80843bcaa556fa59e059,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 869c94b87b35ad64db9bb81f6a69852b, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 693fc39db1dd8a047b330ba4f17f44d2,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 6150dd60442a6b94f89aa709ca0b8191, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: 69c52f3bcd6d0e44ba3058b1a9315c90,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 0b044553ef9820b4da379b174dcb3810, type: 3}
         style: 0
       PersonNameWhichTalks: Hartmut
       SentenceThePersonTalk: '"NOBODY TALKS TO ME ABOUT MY ARM!!!"'
   - DialogueClassification: Erste Begegnung(Helga)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 3cbfd6d3a6089194bb9ae2d69fce79a1,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: c36a6588aa03df149ac99e06cd1941b6,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: fe238312fc393e84ebd36ce6a0f8d5b9,
+          type: 3}
         EmotionSound: {fileID: 0}
         style: 0
       PersonNameWhichTalks: Helga
@@ -1214,26 +1331,32 @@ MonoBehaviour:
         Well, you look like you've been in a special unit too. Let me  guess... Unit
         731? Man, the KGB is a joke against them.\" "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: a5a97f4792af91343a45fbd976c26e6c,
+          type: 3}
         EmotionSound: {fileID: 0}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\"Nah, I was just a normal samurai, but I'm happy to
         be here and to take a new path.\u201C "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 3cbfd6d3a6089194bb9ae2d69fce79a1,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: c36a6588aa03df149ac99e06cd1941b6,
+          type: 3}
         EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: fe238312fc393e84ebd36ce6a0f8d5b9,
+          type: 3}
         EmotionSound: {fileID: 0}
         style: 0
       PersonNameWhichTalks: Helga
@@ -1243,26 +1366,32 @@ MonoBehaviour:
   - DialogueClassification: Erste Begegnung(Trudi)
     DialogueParts:
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: b50c5d6d36ba6464fb1b5a5b14f1c233,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8d8c69f5e1d3b8242905a387b3b90ab2, type: 3}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: '"Oh a real ghost!"'
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 839749a28e850f746a26345db6dfcec0,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 8a9e72f378efb6e43a567fafde347133, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 026c401afd33dba4e8be4f2f541422ea,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: fe3cd52d607f22b4097bff4829c3829c, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: 07156f9f786f9d54a9df7da2ff9545a5,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: e1a057fe74e9c9c4e86ffab22d0acc80, type: 3}
         style: 0
       PersonNameWhichTalks: Trudi
       SentenceThePersonTalk: "\"Hey! Let me introduce myself. I am Trudi and I prefer
@@ -1270,27 +1399,33 @@ MonoBehaviour:
         on my list. The toilets are closed  until everyone at this school uses the
         correct pronouns!\u201C  "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: f34bad0ac23796c429a2def07ae9a65c,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 5b2135f278b82b44bb44c68412cc62a7, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: f34bad0ac23796c429a2def07ae9a65c,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 5b2135f278b82b44bb44c68412cc62a7, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: f34bad0ac23796c429a2def07ae9a65c,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 5b2135f278b82b44bb44c68412cc62a7, type: 3}
         style: 0
       PersonNameWhichTalks: Suki
       SentenceThePersonTalk: "\"Ehm... All right Trudi, it won't happen again, but
         where do I go when I have  to?\u201C  "
     - Emotions:
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
-        style: 0
-      - EmotionSprite: {fileID: 0}
-        EmotionSound: {fileID: 0}
+      - EmotionSprite: {fileID: 21300000, guid: 938f2eaa0d350464e9e191a6dff38b35,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 95b01ba3530dac64db46cbc47a1d4d54, type: 3}
+        style: 2
+      - EmotionSprite: {fileID: 21300000, guid: 30d39a728964dea4f9be3d0ff7ca50ec,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 76cd63f100fb2324b82e63e98f6c8b41, type: 3}
+        style: 1
+      - EmotionSprite: {fileID: 21300000, guid: 5d4b0c298eefcdb409228c65f9dfcb22,
+          type: 3}
+        EmotionSound: {fileID: 8300000, guid: 5f839158f4b00ac4e835d8afe344f587, type: 3}
         style: 0
       PersonNameWhichTalks: Trudi
       SentenceThePersonTalk: "\"That's the problem! I couldn't decide which toilet
