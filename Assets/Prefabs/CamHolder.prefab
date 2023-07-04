@@ -144,7 +144,7 @@ MonoBehaviour:
   MoveToDirection: 0
   MoveDirection: 0
   cam: {fileID: 8444911203762031781}
-  camMoveSpeed: 2
+  camMoveSpeed: 5
   camSmoothTime: 0.05
   maxCamMoveSpeed: 10
   tagBorders: Border
