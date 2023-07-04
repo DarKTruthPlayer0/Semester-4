@@ -39,13 +39,13 @@ public class FinalTrigger : MonoBehaviour
         {
             case GameBrainScript.Style.Cyberpunk:
                 player.clip = cyberpunktOutro;
-                return;
+                break;
             case GameBrainScript.Style.Datingsim:
                 player.clip = datingsimOutro;
-                return;
+                break;
             case GameBrainScript.Style.Horror:
                 player.clip = horrorOutro;
-                return;
+                break;
         }
         player.Play();
     }
