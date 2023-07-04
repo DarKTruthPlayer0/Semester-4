@@ -129,13 +129,12 @@ public class PlayerBrain : MonoBehaviour
                     DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[j].DialogueSelect[k].SelectedDialogue);
                     break;
                 }
-                TempItemGO.SetActive(false);
-                uIHandler.InventoryUIChange();
                 break;
             }
-            TempItemGO.SetActive(false);
             break;
         }
+        TempItemGO.SetActive(false);
+        uIHandler.InventoryUIChange();
     }
 
     private void TalkWithNPC(GameObject TWNPCGO)

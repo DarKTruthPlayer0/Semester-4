@@ -27,6 +27,7 @@ public class PathChoose : MonoBehaviour
 
         for (int i = 0; i < tempPathChooseButtonsGO.transform.childCount; i++)
         {
+            tempPathChooseButtonsGO.transform.GetChild(i).gameObject.SetActive(true);
             tempPathChooseButtonsGO.transform.GetChild(i).GetChild(0).GetComponent<TMP_Text>().text = tempStyleNames[i];
             for (int j = 0; j < tmpStyles.Count; j++)
             {
