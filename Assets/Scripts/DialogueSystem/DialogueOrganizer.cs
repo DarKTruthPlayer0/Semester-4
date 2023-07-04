@@ -19,7 +19,6 @@ public class DialogueOrganizer : ListFunctionsExtension
     public static Dialogue[] DialoguesStatic;
     [SerializeField] private List<DialogueClient> dialogueClientsList;
 
-    private bool helperBool2;
     private bool helperBool3;
 
     private bool sentenceCheckBool;

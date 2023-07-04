@@ -17,6 +17,7 @@ public class PathChoose : MonoBehaviour
 
     public void SetButtons()
     {
+        tempPathChooseButtonsGO.SetActive(true);
         List<GameBrainScript.Style> tmpStyles = new();
         for (int i = 0; i < ItemInteractionBrain.InteractionsStatic[InteractionID].Paths.Length; i++)
         {
@@ -55,10 +56,11 @@ public class PathChoose : MonoBehaviour
             if (GO.transform.GetChild(0).GetComponent<TMP_Text>().text == Enum.GetName(typeof(GameBrainScript.Style), i))
             {
                 GameBrainScript.Styles.Add((GameBrainScript.Style)i);
+                GameBrainScript.CalculatePresentStyle();
                 StartInteractionEvent((GameBrainScript.Style)i);
                 break;
             }
-
+            tempPathChooseButtonsGO.SetActive(false);
         }
     }
 
@@ -95,5 +97,6 @@ public class PathChoose : MonoBehaviour
     private void Awake()
     {
         tempPathChooseButtonsGO = GameObject.Find("PathChooseButtons");
+        tempPathChooseButtonsGO.SetActive(false);
     }
 }

@@ -11,7 +11,6 @@ public class DialogueSystem : MonoBehaviour
     private static Dialogue tmpDialogue;
     private static GameObject dialogueWindowGO;
 
-    private static GameBrainScript gameBrainScript;
     private static Image portraitImage;
     private static AudioSource audioSourceEmotions;
 
@@ -60,7 +59,7 @@ public class DialogueSystem : MonoBehaviour
     {
         for (int i = 0; i < tmpDialogue.DialogueParts[i].Emotions.Length; i++)
         {
-            if (tmpDialogue.DialogueParts[i].Emotions[i].style == gameBrainScript.PresentStyle)
+            if (tmpDialogue.DialogueParts[i].Emotions[i].style == GameBrainScript.PresentStyle)
             {
                 if (tmpDialogue.DialogueParts[i].Emotions[i].EmotionSprite != null)
                 {
@@ -81,7 +80,6 @@ public class DialogueSystem : MonoBehaviour
         dialogueName = dialogueWindowGO.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>();
         dialogueText = dialogueWindowGO.transform.GetChild(0).GetChild(1).GetComponent<TMP_Text>();
 
-        gameBrainScript = FindObjectOfType<GameBrainScript>();
         portraitImage = GameObject.Find("PortraitImage").GetComponent<Image>();
         audioSourceEmotions = GameObject.Find("EmotionSounds").GetComponent<AudioSource>();
         dialogueWindowGO.SetActive(false);

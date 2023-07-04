@@ -13,7 +13,6 @@ public class FinalTrigger : MonoBehaviour
     [SerializeField] private VideoClip datingsimOutro;
     [SerializeField] private VideoClip horrorOutro;
     private bool helperBool;
-    private GameBrainScript gameBrainScript;
 
     public void CheckFinalLocked()
     {
@@ -36,7 +35,7 @@ public class FinalTrigger : MonoBehaviour
     private void CheckFinalStyle()
     {
         player.gameObject.SetActive(true);
-        switch (gameBrainScript.PresentStyle)
+        switch (GameBrainScript.PresentStyle)
         {
             case GameBrainScript.Style.Cyberpunk:
                 player.clip = cyberpunktOutro;
@@ -53,7 +52,6 @@ public class FinalTrigger : MonoBehaviour
 
     private void Start()
     {
-        gameBrainScript = FindObjectOfType<GameBrainScript>();
         player = GameObject.Find("OutroHolder").GetComponent<VideoPlayer>();
         player.gameObject.SetActive(false);
 

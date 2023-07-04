@@ -13,7 +13,6 @@ public class PlayerBrain : MonoBehaviour
     public static Inventory Inventory = new();
 
     private PathChoose pathChoose;
-    private GameObject pathChooseButtonsGO;
     private int selectedItemID;
 
     public void Interaction(GameObject IGO)
@@ -23,7 +22,7 @@ public class PlayerBrain : MonoBehaviour
             print("Interactable");
             if (Inventory.Items[selectedItemID].ItemSelected)
             {
-                UseItemInIventory(IGO);
+                CheckInteractionOutcome(IGO);
             }
             else
             {
@@ -88,40 +87,20 @@ public class PlayerBrain : MonoBehaviour
 
         }
     }
-    private void UseItemInIventory(GameObject UIIIGO)
-    {
-        for (int i = 0; i < ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic.Length; i++)
-        {
-            if (ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].Item != Inventory.Items[selectedItemID].ItemGO)
-            {
-                continue;
-            }
-            for (int j = 0; j < ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].InteractionObjects.Count; j++)
-            {
-                if (ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].InteractionObjects[j].InteractWithObject &&
-                    ItemInteractionAssingmentLoad.ItemToObjectsAssingmentsStatic[i].InteractionObjects[j].Object == UIIIGO)
-                {
-                    CheckInteractionOutcome(UIIIGO);
-                    break;
-
-                }
-            }
-        }
-    }
 
     private void CheckInteractionOutcome(GameObject CIOGO)
     {
         for (int i = 0; i < ItemInteractionBrain.InteractionsStatic.Length; i++)
         {
-            if (ItemInteractionBrain.InteractionsStatic[i].Interactable == CIOGO &&
-                ItemInteractionBrain.InteractionsStatic[i].Item == Inventory.Items[selectedItemID].ItemGO)
+            print("Test2");
+            if (Inventory.Items[selectedItemID].ItemGO != ItemInteractionBrain.InteractionsStatic[i].Item || CIOGO != ItemInteractionBrain.InteractionsStatic[i].Interactable)
             {
-                //Path Choose
-                pathChoose.RoomToUnlockGO = ItemInteractionBrain.InteractionsStatic[i].RoomtoUnlock;
-                pathChoose.PathChooseGO = CIOGO;
-                pathChoose.InteractionID = i;
-                pathChoose.SetButtons();
+                continue;
             }
+            //Path Choose
+            pathChoose.RoomToUnlockGO = ItemInteractionBrain.InteractionsStatic[i].RoomtoUnlock;
+            pathChoose.InteractionID = i;
+            pathChoose.SetButtons();
         }
     }
     private void PickupItem(GameObject TempItemGO)
@@ -206,8 +185,6 @@ public class PlayerBrain : MonoBehaviour
         }
 
         pathChoose = FindObjectOfType<PathChoose>();
-        pathChooseButtonsGO = GameObject.Find("PathChooseButtons");
-        pathChooseButtonsGO.SetActive(false);
 
         SetUpIventory();
     }
@@ -216,7 +193,6 @@ public class PlayerBrain : MonoBehaviour
 [Serializable]
 public class Inventory
 {
-    // Definition wie viele Items ins Iventar passen;
     public Item[] Items;
 }
 [Serializable]
