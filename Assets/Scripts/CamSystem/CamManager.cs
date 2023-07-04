@@ -29,6 +29,14 @@ public class CamManager : MonoBehaviour
         }
     }
 
+    public void SetCameraCullingMasks(LayerMask NewCullingmask)
+    {
+        foreach (GameObject tmpGO in CamHolders)
+        {
+            tmpGO.GetComponentInChildren<Camera>().cullingMask = NewCullingmask;
+        }
+    }
+
     private void Start()
     {
         SetStartRoomCam();

@@ -49,6 +49,7 @@ public class PlayerBrain : MonoBehaviour
             {
                 Inventory.Items[i].ItemSelected = true;
                 selectedItemID = i;
+                Inventory.Items[selectedItemID].InventoryPlace.GetComponent<Image>().color = Color.green;
 
                 for (int j = 0; j < Inventory.Items.Length; j++)
                 {
@@ -63,6 +64,7 @@ public class PlayerBrain : MonoBehaviour
             else if (Button == Inventory.Items[i].InventoryPlace && Inventory.Items[i].ItemSelected && Inventory.Items[i].ItemGO != null)
             {
                 Inventory.Items[i].ItemSelected = false;
+                Inventory.Items[selectedItemID].InventoryPlace.GetComponent<Image>().color = Color.white;
                 break;
             }
         }
@@ -93,7 +95,8 @@ public class PlayerBrain : MonoBehaviour
     {
         for (int i = 0; i < ItemInteractionBrain.InteractionsStatic.Length; i++)
         {
-            print("Test2");
+            Inventory.Items[selectedItemID].ItemSelected = false;
+            Inventory.Items[selectedItemID].InventoryPlace.GetComponent<Image>().color = Color.white;
             if (Inventory.Items[selectedItemID].ItemGO != ItemInteractionBrain.InteractionsStatic[i].Item || CIOGO != ItemInteractionBrain.InteractionsStatic[i].Interactable)
             {
                 continue;
@@ -102,6 +105,8 @@ public class PlayerBrain : MonoBehaviour
             pathChoose.RoomToUnlockGO = ItemInteractionBrain.InteractionsStatic[i].RoomtoUnlock;
             pathChoose.InteractionID = i;
             pathChoose.SetButtons();
+            Inventory.Items[selectedItemID].ItemGO = null;
+            Inventory.Items[selectedItemID].InventoryPlace.GetComponent<Image>().sprite = null;
         }
     }
     private void PickupItem(GameObject TempItemGO)

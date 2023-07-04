@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameBrainScript : MonoBehaviour
 {
-    public static List<Style> Styles = new List<Style>();
+    public static List<Style> Styles = new();
     public enum Style
     {
         Horror,
@@ -16,7 +16,7 @@ public class GameBrainScript : MonoBehaviour
 
     [SerializeField] private StyleClass[] styleClasses;
     private static StyleClass[] styleClassesStatic;
-    private static Camera cam;
+    private static CamManager camManager;
 
     private static void SetStyle()
     {
@@ -24,7 +24,7 @@ public class GameBrainScript : MonoBehaviour
         {
             if (PresentStyle == styleClassesStatic[i].style)
             {
-                cam.cullingMask = styleClassesStatic[i].layerMask;
+                camManager.SetCameraCullingMasks(styleClassesStatic[i].layerMask);
             }
         }
     }
@@ -68,7 +68,7 @@ public class GameBrainScript : MonoBehaviour
 
     private void Start()
     {
-        cam = Camera.main;
+        camManager = FindObjectOfType<CamManager>();
         styleClassesStatic = styleClasses;
     }
 }
