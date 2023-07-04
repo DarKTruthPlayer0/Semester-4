@@ -36,28 +36,30 @@ public class GameBrainScript : MonoBehaviour
             return;
         }
         string[] enumArray = Enum.GetNames(typeof(Style));
-        int[] StyleVoteNumbers = new int[enumArray.Length];
+        int[] tmpStyleVoteNumbers = new int[enumArray.Length];
 
-        for (int i = 0; i < enumArray.Length;i++)
+        for (int i = 0; i < enumArray.Length; i++)
         {
             for (int j = 0; j < Styles.Count; j++)
             {
-                if (Styles[j] == (Style)i)
+                if (Styles[j] != (Style)i)
                 {
-                    StyleVoteNumbers[i] ++;
+                    continue;
                 }
+                tmpStyleVoteNumbers[i]++;
             }
         }
 
         int x = 0;
         int y = 0;
-        for (int i = 0; i < StyleVoteNumbers.Length;i++)
+        for (int i = 0; i < tmpStyleVoteNumbers.Length; i++)
         {
-            if (StyleVoteNumbers[i] > x)
+            if (tmpStyleVoteNumbers[i] <= x)
             {
-                x = StyleVoteNumbers[i];
-                y = i;
+                continue;
             }
+            x = tmpStyleVoteNumbers[i];
+            y = i;
         }
         PresentStyle = (Style)y;
         print(PresentStyle);

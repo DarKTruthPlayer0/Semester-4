@@ -60,8 +60,8 @@ public class PathChoose : MonoBehaviour
                 StartInteractionEvent((GameBrainScript.Style)i);
                 break;
             }
-            tempPathChooseButtonsGO.SetActive(false);
         }
+        tempPathChooseButtonsGO.SetActive(false);
     }
 
     private void StartInteractionEvent(GameBrainScript.Style style)

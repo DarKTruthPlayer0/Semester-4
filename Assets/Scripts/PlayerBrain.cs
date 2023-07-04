@@ -13,6 +13,7 @@ public class PlayerBrain : MonoBehaviour
     public static Inventory Inventory = new();
 
     private PathChoose pathChoose;
+    private UIHandler uIHandler;
     private int selectedItemID;
 
     public void Interaction(GameObject IGO)
@@ -127,6 +128,7 @@ public class PlayerBrain : MonoBehaviour
                     }
                 }
                 TempItemGO.SetActive(false);
+                uIHandler.InventoryUIChange();
                 break;
             }
         }
@@ -185,6 +187,7 @@ public class PlayerBrain : MonoBehaviour
         }
 
         pathChoose = FindObjectOfType<PathChoose>();
+        uIHandler = FindObjectOfType<UIHandler>();
 
         SetUpIventory();
     }
