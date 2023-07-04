@@ -108,29 +108,33 @@ public class PlayerBrain : MonoBehaviour
     {
         for (int i = 0; i < Inventory.Items.Length; i++)
         {
-            if (Inventory.Items[i].ItemGO == null)
+            if (Inventory.Items[i].ItemGO != null)
             {
-                Inventory.Items[i].ItemGO = TempItemGO;
-                //Dialog einblenden
-                for (int j = 0; j < DialogueOrganizer.DialogueClientsStatic.Length; j++)
+                continue;
+            }
+            Inventory.Items[i].ItemGO = TempItemGO;
+            //Dialog einblenden
+            for (int j = 0; j < DialogueOrganizer.DialogueClientsStatic.Length; j++)
+            {
+                if (TempItemGO != DialogueOrganizer.DialogueClientsStatic[j].GOReference)
                 {
-                    if (TempItemGO == DialogueOrganizer.DialogueClientsStatic[j].GOReference)
+                    continue;
+                }
+                for (int k = 0; k < DialogueOrganizer.DialogueClientsStatic[j].DialogueSelect.Count; k++)
+                {
+                    if (!DialogueOrganizer.DialogueClientsStatic[j].DialogueSelect[k].UseThisDialogue)
                     {
-                        for (int k = 0; k < DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect.Count; k++)
-                        {
-                            if (DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[k].UseThisDialogue)
-                            {
-                                DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[k].SelectedDialogue);
-                                break;
-                            }
-                        }
-                        break;
+                        continue;
                     }
+                    DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[j].DialogueSelect[k].SelectedDialogue);
+                    break;
                 }
                 TempItemGO.SetActive(false);
                 uIHandler.InventoryUIChange();
                 break;
             }
+            TempItemGO.SetActive(false);
+            break;
         }
     }
 
@@ -138,18 +142,19 @@ public class PlayerBrain : MonoBehaviour
     {
         for (int i = 0; i < DialogueOrganizer.DialogueClientsStatic.Length; i++)
         {
-            if (TWNPCGO == DialogueOrganizer.DialogueClientsStatic[i].GOReference)
+            if (TWNPCGO != DialogueOrganizer.DialogueClientsStatic[i].GOReference)
             {
-                for (int j = 0; j < DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect.Count; j++)
-                {
-                    if (DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[j].UseThisDialogue)
-                    {
-                        DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[j].SelectedDialogue);
-                        break;
-                    }
-                }
-                break;
+                continue;
             }
+            for (int j = 0; j < DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect.Count; j++)
+            {
+                if (DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[j].UseThisDialogue)
+                {
+                    DialogueSystem.EnterDialogue(DialogueOrganizer.DialogueClientsStatic[i].DialogueSelect[j].SelectedDialogue);
+                    break;
+                }
+            }
+            break;
         }
     }
 
