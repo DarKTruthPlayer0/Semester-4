@@ -21,6 +21,7 @@ public class DoorClient : MonoBehaviour
         {
             if (RoomOrganizer.RoomsStatic[i].RoomGO == camHolderToActivate.transform.parent.gameObject && RoomOrganizer.RoomsStatic[i].IsLocked)
             {
+                print("kakadu");
                 helperBool = true;
                 break;
             }

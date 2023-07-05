@@ -21,6 +21,7 @@ public class PlayerBrain : MonoBehaviour
         if (IGO.CompareTag(tagInteractable))
         {
             print("Interactable");
+            print(IGO);
             if (Inventory.Items[selectedItemID].ItemSelected)
             {
                 CheckInteractionOutcome(IGO);
