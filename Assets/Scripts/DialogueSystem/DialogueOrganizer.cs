@@ -19,8 +19,6 @@ public class DialogueOrganizer : ListFunctionsExtension
     public static Dialogue[] DialoguesStatic;
     [SerializeField] private List<DialogueClient> dialogueClientsList;
 
-    private bool helperBool3;
-
     private bool sentenceCheckBool;
     private bool personNameCheckBool;
     private int count;
@@ -88,64 +86,12 @@ public class DialogueOrganizer : ListFunctionsExtension
                     {
                         EmotionSprite = DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].EmotionSprite,
                         EmotionSound = DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].EmotionSound,
-                        style = DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].style
+                        Style = DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].Style
                     };
                 }
             }
             tmpDialogueSelects.Add(dialogueSelect);
         }
-
-        /*
-        for (int i = 0; i < dialogueClientsList.Count; i++)
-        {
-            for (int j = 0; j < dialogueClientsList[i].DialogueSelect.Count; j++)
-            {
-                for (int k = 0; k < tmpDialogueSelects.Count; k++)
-                {
-                    if (CompareDialogueSelects(dialogueClientsList[i].DialogueSelect[j], tmpDialogueSelects[k]))
-                    {
-                        helperBool2 = true;
-                        break;
-                    }
-                    else
-                    {
-                        helperBool2 = false;
-                    }
-                }
-                if (helperBool2)
-                {
-                    continue;
-                }
-                dialogueClientsList[i].DialogueSelect.RemoveAt(j);
-            }
-            for (int j = 0; j < tmpDialogueSelects.Count; j++)
-            {
-                for (int k = 0; k < dialogueClientsList[i].DialogueSelect.Count; k++)
-                {
-                    if (CompareDialogueSelects(dialogueClientsList[i].DialogueSelect[k], tmpDialogueSelects[j]))
-                    {
-                        helperBool2 = true;
-                        break;
-                    }
-                    else
-                    {
-                        helperBool2 = false;
-                    }
-                }
-                if (helperBool2)
-                {
-                    continue;
-                }
-                DialogueSelect tmpDialogueSelect = new()
-                {
-                    SelectedDialogue = tmpDialogueSelects[j].SelectedDialogue,
-                    DialogueClassification = tmpDialogueSelects[j].DialogueClassification
-                };
-                dialogueClientsList[i].DialogueSelect.Add(tmpDialogueSelect);
-            }
-        }
-        */
-
 
         var tmpDialogueSelectsSet = new HashSet<DialogueSelect>(tmpDialogueSelects);
 
@@ -163,7 +109,7 @@ public class DialogueOrganizer : ListFunctionsExtension
 
             foreach (var tmpDialogueSelect in tmpDialogueSelects)
             {
-                if (!dialogueClient.DialogueSelect.Any(ds => CompareDialogueSelects(ds, tmpDialogueSelect)))
+                if (!dialogueClient.DialogueSelect.Any(dialogueSelect => CompareDialogueSelects(dialogueSelect, tmpDialogueSelect)))
                 {
                     DialogueSelect newDialogueSelect = new()
                     {
@@ -173,13 +119,43 @@ public class DialogueOrganizer : ListFunctionsExtension
                     dialogueClient.DialogueSelect.Add(newDialogueSelect);
                 }
             }
-        }
 
+            // Synchronisiere die Emotions-Arrays
+            for (int j = 0; j < dialogueClient.DialogueSelect.Count; j++)
+            {
+                var compareDialogueSelect = dialogueClient.DialogueSelect[j].SelectedDialogue;
+                for (int k = 0; k < tmpDialogueSelects.Count; k++)
+                {
+                    var tmpDialogueSelect = tmpDialogueSelects[k].SelectedDialogue;
+                    for (int l = 0; l < compareDialogueSelect.DialogueParts.Length; l++)
+                    {
+                        if (tmpDialogueSelect.DialogueClassification != compareDialogueSelect.DialogueClassification)
+                        {
+                            continue;
+                        }
+                        compareDialogueSelect.DialogueParts[l].Emotions = new Emotion[tmpDialogueSelect.DialogueParts[l].Emotions.Length];
+                        for (int m = 0; m < compareDialogueSelect.DialogueParts[l].Emotions.Length; m++)
+                        {
+                            compareDialogueSelect.DialogueParts[l].Emotions[m] = new();
+                            if (tmpDialogueSelect.DialogueParts[l].Emotions[m].EmotionSprite != null)
+                            {
+                                compareDialogueSelect.DialogueParts[l].Emotions[m].EmotionSprite = tmpDialogueSelect.DialogueParts[l].Emotions[m].EmotionSprite;
+                            }
+                            if (tmpDialogueSelect.DialogueParts[l].Emotions[m].EmotionSound != null)
+                            {
+                                compareDialogueSelect.DialogueParts[l].Emotions[m].EmotionSound = tmpDialogueSelect.DialogueParts[l].Emotions[m].EmotionSound;
+                            }
+                            compareDialogueSelect.DialogueParts[l].Emotions[m].Style = tmpDialogueSelect.DialogueParts[l].Emotions[m].Style;
+                        }
+                    }
+                }
+            }
+        }
     }
+ 
     private bool CompareDialogueSelects(DialogueSelect DialogueClientsDialogueSelect, DialogueSelect tmpDialogueSlectsDialogueSelect)
     {
         count = 0;
-        helperBool3 = false;
 
         for (int i = 0; i < tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts.Length; i++)
         {
@@ -202,38 +178,18 @@ public class DialogueOrganizer : ListFunctionsExtension
             }
         }
 
-        if (count == DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length)
+        if (count != DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length)
         {
-            helperBool3 = true;
+            return false;
         }
 
         //Angleiches der DialogueClassification
-        if (DialogueClientsDialogueSelect.DialogueClassification != tmpDialogueSlectsDialogueSelect.DialogueClassification && helperBool3)
+        if (DialogueClientsDialogueSelect.DialogueClassification != tmpDialogueSlectsDialogueSelect.DialogueClassification)
         {
             DialogueClientsDialogueSelect.DialogueClassification = tmpDialogueSlectsDialogueSelect.DialogueClassification;
             DialogueClientsDialogueSelect.SelectedDialogue.DialogueClassification = tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueClassification;
         }
-
-        //Angleichen der EmotionSprites
-        for (int i = 0; i < tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts.Length; i++)
-        {
-            for (int j = 0; j < DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length; j++)
-            {
-                for (int k = 0; k < DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions.Length; k++)
-                {
-                    if (DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSprite != tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSprite && helperBool3)
-                    {
-                        DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSprite = tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSprite;
-                    }
-
-                    if (DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSound != tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSound && helperBool3)
-                    {
-                        DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSound = tmpDialogueSlectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSound;
-                    }
-                }
-            }
-        }
-        return helperBool3;
+        return true;
     }
 }
 
@@ -291,7 +247,7 @@ public class Dialogue
 [Serializable]
 public class DialoguePart
 {
-    public Emotion[] Emotions = new Emotion[3];
+    public Emotion[] Emotions;
     public string PersonNameWhichTalks;
     public string SentenceThePersonTalk;
 }
@@ -301,5 +257,5 @@ public class Emotion
 {
     public Sprite EmotionSprite;
     public AudioClip EmotionSound;
-    public GameBrainScript.Style style;
+    public GameBrainScript.Style Style;
 }

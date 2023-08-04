@@ -16,8 +16,6 @@ public class ItemInteractionBrain : MonoBehaviour
 
     private bool interactionExist;
     private bool tmpInteractionExist;
-
-    private bool helperBool;
     
     private bool sentenceCheckBool;
     private bool personNameCheckBool;
@@ -143,73 +141,13 @@ public class ItemInteractionBrain : MonoBehaviour
                     {
                         EmotionSprite = dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].EmotionSprite,
                         EmotionSound = dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].EmotionSound,
-                        style = dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].style
+                        Style = dialogueOrganizer.DialogueListSO.dialogueList[i].DialogueParts[j].Emotions[k].Style
                     };
                 }
             }
             tmpDialogueSelects.Add(dialogueSelect);
         }
 
-        /*
-        for (int i = 0; i < Interactions.Count; i++)
-        {
-            for (int j = 0; j < Interactions[i].Paths.Length; j++)
-            {
-                for (int k = 0; k < Interactions[i].Paths[j].DialogueSelect.Count; k++)
-                {
-                    for (int l = 0; l < tmpDialogueSelects.Count; l++)
-                    {
-                        if (Interactions[i].Paths[j].DialogueSelect[k].SelectedDialogue == tmpDialogueSelects[l].SelectedDialogue)
-                        {
-                            if (Interactions[i].Paths[j].DialogueSelect[k].DialogueClassification != tmpDialogueSelects[l].DialogueClassification)
-                            {
-                                Interactions[i].Paths[j].DialogueSelect[k].DialogueClassification = tmpDialogueSelects[l].DialogueClassification;
-                            }
-                            helperBool = true;
-                            break;
-                        }
-                        else
-                        {
-                            helperBool = false;
-                        }
-                    }
-                    if (helperBool)
-                    {
-                        continue;
-                    }
-                    Interactions[i].Paths[j].DialogueSelect.RemoveAt(j);
-                }
-            }
-            for (int j = 0; j < tmpDialogueSelects.Count; j++)
-            {
-                for (int k = 0; k < Interactions[i].Paths.Length; k++)
-                {
-                    for (int l = 0; l < Interactions[i].Paths[k].DialogueSelect.Count; l++)
-                    {
-                        if (tmpDialogueSelects[j].SelectedDialogue == Interactions[i].Paths[k].DialogueSelect[l].SelectedDialogue)
-                        {
-                            helperBool = true;
-                            break;
-                        }
-                        else
-                        {
-                            helperBool = false;
-                        }
-                    }
-                    if (helperBool)
-                    {
-                        continue;
-                    }
-                    DialogueSelect tmpDialogueSelect = new()
-                    {
-                        SelectedDialogue = tmpDialogueSelects[j].SelectedDialogue,
-                        DialogueClassification = tmpDialogueSelects[j].DialogueClassification
-                    };
-                    Interactions[i].Paths[k].DialogueSelect.Add(tmpDialogueSelect);
-                }
-            }
-        }
-        */
         for (int i = 0; i < Interactions.Count; i++)
         {
             var tmpDialogueSelectsSet = new HashSet<DialogueSelect>(tmpDialogueSelects);
@@ -238,6 +176,36 @@ public class ItemInteractionBrain : MonoBehaviour
                         InteractionPath.DialogueSelect.Add(newDialogueSelect);
                     }
                 }
+                // Synchronisiere die Emotions-Arrays
+                for (int k = 0; k < InteractionPath.DialogueSelect.Count; k++)
+                {
+                    var compareDialogueSelect = InteractionPath.DialogueSelect[k].SelectedDialogue;
+                    for (int l = 0; l < tmpDialogueSelects.Count; l++)
+                    {
+                        var tmpDialogueSelect = tmpDialogueSelects[l].SelectedDialogue;
+                        for (int m = 0; m < compareDialogueSelect.DialogueParts.Length; m++)
+                        {
+                            if (tmpDialogueSelect.DialogueClassification != compareDialogueSelect.DialogueClassification)
+                            {
+                                continue;
+                            }
+                            compareDialogueSelect.DialogueParts[m].Emotions = new Emotion[tmpDialogueSelect.DialogueParts[m].Emotions.Length];
+                            for (int n = 0; n < compareDialogueSelect.DialogueParts[m].Emotions.Length; n++)
+                            {
+                                compareDialogueSelect.DialogueParts[m].Emotions[n] = new();
+                                if (tmpDialogueSelect.DialogueParts[m].Emotions[n].EmotionSprite != null)
+                                {
+                                    compareDialogueSelect.DialogueParts[m].Emotions[n].EmotionSprite = tmpDialogueSelect.DialogueParts[m].Emotions[n].EmotionSprite;
+                                }
+                                if (tmpDialogueSelect.DialogueParts[m].Emotions[n].EmotionSound != null)
+                                {
+                                    compareDialogueSelect.DialogueParts[m].Emotions[n].EmotionSound = tmpDialogueSelect.DialogueParts[m].Emotions[n].EmotionSound;
+                                }
+                                compareDialogueSelect.DialogueParts[m].Emotions[n].Style = tmpDialogueSelect.DialogueParts[m].Emotions[n].Style;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -245,7 +213,6 @@ public class ItemInteractionBrain : MonoBehaviour
     private bool CompareDialogueSelects(DialogueSelect DialogueClientsDialogueSelect, DialogueSelect tmpDialogueSelectsDialogueSelect)
     {
         int count = 0;
-        bool helperBool3 = false;
 
         for (int i = 0; i < tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts.Length; i++)
         {
@@ -268,38 +235,18 @@ public class ItemInteractionBrain : MonoBehaviour
             }
         }
 
-        if (count == DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length)
+        if (count != DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length)
         {
-            helperBool3 = true;
+            return false;
         }
-
         //Angleiches der DialogueClassification
-        if (DialogueClientsDialogueSelect.DialogueClassification != tmpDialogueSelectsDialogueSelect.DialogueClassification && helperBool3)
+        if (DialogueClientsDialogueSelect.DialogueClassification != tmpDialogueSelectsDialogueSelect.DialogueClassification)
         {
             DialogueClientsDialogueSelect.DialogueClassification = tmpDialogueSelectsDialogueSelect.DialogueClassification;
             DialogueClientsDialogueSelect.SelectedDialogue.DialogueClassification = tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueClassification;
         }
 
-        //Angleichen der EmotionSprites
-        for (int i = 0; i < tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts.Length; i++)
-        {
-            for (int j = 0; j < DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts.Length; j++)
-            {
-                for (int k = 0; k < DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions.Length; k++)
-                {
-                    if (DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSprite != tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSprite && helperBool3)
-                    {
-                        DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSprite = tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSprite;
-                    }
-
-                    if (DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSound != tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSound && helperBool3)
-                    {
-                        DialogueClientsDialogueSelect.SelectedDialogue.DialogueParts[j].Emotions[k].EmotionSound = tmpDialogueSelectsDialogueSelect.SelectedDialogue.DialogueParts[i].Emotions[k].EmotionSound;
-                    }
-                }
-            }
-        }
-        return helperBool3;
+        return true;
     }
 }
 

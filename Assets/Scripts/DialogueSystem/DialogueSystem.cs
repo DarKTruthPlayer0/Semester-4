@@ -7,7 +7,7 @@ public class DialogueSystem : MonoBehaviour
 {
     private static TMP_Text dialogueName;
     private static TMP_Text dialogueText;
-    private static int i = 0;
+    private static int dialoguePartIndicator = 0;
     private static Dialogue tmpDialogue;
     private static GameObject dialogueWindowGO;
 
@@ -17,27 +17,28 @@ public class DialogueSystem : MonoBehaviour
     public static void EnterDialogue(Dialogue dialogue)
     {
         tmpDialogue = dialogue;
+        print(dialogue.DialogueParts[dialoguePartIndicator].Emotions.Length);
         //activate Dialogue Object
-        dialogueName.text = tmpDialogue.DialogueParts[i].PersonNameWhichTalks;
-        dialogueText.text = tmpDialogue.DialogueParts[i].SentenceThePersonTalk;
+        dialogueName.text = tmpDialogue.DialogueParts[dialoguePartIndicator].PersonNameWhichTalks;
+        dialogueText.text = tmpDialogue.DialogueParts[dialoguePartIndicator].SentenceThePersonTalk;
 
         SetSpriteAndSound();
 
-        i = 1;
+        dialoguePartIndicator = 1;
         dialogueWindowGO.SetActive(true);
     }
 
     public void NextPartOfDialogue()
     {
         print("next DialoguePart");
-        if (i < tmpDialogue.DialogueParts.Length)
+        if (dialoguePartIndicator < tmpDialogue.DialogueParts.Length)
         {
-            dialogueName.text = tmpDialogue.DialogueParts[i].PersonNameWhichTalks;
-            dialogueText.text = tmpDialogue.DialogueParts[i].SentenceThePersonTalk;
+            dialogueName.text = tmpDialogue.DialogueParts[dialoguePartIndicator].PersonNameWhichTalks;
+            dialogueText.text = tmpDialogue.DialogueParts[dialoguePartIndicator].SentenceThePersonTalk;
 
             SetSpriteAndSound();
 
-            i++;
+            dialoguePartIndicator++;
         }
         else
         {
@@ -47,7 +48,7 @@ public class DialogueSystem : MonoBehaviour
 
     private void ExitDialogue()
     {
-        i = 0;
+        dialoguePartIndicator = 0;
         tmpDialogue = null;
         dialogueName.text = null;
         dialogueText.text = null;
@@ -57,18 +58,19 @@ public class DialogueSystem : MonoBehaviour
 
     private static void SetSpriteAndSound()
     {
-        for (int i = 0; i < tmpDialogue.DialogueParts[i].Emotions.Length; i++)
+        
+        for (int i = 0; i < tmpDialogue.DialogueParts[dialoguePartIndicator].Emotions.Length; i++)
         {
-            if (tmpDialogue.DialogueParts[i].Emotions[i].style == GameBrainScript.PresentStyle)
+            if (tmpDialogue.DialogueParts[dialoguePartIndicator].Emotions[i].Style == GameBrainScript.PresentStyle)
             {
-                if (tmpDialogue.DialogueParts[i].Emotions[i].EmotionSprite != null)
+                if (tmpDialogue.DialogueParts[dialoguePartIndicator].Emotions[i].EmotionSprite != null)
                 {
-                    portraitImage.sprite = tmpDialogue.DialogueParts[i].Emotions[i].EmotionSprite;
+                    portraitImage.sprite = tmpDialogue.DialogueParts[dialoguePartIndicator].Emotions[i].EmotionSprite;
                 }
 
-                if (tmpDialogue.DialogueParts[i].Emotions[i].EmotionSound != null)
+                if (tmpDialogue.DialogueParts[dialoguePartIndicator].Emotions[i].EmotionSound != null)
                 {
-                    audioSourceEmotions.clip = tmpDialogue.DialogueParts[i].Emotions[i].EmotionSound;
+                    audioSourceEmotions.clip = tmpDialogue.DialogueParts[dialoguePartIndicator].Emotions[i].EmotionSound;
                     audioSourceEmotions.Play();
                 }
             }
